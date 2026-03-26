@@ -107,7 +107,11 @@ if $HAS_PHPSTAN; then
   if [ -z "$CHANGED_FILES" ]; then
         printf "\nNo PHP file in this commit. Skipping PHPStan.\n"
   else
-    if time $PHPSTAN analyse -c ./phpstan.neon --ansi --memory-limit=1G $CHANGED_FILES; then
+    # Filter out files excluded by phpstan.neon (vendor/, tests/, flex/)
+    PHPSTAN_FILES=$(echo "$CHANGED_FILES" | tr ' ' '\n' | grep -v '^vendor/' | grep -v '^tests/' | grep -v '^flex/' | tr '\n' ' ' | xargs)
+    if [ -z "$PHPSTAN_FILES" ]; then
+        printf "\nNo analysable PHP files in this commit. Skipping PHPStan.\n"
+    elif time $PHPSTAN analyse -c ./phpstan.neon --ansi --memory-limit=1G $PHPSTAN_FILES; then
       # All good
       printf "${GREEN}PHPStan passed${NC}\n"
     else
@@ -131,7 +135,7 @@ fi
 
 # you should still be able to commit if there are CVE vulnerabilities - information only
 printf "${YELLOW}Composer Audit${NC}\n"
-time composer audit
+time composer audit --abandoned=report
 ret_code=$?
 if [[ $ret_code == 0 ]]; then
     printf "${GREEN}Composer audit passed${NC}\n"

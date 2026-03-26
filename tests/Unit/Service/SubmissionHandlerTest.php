@@ -25,14 +25,21 @@ function makeHandler(
     return new SubmissionHandler($contentService, $em, $mailer, $twig, $fromEmail);
 }
 
+function makeField(string $identifier, mixed $value): Field
+{
+    return new Field(['fieldDefIdentifier' => $identifier, 'value' => $value]);
+}
+
+function makeSelectionValue(string $option): stdClass
+{
+    $v = new stdClass();
+    $v->selection = [$option];
+    return $v;
+}
+
 function makeContent(string $submissionAction): Content
 {
-    $field = testMock(Field::class);
-    $field->fieldDefIdentifier = 'submission_action';
-
-    $value = new stdClass();
-    $value->selection = [$submissionAction];
-    $field->value = $value;
+    $field = makeField('submission_action', makeSelectionValue($submissionAction));
 
     $content = testMock(Content::class);
     $content->method('getFields')->willReturn([$field]);
@@ -59,19 +66,11 @@ it('calls mailer send when submission_action is email', function () {
 
     $mailer = testMock(MailerInterface::class);
 
-    // email requires a notification_email field — without it, send is skipped
     $content = testMock(Content::class);
-    $actionField = testMock(Field::class);
-    $actionField->fieldDefIdentifier = 'submission_action';
-    $actionValue = new stdClass();
-    $actionValue->selection = ['email'];
-    $actionField->value = $actionValue;
-
-    $emailField = testMock(Field::class);
-    $emailField->fieldDefIdentifier = 'notification_email';
-    $emailField->value = 'recipient@example.com';
-
-    $content->method('getFields')->willReturn([$actionField, $emailField]);
+    $content->method('getFields')->willReturn([
+        makeField('submission_action', makeSelectionValue('email')),
+        makeField('notification_email', 'recipient@example.com'),
+    ]);
     $content->method('getName')->willReturn('Test Form');
 
     $mailer->expects($this->once())->method('send');
@@ -88,17 +87,10 @@ it('calls both persist and send when submission_action is both', function () {
     $mailer = testMock(MailerInterface::class);
 
     $content = testMock(Content::class);
-    $actionField = testMock(Field::class);
-    $actionField->fieldDefIdentifier = 'submission_action';
-    $actionValue = new stdClass();
-    $actionValue->selection = ['both'];
-    $actionField->value = $actionValue;
-
-    $emailField = testMock(Field::class);
-    $emailField->fieldDefIdentifier = 'notification_email';
-    $emailField->value = 'recipient@example.com';
-
-    $content->method('getFields')->willReturn([$actionField, $emailField]);
+    $content->method('getFields')->willReturn([
+        makeField('submission_action', makeSelectionValue('both')),
+        makeField('notification_email', 'recipient@example.com'),
+    ]);
     $content->method('getName')->willReturn('Test Form');
 
     $mailer->expects($this->once())->method('send');
