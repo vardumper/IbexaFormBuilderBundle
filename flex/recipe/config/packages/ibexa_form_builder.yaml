@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            IbexaFormBuilder:
+                is_bundle: false
+                type: attribute
+                dir: '%kernel.project_dir%/vendor/vardumper/ibexa-form-builder-bundle/src/Entity'
+                prefix: 'vardumper\IbexaFormBuilderBundle\Entity'
+                alias: IbexaFormBuilder

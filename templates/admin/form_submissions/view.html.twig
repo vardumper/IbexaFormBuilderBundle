@@ -1,0 +1,67 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% block title %}Submission #{{ submission.id }}{% endblock %}
+
+{%- block breadcrumbs -%}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'Admin' },
+        { value: 'Form Submissions', url: path('ibexa_form_builder.submissions_list') },
+        { value: 'Submission #' ~ submission.id }
+    ]} %}
+{%- endblock -%}
+
+{%- block header -%}
+    {% include '@ibexadesign/ui/page_title.html.twig' with { title: 'Submission #' ~ submission.id } %}
+{%- endblock -%}
+
+{%- block content -%}
+    <section class="container ibexa-container">
+        <div class="ibexa-table-header">
+            <div class="ibexa-table-header__headline">Submission #{{ submission.id }}</div>
+        </div>
+
+        <dl class="row mb-4">
+            <dt class="col-sm-3">Form Content ID</dt>
+            <dd class="col-sm-9">{{ submission.contentId }}</dd>
+
+            <dt class="col-sm-3">Submitted At</dt>
+            <dd class="col-sm-9">{{ submission.submittedAt|date('Y-m-d H:i:s') }}</dd>
+
+            <dt class="col-sm-3">IP Address</dt>
+            <dd class="col-sm-9">{{ submission.ipAddress ?? '—' }}</dd>
+        </dl>
+
+        <h3>Submitted Data</h3>
+        <table class="ibexa-table table">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in submission.data %}
+                    <tr>
+                        <td class="fw-semibold">{{ key|replace({'_': ' '})|title }}</td>
+                        <td>{{ value is iterable ? (value|map(v => v is iterable ? v|json_encode : v)|join(', ')) : value }}</td>
+                    </tr>
+                {% else %}
+                    <tr><td colspan="2" class="text-muted">No data recorded.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="mt-3">
+            <a href="{{ path('ibexa_form_builder.submissions_list') }}" class="btn ibexa-btn ibexa-btn--ghost">
+                ← Back to list
+            </a>
+            <form method="post"
+                  action="{{ path('ibexa_form_builder.submission_delete', {id: submission.id}) }}"
+                  style="display:inline"
+                  onsubmit="return confirm('Delete this submission?')">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete_submission_' ~ submission.id) }}">
+                <button type="submit" class="btn ibexa-btn ibexa-btn--ghost-danger">Delete</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

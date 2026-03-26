@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    vardumper\IbexaFormBuilderBundle\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/IbexaFormBuilderBundle.php'
+
+    vardumper\IbexaFormBuilderBundle\Service\SubmissionHandler:
+        arguments:
+            $fromEmail: '%ibexa_form_builder.from_email%'

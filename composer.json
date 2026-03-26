@@ -1,0 +1,107 @@
+{
+    "name": "vardumper/ibexa-form-builder-bundle",
+    "description": "Standalone Ibexa DXP bundle for rendering frontend-facing forms managed as Ibexa content.",
+    "type": "symfony-bundle",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "homepage": "https://github.com/vardumper/IbexaFormBuilderBundle",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "vardumper",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "ibexa/admin-ui": "^4.4|^5.0",
+        "ibexa/core": "^4.4|^5.0",
+        "doctrine/orm": "^2.11|^3.0",
+        "doctrine/doctrine-bundle": "^2.7",
+        "pagerfanta/pagerfanta": "^3.0|^4.0",
+        "symfony/cache": "^5.4|^7.0",
+        "symfony/console": "^5.4|^7.0",
+        "symfony/event-dispatcher": "^5.4|^7.0",
+        "symfony/form": "^5.4|^7.0",
+        "symfony/framework-bundle": "^5.4|^7.0",
+        "symfony/http-kernel": "^5.4|^7.0",
+        "symfony/mailer": "^5.4|^7.0",
+        "symfony/mime": "^5.4|^7.0",
+        "symfony/routing": "^5.4|^7.0",
+        "twig/twig": "^3.0",
+        "guzzlehttp/promises": "^2.3",
+        "nyholm/psr7": "^1.8"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "brainmaestro/composer-git-hooks": "dev-master",
+        "rector/swiss-knife": "^2.3",
+        "symplify/easy-coding-standard": "^13.0",
+        "pestphp/pest": ">=4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "vardumper\\IbexaFormBuilderBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "vardumper\\IbexaFormBuilderBundle\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "8.3.0"
+        },
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "check-cs": "vendor/bin/ecs check --ansi",
+        "fix-cs": "vendor/bin/ecs check --no-ansi --fix",
+        "phpstan": "phpstan --memory-limit=1G",
+        "post-install-cmd": "@git-hooks-init",
+        "post-update-cmd": "@git-hooks-update",
+        "swiss-knife-check-conflicts": "vendor/bin/swiss-knife check-conflicts ./src --ansi",
+        "swiss-knife-check-commented-code": "vendor/bin/swiss-knife check-commented-code ./src --line-limit 4 --no-ansi",
+        "swiss-knife-find-multi-classes": "vendor/bin/swiss-knife find-multi-classes ./src --ansi",
+        "swiss-knife-finalize-classes": "vendor/bin/swiss-knife finalize-classes ./src --ansi",
+        "swiss-knife-privatize-constants": "vendor/bin/swiss-knife privatize-constants ./src --ansi",
+        "git-hooks-init": "vendor/bin/cghooks add --ignore-lock",
+        "git-hooks-update": "vendor/bin/cghooks update"
+    },
+    "extra": {
+        "thanks": {
+            "name": "symfony/flex",
+            "url": "https://github.com/symfony/flex"
+        },
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        },
+        "hooks": {
+            "pre-commit": [
+                ".githooks/pre-commit"
+            ],
+            "commit-msg": [
+                ".githooks/commit-msg"
+            ]
+        }
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/vardumper"
+        },
+        {
+            "type": "buymeacoffee",
+            "url": "https://www.buymeacoffee.com/vardumper"
+        },
+        {
+            "type": "custom",
+            "url": "https://www.patreon.com/vardumper"
+        }
+    ]
+}

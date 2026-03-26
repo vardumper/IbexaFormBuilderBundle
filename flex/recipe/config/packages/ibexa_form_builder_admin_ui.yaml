@@ -1,0 +1,29 @@
+ibexa:
+    system:
+        site:
+            content_view:
+                full:
+                    form_builder_horizontal_group:
+                        template: '@IbexaFormBuilderBundle/form/horizontal_group.html.twig'
+                        match:
+                            Identifier\ContentType: form_builder_horizontal_group
+        admin_group:
+            content_type:
+                form_builder_form:
+                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#form
+                form_builder_input:
+                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#input
+                form_builder_textarea:
+                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#textarea
+                form_builder_select:
+                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#select
+                form_builder_option:
+                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#option
+                form_builder_fieldset:
+                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#fieldset
+                form_builder_horizontal_group:
+                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#horizontal-group
+                form_builder_button:
+                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#button
+                form_builder_choice:
+                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#choice

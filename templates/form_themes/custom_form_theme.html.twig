@@ -1,0 +1,180 @@
+{#
+Custom form theme optimized for performance
+
+Usage:
+1. Per-form: {% form_theme form '@IbexaFormBuilderBundle/form_themes/custom_form_theme.html.twig' %}
+2. Globally: Add to config/packages/twig.yaml:
+   twig:
+       form_themes:
+           - '@IbexaFormBuilderBundle/form_themes/custom_form_theme.html.twig'
+
+Note: Originally used Twig Components extensively, but this caused performance issues
+(193k+ TwigPreLexer::consume calls per request). Now using plain HTML for better performance.
+
+You can override individual blocks for specific field types:
+- text_widget, email_widget, number_widget, etc. for input types
+- textarea_widget for textareas
+- choice_widget for select/radio/checkbox
+- form_row to change the wrapper around each field
+#}
+
+{% block text_widget %}
+    <input
+        type="{{ attr.type|default(type|default('text')) }}"
+        id="{{ id }}"
+        name="{{ full_name }}"
+        value="{{ value|default('') }}"
+        {% if required %}required="required"{% endif %}
+        {% if disabled %}disabled="disabled"{% endif %}
+        {% for attrName, attrValue in attr %}
+            {% if attrName not in ['type'] %}
+                {% if attrValue is same as(true) or attrValue == attrName %}
+                    {{ attrName }}="{{ attrName }}"
+                {% elseif attrValue is not same as(false) and attrValue is not null and attrValue != '' %}
+                    {{ attrName }}="{{ attrValue }}"
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    />
+{% endblock %}
+
+{% block textarea_widget %}
+    <textarea
+        id="{{ id }}"
+        name="{{ full_name }}"
+        {% if required %}required="required"{% endif %}
+        {% if disabled %}disabled="disabled"{% endif %}
+        {% for attrName, attrValue in attr %}
+            {% if attrValue is same as(true) or attrValue == attrName %}
+                {{ attrName }}="{{ attrName }}"
+            {% elseif attrValue is not same as(false) and attrValue is not null and attrValue != '' %}
+                {{ attrName }}="{{ attrValue }}"
+            {% endif %}
+        {% endfor %}
+    >{{ value|default('') }}</textarea>
+{% endblock %}
+
+{% block choice_widget %}
+    {% if expanded %}
+        {{ block('choice_widget_expanded') }}
+    {% else %}
+        {{ block('choice_widget_collapsed') }}
+    {% endif %}
+{% endblock %}
+
+{% block choice_widget_collapsed %}
+    <select
+        id="{{ id }}"
+        name="{{ full_name }}"
+        {% if multiple %}multiple="multiple"{% endif %}
+        {% if required %}required="required"{% endif %}
+        {% if disabled %}disabled="disabled"{% endif %}
+        {% for attrName, attrValue in attr %}
+            {% if attrValue is same as(true) or attrValue == attrName %}
+                {{ attrName }}="{{ attrName }}"
+            {% elseif attrValue is not same as(false) and attrValue is not null and attrValue != '' %}
+                {{ attrName }}="{{ attrValue }}"
+            {% endif %}
+        {% endfor %}
+    >
+        {% if placeholder is not none %}
+            <option value="">{{ placeholder }}</option>
+        {% endif %}
+        {% for choice in choices %}
+            <option value="{{ choice.value }}" {% if choice.value == value or (value is iterable and choice.value in value) %}selected="selected"{% endif %}>{{ choice.label }}</option>
+        {% endfor %}
+    </select>
+{% endblock %}
+
+{% block form_widget_compound %}
+    {% if form.parent is empty %}
+        {{ form_errors(form) }}
+    {% endif %}
+    {{ block('form_rows') }}
+    {{ form_rest(form) }}
+{% endblock %}
+
+{% block form_rows %}
+    {% for child in form %}
+        {{ form_row(child) }}
+    {% endfor %}
+{% endblock %}
+
+{% block form_row %}
+    {% if compound and form.parent is not empty %}
+        {% set fieldset_errors = form_errors(form) %}
+        {% set fieldset_widget = form_widget(form) %}
+        {% if attr['data-type']|default('') == 'horizontal_group' %}
+        {% if label is not same as(false) and label is not empty %}
+            <p>{{ label|trans({}, translation_domain) }}</p>
+        {% endif %}
+        <div id="{{ id }}" class="grid {{ attr.class|default('') }}">
+            {{ fieldset_errors|raw }}
+            {{ fieldset_widget|raw }}
+        </div>
+        {% else %}
+        <fieldset
+            id="{{ id }}"
+            class="{{ attr.class|default('') }}"
+            {% if attr.role|default('') %}role="{{ attr.role }}"{% endif %}
+        >
+            {% if label is not same as(false) %}
+                <legend>{{ label|trans({}, translation_domain) }}</legend>
+            {% endif %}
+            {{ fieldset_errors|raw }}
+            {{ fieldset_widget|raw }}
+        </fieldset>
+        {% endif %}
+    {% else %}
+        {% set helper_text = row_attr['data-helper-text'] ?? null %}
+        {% set label_wrap = row_attr['data-label-wrap'] ?? false %}
+        {% set label_after = row_attr['data-label-after'] ?? false %}
+        {% set widget_attrs = helper_text ? attr|merge({'aria-describedby': id ~ '-helper'}) : attr %}
+        {% if label_wrap %}
+            <label>
+                {% if label is not same as(false) and not label_after %}{{ label|trans({}, translation_domain) }}{% endif %}
+                {{ form_widget(form, {'attr': widget_attrs}) }}
+                {% if label is not same as(false) and label_after %}{{ label|trans({}, translation_domain) }}{% endif %}
+                {% if helper_text %}<small id="{{ id }}-helper">{{ helper_text }}</small>{% endif %}
+            </label>
+        {% elseif label_after %}
+            {{ form_widget(form, {'attr': widget_attrs}) }}
+            {{ form_label(form) }}
+            {% if helper_text %}<small id="{{ id }}-helper">{{ helper_text }}</small>{% endif %}
+        {% else %}
+            {{ form_label(form) }}
+            {{ form_widget(form, {'attr': widget_attrs}) }}
+            {% if helper_text %}<small id="{{ id }}-helper">{{ helper_text }}</small>{% endif %}
+        {% endif %}
+        {{ form_errors(form) }}
+    {% endif %}
+{% endblock %}
+
+{% block button_row %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block submit_row %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block button_widget %}
+    <button
+        type="{{ type|default('button') }}"
+        id="{{ id }}"
+        name="{{ full_name }}"
+        {% if disabled %}disabled="disabled"{% endif %}
+        class="{{ attr.class|default('') }}"
+    >{{ label|trans({}, translation_domain) }}</button>
+{% endblock %}
+
+{% block submit_widget %}
+    <input
+        type="submit"
+        id="{{ id }}"
+        name="{{ full_name }}"
+        value="{{ label|trans({}, translation_domain) }}"
+        {% if disabled %}disabled="disabled"{% endif %}
+        class="{{ attr.class|default('') }}"
+    />
+{% endblock %}

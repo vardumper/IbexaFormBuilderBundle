@@ -1,0 +1,2 @@
+ibexa_form_builder_routes:
+    resource: '@IbexaFormBuilderBundle/config/routes.yaml'

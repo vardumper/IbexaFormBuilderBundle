@@ -1,0 +1,12 @@
+includes:
+parameters:
+    level: 5
+    treatPhpDocTypesAsCertain: false
+    paths:
+        - %currentWorkingDirectory%
+    excludePaths:
+        - vendor
+        - tests
+        - flex
+    ignoreErrors:
+    reportUnmatchedIgnoredErrors: false

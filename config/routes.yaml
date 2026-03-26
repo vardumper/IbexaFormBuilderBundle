@@ -1,0 +1,11 @@
+ibexa_form_builder.controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: vardumper\IbexaFormBuilderBundle\Controller
+    type: attribute
+
+ibexa_form_builder.admin_controllers:
+    resource:
+        path: ../src/Controller/Admin/
+        namespace: vardumper\IbexaFormBuilderBundle\Controller\Admin
+    type: attribute
