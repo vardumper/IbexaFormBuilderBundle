@@ -10,19 +10,19 @@ ibexa:
         admin_group:
             content_type:
                 form_builder_form:
-                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#form
+                    thumbnail: /bundles/ibexaformbuilder/icons/form.svg
                 form_builder_input:
-                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#input
+                    thumbnail: /bundles/ibexaformbuilder/icons/form-input.svg
                 form_builder_textarea:
-                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#textarea
+                    thumbnail: /bundles/ibexaformbuilder/icons/textbox.svg
                 form_builder_select:
                     thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#select
                 form_builder_option:
                     thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#option
                 form_builder_fieldset:
-                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#fieldset
+                    thumbnail: /bundles/ibexaformbuilder/icons/folder.svg
                 form_builder_horizontal_group:
-                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#horizontal-group
+                    thumbnail: /bundles/ibexaformbuilder/icons/group.svg
                 form_builder_button:
                     thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#button
                 form_builder_choice:
