@@ -24,6 +24,6 @@ ibexa:
                 form_builder_horizontal_group:
                     thumbnail: /bundles/ibexaformbuilder/icons/group.svg
                 form_builder_button:
-                    thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#button
+                    thumbnail: /bundles/ibexaformbuilder/icons/enter.svg
                 form_builder_choice:
                     thumbnail: /bundles/ibexaformbuilder/icons/icons-sprite.svg#choice

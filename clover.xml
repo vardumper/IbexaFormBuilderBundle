@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1774598928">
-  <project timestamp="1774598928" name="Clover Coverage">
+<coverage generated="1774600049">
+  <project timestamp="1774600049" name="Clover Coverage">
     <package name="vardumper\IbexaFormBuilderBundle\Command">
       <file name="/home/erik-poehler/Sites/IbexaFormBuilderBundle/src/Command/InstallContentTypesCommand.php">
         <class name="vardumper\IbexaFormBuilderBundle\Command\InstallContentTypesCommand" namespace="vardumper\IbexaFormBuilderBundle\Command">
