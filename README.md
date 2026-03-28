@@ -138,19 +138,6 @@ CREATE TABLE form_submission (
 ```
 </details>
 
-## Run the Migration
-
-```bash
-bin/console doctrine:migrations:migrate
-```
-
-## Install the content types
-
-```bash
-bin/console ibexa:form-builder:install-content-types
-```
-
-
 ## Configuration
 
 ```yaml
