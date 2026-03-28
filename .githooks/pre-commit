@@ -48,7 +48,7 @@ if $HAS_PHP_SWISSKNIFE; then
         PASS=false
     fi
 
-    RUN composer run swiss-knife-finalize-classes
+    # RUN composer run swiss-knife-finalize-classes
     # hasnt proven very reliable
     RUN composer run swiss-knife-privatize-constants
 

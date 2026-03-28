@@ -20,7 +20,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
-final class ContentFormFactory
+class ContentFormFactory
 {
     /** @var array<int, ContentType> */
     private array $contentTypeCache = [];

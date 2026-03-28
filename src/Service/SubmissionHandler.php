@@ -8,7 +8,7 @@ use Ibexa\Contracts\Core\Repository\ContentService;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use vardumper\IbexaFormBuilderBundle\Event\{FormBuilderEvents, PostSubmitEvent, PreSubmitEvent};
 
-final class SubmissionHandler
+class SubmissionHandler
 {
     public function __construct(
         private readonly ContentService $contentService,
