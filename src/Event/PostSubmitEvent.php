@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace vardumper\IbexaFormBuilderBundle\Event;
 
+use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Symfony\Contracts\EventDispatcher\Event;
-use vardumper\IbexaFormBuilderBundle\Entity\FormSubmission;
 
-/** Dispatched at the end of handle(), regardless of cancellations. $submission is null when the store step was skipped. */
+/** Dispatched when a submission passes the PreSubmitEvent gate. Store and email listeners act on this event. */
 final class PostSubmitEvent extends Event
 {
     public function __construct(
         private readonly int $contentId,
+        private readonly Content $content,
         private readonly array $data,
-        private readonly ?FormSubmission $submission,
+        private readonly ?string $ipAddress,
+        private readonly ?string $submissionAction,
     ) {
     }
 
@@ -22,13 +24,23 @@ final class PostSubmitEvent extends Event
         return $this->contentId;
     }
 
+    public function getContent(): Content
+    {
+        return $this->content;
+    }
+
     public function getData(): array
     {
         return $this->data;
     }
 
-    public function getSubmission(): ?FormSubmission
+    public function getIpAddress(): ?string
     {
-        return $this->submission;
+        return $this->ipAddress;
+    }
+
+    public function getSubmissionAction(): ?string
+    {
+        return $this->submissionAction;
     }
 }

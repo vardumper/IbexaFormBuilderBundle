@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Mime\Email;
 use vardumper\IbexaFormBuilderBundle\Entity\FormSubmission;
@@ -129,23 +130,26 @@ it('PreSendEmailEvent is cancellable', function () {
 
 // PostSubmitEvent
 
-it('PostSubmitEvent exposes contentId, data and submission', function () {
-    $submission = FormSubmission::create(10, ['z' => 3], null);
-    $event = new PostSubmitEvent(10, ['z' => 3], $submission);
+it('PostSubmitEvent exposes contentId, content, data, ipAddress and submissionAction', function () {
+    $content = testMock(Content::class);
+    $event = new PostSubmitEvent(10, $content, ['z' => 3], '1.2.3.4', 'store');
 
     expect($event->getContentId())->toBe(10)
+        ->and($event->getContent())->toBe($content)
         ->and($event->getData())->toBe(['z' => 3])
-        ->and($event->getSubmission())->toBe($submission);
+        ->and($event->getIpAddress())->toBe('1.2.3.4')
+        ->and($event->getSubmissionAction())->toBe('store');
 });
 
-it('PostSubmitEvent allows null submission', function () {
-    $event = new PostSubmitEvent(1, [], null);
+it('PostSubmitEvent allows null ipAddress and submissionAction', function () {
+    $event = new PostSubmitEvent(1, testMock(Content::class), [], null, null);
 
-    expect($event->getSubmission())->toBeNull();
+    expect($event->getIpAddress())->toBeNull()
+        ->and($event->getSubmissionAction())->toBeNull();
 });
 
 it('PostSubmitEvent is not cancellable', function () {
-    $event = new PostSubmitEvent(1, [], null);
+    $event = new PostSubmitEvent(1, testMock(Content::class), [], null, null);
 
     expect($event)->not->toBeInstanceOf(AbstractCancellableEvent::class);
 });

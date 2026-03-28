@@ -16,7 +16,7 @@ final class FormBuilderEvents
 
     public const PRE_SEND_EMAIL = 'ibexa_form_builder.pre_send_email'; /** @see PreSendEmailEvent — cancel to suppress send; mutate Email object freely */
 
-    public const POST_SUBMIT = 'ibexa_form_builder.post_submit'; /** @see PostSubmitEvent — always fires; use for analytics / audit logging */
+    public const POST_SUBMIT = 'ibexa_form_builder.post_submit'; /** @see PostSubmitEvent — fired after PreSubmitEvent passes; store and email listeners act on this event */
 
     private function __construct()
     {
