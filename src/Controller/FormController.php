@@ -9,22 +9,23 @@ use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\{Request, Response};
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
 use Throwable;
-use vardumper\IbexaFormBuilderBundle\Service\ContentFormFactory;
-use vardumper\IbexaFormBuilderBundle\Service\SubmissionHandler;
+use vardumper\IbexaFormBuilderBundle\Event\{FormBuilderEvents, PreValidationEvent};
+use vardumper\IbexaFormBuilderBundle\Service\{ContentFormFactory, SubmissionHandler};
 
 #[AsController]
 final class FormController extends AbstractController
 {
     public function __construct(
         private readonly ContentFormFactory $contentFormFactory,
-        private readonly SubmissionHandler $submissionHandler,
+        private readonly EventDispatcherInterface $eventDispatcher,
         private readonly LocationService $locationService,
         private readonly SearchService $searchService,
+        private readonly SubmissionHandler $submissionHandler,
     ) {
     }
 
@@ -118,11 +119,16 @@ final class FormController extends AbstractController
         );
         $form->handleRequest($request);
 
-        if ($request->isMethod('POST') && $form->isSubmitted() && $form->isValid()) {
-            $this->submissionHandler->handle($contentId, $request->request->all(), $request->getClientIp());
-            $this->addFlash('success', 'Your submission has been received. Thank you!');
+        if ($request->isMethod('POST') && $form->isSubmitted()) {
+            $preValidation = new PreValidationEvent($form, $contentId);
+            $this->eventDispatcher->dispatch($preValidation, FormBuilderEvents::PRE_VALIDATION);
 
-            return $this->redirectToRoute('render_form', ['identifier' => $identifier ?? (string) $contentId]);
+            if (!$preValidation->isCancelled() && $form->isValid()) {
+                $this->submissionHandler->handle($contentId, $request->request->all(), $request->getClientIp());
+                $this->addFlash('success', 'Your submission has been received. Thank you!');
+
+                return $this->redirectToRoute('render_form', ['identifier' => $identifier ?? (string) $contentId]);
+            }
         }
 
         $response = new Response($this->renderView('@IbexaFormBuilderBundle/form/form.html.twig', [

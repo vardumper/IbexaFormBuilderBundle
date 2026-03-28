@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\Core\Repository\Values\Content\Field;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Twig\Environment;
 use vardumper\IbexaFormBuilderBundle\Service\SubmissionHandler;
@@ -15,6 +16,7 @@ function makeHandler(
     EntityManagerInterface $em,
     MailerInterface $mailer,
     string $fromEmail = '',
+    ?EventDispatcherInterface $dispatcher = null,
 ): SubmissionHandler {
     $contentService = testMock(ContentService::class);
     $contentService->method('loadContent')->willReturn($content);
@@ -22,7 +24,10 @@ function makeHandler(
     $twig = testMock(Environment::class);
     $twig->method('render')->willReturn('<html>test</html>');
 
-    return new SubmissionHandler($contentService, $em, $mailer, $twig, $fromEmail);
+    $dispatcher ??= testMock(EventDispatcherInterface::class);
+    $dispatcher->method('dispatch')->willReturnArgument(0);
+
+    return new SubmissionHandler($contentService, $em, $dispatcher, $mailer, $twig, $fromEmail);
 }
 
 function makeField(string $identifier, mixed $value): Field
