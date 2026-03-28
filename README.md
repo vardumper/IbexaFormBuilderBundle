@@ -122,7 +122,7 @@ ibexa_form_builder_routes:
     resource: '@IbexaFormBuilderBundle/config/routes.yaml'
 ```
 
-### Run the migration
+### Storing Form submissions
 
 Create the `form_submission` table manually or copy the migration from the bundle and run it:
 
@@ -136,18 +136,20 @@ CREATE TABLE form_submission (
     PRIMARY KEY (id)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
 ```
+</details>
+
+## Run the Migration
 
 ```bash
 bin/console doctrine:migrations:migrate
 ```
 
-### Install the content types
+## Install the content types
 
 ```bash
 bin/console ibexa:form-builder:install-content-types
 ```
 
-</details>
 
 ## Configuration
 
@@ -157,31 +159,22 @@ ibexa_form_builder:
     from_email: 'no-reply@example.com'   # sender address for notification emails
 ```
 
-## Console Commands
-
-| Command | Description |
-|---|---|
-| `ibexa:form-builder:install-content-types` | Creates or updates the content types required by the bundle (`form`, `input`, `textarea`, `select`, `option`, `fieldset`, `horizontal_group`, `button`, `choice`) |
-| `ibexa:form-builder:sync-order` | Retroactively syncs the `form_builder_order` field value → location priority so the admin sub-item list reflects the intended field order |
-
 ## Rendering a Form
 
 Use any of the three identifiers to render a form from a controller or template:
 
 ```php
-// by content ID
+// In a controller
 $this->forward('vardumper\IbexaFormBuilderBundle\Controller\FormController::renderForm', [
     'contentId' => 123,
 ]);
 
-// by location ID
-// by form name (value of the form_builder_name field)
-```
+// In Twig
+{{ render(controller('vardumper\\IbexaFormBuilderBundle\\Controller\\FormController::renderForm', { contentId: 67 })) }} {# pass the form content ID #}
+{{ render(controller('vardumper\\IbexaFormBuilderBundle\\Controller\\FormController::renderForm', { locationId: 67 })) }} {# or its location ID #}
+{{ render(controller('vardumper\\IbexaFormBuilderBundle\\Controller\\FormController::renderForm', { locationId: 70 })) }} {# or an alternate location ID if used multiple times #}
+{{ render(controller('vardumper\\IbexaFormBuilderBundle\\Controller\\FormController::renderForm', { formName: 'Test' })) }} {# or a unique form name #}
 
-Or link directly via the registered route:
-
-```
-/form/{identifier}
 ```
 
 ## Submission Handling
