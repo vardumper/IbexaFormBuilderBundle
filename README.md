@@ -16,7 +16,6 @@
     <img src="https://img.shields.io/packagist/dt/vardumper/ibexa-form-builder-bundle" alt="Total Downloads" />
     <img src="https://img.shields.io/badge/license-mit-red" alt="License" />
     <img src="https://img.shields.io/badge/unit%20tests-passing-green?style=flat&amp;color=%234c1" style="max-width: 100%;">
-    <img src="https://github.com/vardumper/IbexaFormBuilderBundle/raw/main/coverage.svg" alt="Code Coverage" style="max-width: 100%;">
     <img src="https://raw.githubusercontent.com/vardumper/IbexaFormBuilderBundle/c9c45cf556c428c69dac6bb528f2cdc6cefac1fc/coverage.svg">
     <img src="https://dtrack.erikpoehler.us/api/v1/badge/vulns/project/35387247-fc1e-4677-8c89-7bfa4c753cbb?apiKey=odt_nG83W_EAcQZkk6b5KqknIVoK8nfNjSz38Ompnn" >
 </p>
