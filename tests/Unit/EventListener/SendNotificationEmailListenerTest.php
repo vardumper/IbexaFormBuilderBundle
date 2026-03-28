@@ -41,39 +41,51 @@ function makeEmailListener(
 }
 
 it('sends email when submissionAction is email', function () {
+    $sent = false;
     $mailer = testMock(MailerInterface::class);
-    $mailer->expects($this->once())->method('send');
+    $mailer->method('send')->willReturnCallback(function () use (&$sent) { $sent = true; });
 
     makeEmailListener($mailer)(makeEmailEvent('email'));
+
+    expect($sent)->toBeTrue();
 });
 
 it('sends email when submissionAction is both', function () {
+    $sent = false;
     $mailer = testMock(MailerInterface::class);
-    $mailer->expects($this->once())->method('send');
+    $mailer->method('send')->willReturnCallback(function () use (&$sent) { $sent = true; });
 
     makeEmailListener($mailer)(makeEmailEvent('both'));
+
+    expect($sent)->toBeTrue();
 });
 
 it('does not send when submissionAction is store', function () {
+    $sent = false;
     $mailer = testMock(MailerInterface::class);
-    $mailer->expects($this->never())->method('send');
+    $mailer->method('send')->willReturnCallback(function () use (&$sent) { $sent = true; });
 
     makeEmailListener($mailer)(makeEmailEvent('store'));
+
+    expect($sent)->toBeFalse();
 });
 
 it('does not send when submissionAction is null', function () {
+    $sent = false;
     $mailer = testMock(MailerInterface::class);
-    $mailer->expects($this->never())->method('send');
+    $mailer->method('send')->willReturnCallback(function () use (&$sent) { $sent = true; });
 
     $content = testMock(Content::class);
     $content->method('getFields')->willReturn([]);
-    $listener = makeEmailListener($mailer);
-    $listener(new PostSubmitEvent(1, $content, [], null, null));
+    makeEmailListener($mailer)(new PostSubmitEvent(1, $content, [], null, null));
+
+    expect($sent)->toBeFalse();
 });
 
 it('does not send when notification_email field is empty', function () {
+    $sent = false;
     $mailer = testMock(MailerInterface::class);
-    $mailer->expects($this->never())->method('send');
+    $mailer->method('send')->willReturnCallback(function () use (&$sent) { $sent = true; });
 
     $content = testMock(Content::class);
     $content->method('getName')->willReturn('Form');
@@ -82,11 +94,14 @@ it('does not send when notification_email field is empty', function () {
     ]);
 
     makeEmailListener($mailer)(new PostSubmitEvent(1, $content, [], null, 'email'));
+
+    expect($sent)->toBeFalse();
 });
 
 it('suppresses send when PreSendEmailEvent is cancelled', function () {
+    $sent = false;
     $mailer = testMock(MailerInterface::class);
-    $mailer->expects($this->never())->method('send');
+    $mailer->method('send')->willReturnCallback(function () use (&$sent) { $sent = true; });
 
     $dispatcher = testMock(EventDispatcherInterface::class);
     $dispatcher->method('dispatch')->willReturnCallback(function (object $event) {
@@ -100,8 +115,9 @@ it('suppresses send when PreSendEmailEvent is cancelled', function () {
     $twig = testMock(Environment::class);
     $twig->method('render')->willReturn('<html>test</html>');
 
-    $listener = new SendNotificationEmailListener($dispatcher, $mailer, $twig, '');
-    $listener(makeEmailEvent('email'));
+    (new SendNotificationEmailListener($dispatcher, $mailer, $twig, ''))(makeEmailEvent('email'));
+
+    expect($sent)->toBeFalse();
 });
 
 it('dispatches PreSendEmailEvent before sending', function () {

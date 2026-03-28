@@ -27,57 +27,70 @@ function makeStoreListener(?EventDispatcherInterface $dispatcher = null): StoreS
 }
 
 it('persists and flushes when submissionAction is store', function () {
+    $persisted = null;
+    $flushed = false;
     $em = testMock(EntityManagerInterface::class);
-    $em->expects($this->once())->method('persist')->with($this->isInstanceOf(FormSubmission::class));
-    $em->expects($this->once())->method('flush');
+    $em->method('persist')->willReturnCallback(function (object $e) use (&$persisted) { $persisted = $e; });
+    $em->method('flush')->willReturnCallback(function () use (&$flushed) { $flushed = true; });
 
     $dispatcher = testMock(EventDispatcherInterface::class);
     $dispatcher->method('dispatch')->willReturnArgument(0);
 
-    $listener = new StoreSubmissionListener($em, $dispatcher);
-    $listener(makePostSubmitEvent('store', ['field' => 'val'], '127.0.0.1'));
+    (new StoreSubmissionListener($em, $dispatcher))(makePostSubmitEvent('store', ['field' => 'val'], '127.0.0.1'));
+
+    expect($persisted)->toBeInstanceOf(FormSubmission::class)
+        ->and($flushed)->toBeTrue();
 });
 
 it('persists and flushes when submissionAction is both', function () {
+    $persisted = false;
+    $flushed = false;
     $em = testMock(EntityManagerInterface::class);
-    $em->expects($this->once())->method('persist');
-    $em->expects($this->once())->method('flush');
+    $em->method('persist')->willReturnCallback(function () use (&$persisted) { $persisted = true; });
+    $em->method('flush')->willReturnCallback(function () use (&$flushed) { $flushed = true; });
 
     $dispatcher = testMock(EventDispatcherInterface::class);
     $dispatcher->method('dispatch')->willReturnArgument(0);
 
     (new StoreSubmissionListener($em, $dispatcher))(makePostSubmitEvent('both'));
+
+    expect($persisted)->toBeTrue()->and($flushed)->toBeTrue();
 });
 
 it('persists and flushes when submissionAction is null', function () {
+    $persisted = false;
+    $flushed = false;
     $em = testMock(EntityManagerInterface::class);
-    $em->expects($this->once())->method('persist');
-    $em->expects($this->once())->method('flush');
+    $em->method('persist')->willReturnCallback(function () use (&$persisted) { $persisted = true; });
+    $em->method('flush')->willReturnCallback(function () use (&$flushed) { $flushed = true; });
 
     $dispatcher = testMock(EventDispatcherInterface::class);
     $dispatcher->method('dispatch')->willReturnArgument(0);
 
     $content = testMock(Content::class);
     $content->method('getFields')->willReturn([]);
-    $listener = new StoreSubmissionListener($em, $dispatcher);
-    $listener(new PostSubmitEvent(1, $content, [], null, null));
+    (new StoreSubmissionListener($em, $dispatcher))(new PostSubmitEvent(1, $content, [], null, null));
+
+    expect($persisted)->toBeTrue()->and($flushed)->toBeTrue();
 });
 
 it('does not persist when submissionAction is email', function () {
+    $persisted = false;
     $em = testMock(EntityManagerInterface::class);
-    $em->expects($this->never())->method('persist');
-    $em->expects($this->never())->method('flush');
+    $em->method('persist')->willReturnCallback(function () use (&$persisted) { $persisted = true; });
 
     $dispatcher = testMock(EventDispatcherInterface::class);
     $dispatcher->method('dispatch')->willReturnArgument(0);
 
     (new StoreSubmissionListener($em, $dispatcher))(makePostSubmitEvent('email'));
+
+    expect($persisted)->toBeFalse();
 });
 
 it('skips persist when PreStoreSubmissionEvent is cancelled', function () {
+    $persisted = false;
     $em = testMock(EntityManagerInterface::class);
-    $em->expects($this->never())->method('persist');
-    $em->expects($this->never())->method('flush');
+    $em->method('persist')->willReturnCallback(function () use (&$persisted) { $persisted = true; });
 
     $dispatcher = testMock(EventDispatcherInterface::class);
     $dispatcher->method('dispatch')->willReturnCallback(function (object $event) {
@@ -89,6 +102,8 @@ it('skips persist when PreStoreSubmissionEvent is cancelled', function () {
     });
 
     (new StoreSubmissionListener($em, $dispatcher))(makePostSubmitEvent('store'));
+
+    expect($persisted)->toBeFalse();
 });
 
 it('dispatches PostStoreSubmissionEvent after flush', function () {
