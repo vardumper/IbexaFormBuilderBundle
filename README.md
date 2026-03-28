@@ -14,7 +14,10 @@
         <img src="https://poser.pugx.org/vardumper/ibexa-form-builder-bundle/v/stable" alt="Latest Stable Version" />
     </a>
     <img src="https://img.shields.io/packagist/dt/vardumper/ibexa-form-builder-bundle" alt="Total Downloads" />
-    <img src="https://img.shields.io/badge/license-proprietary-red" alt="License" />
+    <img src="https://img.shields.io/badge/license-mit-red" alt="License" />
+    <img src="https://img.shields.io/badge/unit%20tests-passing-green?style=flat&amp;color=%234c1" style="max-width: 100%;">
+    <img src="https://raw.githubusercontent.com/vardumper/IbexaFormBuilderBundle/c9c45cf556c428c69dac6bb528f2cdc6cefac1fc/coverage.svg">
+    <img src="https://dtrack.erikpoehler.us/api/v1/badge/vulns/project/35387247-fc1e-4677-8c89-7bfa4c753cbb?apiKey=odt_nG83W_EAcQZkk6b5KqknIVoK8nfNjSz38Ompnn" >
 </p>
 
 Standalone Ibexa DXP bundle for rendering frontend-facing forms managed as Ibexa content. Forms are modelled as a content type tree — each field (input, textarea, select, choice, fieldset, horizontal group, button) is a separate content item nested under a form content item. Submissions are stored in a dedicated database table and/or delivered via email.
