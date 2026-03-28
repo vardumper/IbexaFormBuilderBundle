@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f47a86f1ca6d063673035a80a19137b",
+    "content-hash": "ddc4d49676ba26470a4045138cc2c363",
     "packages": [
         {
             "name": "api-platform/core",
@@ -15712,7 +15712,9 @@
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": [],
+    "platform-dev": {
+        "ext-pdo_sqlite": "*"
+    },
     "platform-overrides": {
         "php": "8.3.0"
     },

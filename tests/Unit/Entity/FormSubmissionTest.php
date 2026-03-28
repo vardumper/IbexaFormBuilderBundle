@@ -20,6 +20,10 @@ it('allows null ip address', function () {
 });
 
 it('persists and retrieves a submission via SQLite', function () {
+    if (!extension_loaded('pdo_sqlite')) {
+        $this->markTestSkipped('pdo_sqlite extension is not available.');
+    }
+
     $em = sqliteEm();
     $submission = FormSubmission::create(99, ['field' => 'value'], '10.0.0.1');
     $em->persist($submission);

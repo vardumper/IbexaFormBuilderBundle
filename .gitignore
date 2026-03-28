@@ -1,3 +1,4 @@
 /.history
 /vendorcghooks.lock
-
+/vendor
+/coverage-report

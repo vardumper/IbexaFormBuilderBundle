@@ -2,7 +2,7 @@
     "name": "vardumper/ibexa-form-builder-bundle",
     "description": "Standalone Ibexa DXP bundle for rendering frontend-facing forms managed as Ibexa content.",
     "type": "symfony-bundle",
-    "license": "proprietary",
+    "license": "MIT",
     "minimum-stability": "dev",
     "homepage": "https://github.com/vardumper/IbexaFormBuilderBundle",
     "prefer-stable": true,
@@ -33,6 +33,7 @@
         "nyholm/psr7": "^1.8"
     },
     "require-dev": {
+        "ext-pdo_sqlite": "*",
         "phpstan/phpstan": "^2.1",
         "friendsofphp/php-cs-fixer": "^3.0",
         "brainmaestro/composer-git-hooks": "dev-master",
@@ -77,9 +78,6 @@
         "thanks": {
             "name": "symfony/flex",
             "url": "https://github.com/symfony/flex"
-        },
-        "branch-alias": {
-            "dev-main": "1.0.x-dev"
         },
         "hooks": {
             "pre-commit": [

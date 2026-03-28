@@ -9,7 +9,3 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/IbexaFormBuilderBundle.php'
-
-    vardumper\IbexaFormBuilderBundle\Service\SubmissionHandler:
-        arguments:
-            $fromEmail: '%ibexa_form_builder.from_email%'

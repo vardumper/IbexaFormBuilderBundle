@@ -9,41 +9,63 @@ use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\{Request, Response};
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
-use vardumper\IbexaFormBuilderBundle\Service\ContentFormFactory;
-use vardumper\IbexaFormBuilderBundle\Service\SubmissionHandler;
+use Throwable;
+use vardumper\IbexaFormBuilderBundle\Event\{FormBuilderEvents, PreValidationEvent};
+use vardumper\IbexaFormBuilderBundle\Service\{ContentFormFactory, SubmissionHandler};
 
 #[AsController]
 final class FormController extends AbstractController
 {
     public function __construct(
         private readonly ContentFormFactory $contentFormFactory,
-        private readonly SubmissionHandler $submissionHandler,
+        private readonly EventDispatcherInterface $eventDispatcher,
         private readonly LocationService $locationService,
         private readonly SearchService $searchService,
+        private readonly SubmissionHandler $submissionHandler,
     ) {
     }
 
     /**
      * Render a form content item identified by exactly one of:
+     *   - identifier (string) route value; numeric = contentId or locationId, non-numeric = formName
      *   - contentId  (int)    direct content ID
      *   - locationId (int)    main location ID whose contentInfo.id is used
      *   - formName   (string) value of the form_builder_name field on the form content type
      */
     #[Route(
-        path: '/form/{:identifier}',
+        path: '/form/{identifier}',
         name: 'render_form',
         methods: ['GET', 'POST'],
     )]
     public function renderForm(
         Request $request,
+        ?string $identifier = null,
         ?int $contentId = null,
         ?int $locationId = null,
         ?string $formName = null,
     ): Response {
+        $structure = null;
+
+        if ($identifier !== null && $contentId === null && $locationId === null && $formName === null) {
+            if (is_numeric($identifier)) {
+                $numericIdentifier = (int) $identifier;
+
+                try {
+                    $structure = $this->contentFormFactory->getFormStructure($numericIdentifier);
+                    $contentId = $numericIdentifier;
+                } catch (Throwable) {
+                    $location = $this->locationService->loadLocation($numericIdentifier);
+                    $contentId = $location->contentId;
+                }
+            } else {
+                $formName = $identifier;
+            }
+        }
+
         $provided = array_filter(
             ['contentId' => $contentId, 'locationId' => $locationId, 'formName' => $formName],
             static fn (mixed $v): bool => $v !== null,
@@ -75,7 +97,9 @@ final class FormController extends AbstractController
             $contentId = $results->searchHits[0]->valueObject->id;
         }
 
-        $structure = $this->contentFormFactory->getFormStructure($contentId);
+        if ($structure === null) {
+            $structure = $this->contentFormFactory->getFormStructure($contentId);
+        }
 
         if ($request->isMethod('GET')) {
             $cacheValidationResponse = new Response();
@@ -91,15 +115,20 @@ final class FormController extends AbstractController
 
         $form = $this->contentFormFactory->createForm(
             $structure,
-            $this->generateUrl('render_form', ['contentId' => $contentId]),
+            $this->generateUrl('render_form', ['identifier' => $identifier ?? (string) $contentId]),
         );
         $form->handleRequest($request);
 
-        if ($request->isMethod('POST') && $form->isSubmitted() && $form->isValid()) {
-            $this->submissionHandler->handle($contentId, $request->request->all(), $request->getClientIp());
-            $this->addFlash('success', 'Your submission has been received. Thank you!');
+        if ($request->isMethod('POST') && $form->isSubmitted()) {
+            $preValidation = new PreValidationEvent($form, $contentId);
+            $this->eventDispatcher->dispatch($preValidation, FormBuilderEvents::PRE_VALIDATION);
 
-            return $this->redirectToRoute('render_form', ['contentId' => $contentId]);
+            if (!$preValidation->isCancelled() && $form->isValid()) {
+                $this->submissionHandler->handle($contentId, $request->request->all(), $request->getClientIp());
+                $this->addFlash('success', 'Your submission has been received. Thank you!');
+
+                return $this->redirectToRoute('render_form', ['identifier' => $identifier ?? (string) $contentId]);
+            }
         }
 
         $response = new Response($this->renderView('@IbexaFormBuilderBundle/form/form.html.twig', [

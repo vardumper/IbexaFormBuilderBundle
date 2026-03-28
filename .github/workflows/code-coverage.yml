@@ -28,11 +28,22 @@ jobs:
       - name: Generate code coverage badge
         run: php bin/generate-coverage-badge.php clover.xml coverage.svg
 
+      - name: Setup SSH Signing
+        run: |
+          # Create the key file from the secret
+          echo "${{ secrets.SSH_SIGNING_KEY }}" > sign_key
+          chmod 600 sign_key
+          
+          # Configure Git to use SSH for signing
+          git config --global user.name 'Erik Pöhler'
+          git config --global user.email 'admin@teuton.mx'
+          git config --global gpg.format ssh
+          git config --global user.signingkey "$(pwd)/sign_key"
+          git config --global commit.gpgsign true
+
       - name: Commit badge
         run: |
-            git config --global user.name 'github-actions[bot]'
-            git config --global user.email 'github-actions[bot]@users.noreply.github.com'
             git add coverage.svg
-            git commit -am "coverage.svg badge updated" --no-verify
+            git commit -am "chore: coverage.svg badge updated" --no-verify
             git push --no-verify
         continue-on-error: true # do not fail if nothing changed

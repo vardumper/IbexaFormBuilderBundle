@@ -2,107 +2,130 @@
 
 declare(strict_types=1);
 
-use Doctrine\ORM\EntityManagerInterface;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\Core\Repository\Values\Content\Field;
-use Symfony\Component\Mailer\MailerInterface;
-use Twig\Environment;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use vardumper\IbexaFormBuilderBundle\Event\{PostSubmitEvent, PreSubmitEvent};
 use vardumper\IbexaFormBuilderBundle\Service\SubmissionHandler;
 
 function makeHandler(
     Content $content,
-    EntityManagerInterface $em,
-    MailerInterface $mailer,
-    string $fromEmail = '',
+    ?EventDispatcherInterface $dispatcher = null,
 ): SubmissionHandler {
     $contentService = testMock(ContentService::class);
     $contentService->method('loadContent')->willReturn($content);
 
-    $twig = testMock(Environment::class);
-    $twig->method('render')->willReturn('<html>test</html>');
+    $dispatcher ??= testMock(EventDispatcherInterface::class);
+    $dispatcher->method('dispatch')->willReturnArgument(0);
 
-    return new SubmissionHandler($contentService, $em, $mailer, $twig, $fromEmail);
+    return new SubmissionHandler($contentService, $dispatcher);
+}
+
+function makeField(string $identifier, mixed $value): Field
+{
+    return new Field(['fieldDefIdentifier' => $identifier, 'value' => $value]);
+}
+
+function makeSelectionValue(string $option): stdClass
+{
+    $v = new stdClass();
+    $v->selection = [$option];
+
+    return $v;
 }
 
 function makeContent(string $submissionAction): Content
 {
-    $field = testMock(Field::class);
-    $field->fieldDefIdentifier = 'submission_action';
-
-    $value = new stdClass();
-    $value->selection = [$submissionAction];
-    $field->value = $value;
-
     $content = testMock(Content::class);
-    $content->method('getFields')->willReturn([$field]);
+    $content->method('getFields')->willReturn([makeField('submission_action', makeSelectionValue($submissionAction))]);
     $content->method('getName')->willReturn('Test Form');
 
     return $content;
 }
 
-it('calls flush when submission_action is store', function () {
-    $em = testMock(EntityManagerInterface::class);
-    $em->expects($this->once())->method('persist');
-    $em->expects($this->once())->method('flush');
+it('dispatches PreSubmitEvent', function () {
+    $preSubmitDispatched = false;
+    $dispatcher = testMock(EventDispatcherInterface::class);
+    $dispatcher->method('dispatch')->willReturnCallback(function (object $event) use (&$preSubmitDispatched) {
+        if ($event instanceof PreSubmitEvent) {
+            $preSubmitDispatched = true;
+        }
 
-    $mailer = testMock(MailerInterface::class);
-    $mailer->expects($this->never())->method('send');
+        return $event;
+    });
 
-    $handler = makeHandler(makeContent('store'), $em, $mailer);
-    $handler->handle(1, ['field' => 'val'], '127.0.0.1');
+    makeHandler(makeContent('store'), $dispatcher)->handle(1, ['field' => 'val'], null);
+
+    expect($preSubmitDispatched)->toBeTrue();
 });
 
-it('calls mailer send when submission_action is email', function () {
-    $em = testMock(EntityManagerInterface::class);
-    $em->expects($this->never())->method('flush');
+it('dispatches PostSubmitEvent when PreSubmitEvent is not cancelled', function () {
+    $dispatcher = testMock(EventDispatcherInterface::class);
+    $dispatcher->method('dispatch')->willReturnArgument(0);
 
-    $mailer = testMock(MailerInterface::class);
+    $postSubmitDispatched = false;
+    $dispatcher->method('dispatch')->willReturnCallback(function (object $event, string $name) use (&$postSubmitDispatched) {
+        if ($event instanceof PostSubmitEvent) {
+            $postSubmitDispatched = true;
+        }
 
-    // email requires a notification_email field — without it, send is skipped
-    $content = testMock(Content::class);
-    $actionField = testMock(Field::class);
-    $actionField->fieldDefIdentifier = 'submission_action';
-    $actionValue = new stdClass();
-    $actionValue->selection = ['email'];
-    $actionField->value = $actionValue;
+        return $event;
+    });
 
-    $emailField = testMock(Field::class);
-    $emailField->fieldDefIdentifier = 'notification_email';
-    $emailField->value = 'recipient@example.com';
+    makeHandler(makeContent('store'), $dispatcher)->handle(1, ['field' => 'val'], null);
 
-    $content->method('getFields')->willReturn([$actionField, $emailField]);
-    $content->method('getName')->willReturn('Test Form');
-
-    $mailer->expects($this->once())->method('send');
-
-    $handler = makeHandler($content, $em, $mailer);
-    $handler->handle(1, ['field' => 'val'], null);
+    expect($postSubmitDispatched)->toBeTrue();
 });
 
-it('calls both persist and send when submission_action is both', function () {
-    $em = testMock(EntityManagerInterface::class);
-    $em->expects($this->once())->method('persist');
-    $em->expects($this->once())->method('flush');
+it('does not dispatch PostSubmitEvent when PreSubmitEvent is cancelled', function () {
+    $dispatcher = testMock(EventDispatcherInterface::class);
 
-    $mailer = testMock(MailerInterface::class);
+    $postSubmitDispatched = false;
+    $dispatcher->method('dispatch')->willReturnCallback(function (object $event, string $name) use (&$postSubmitDispatched) {
+        if ($event instanceof PreSubmitEvent) {
+            $event->cancel();
+        }
+        if ($event instanceof PostSubmitEvent) {
+            $postSubmitDispatched = true;
+        }
 
-    $content = testMock(Content::class);
-    $actionField = testMock(Field::class);
-    $actionField->fieldDefIdentifier = 'submission_action';
-    $actionValue = new stdClass();
-    $actionValue->selection = ['both'];
-    $actionField->value = $actionValue;
+        return $event;
+    });
 
-    $emailField = testMock(Field::class);
-    $emailField->fieldDefIdentifier = 'notification_email';
-    $emailField->value = 'recipient@example.com';
+    makeHandler(makeContent('store'), $dispatcher)->handle(1, ['field' => 'val'], null);
 
-    $content->method('getFields')->willReturn([$actionField, $emailField]);
-    $content->method('getName')->willReturn('Test Form');
+    expect($postSubmitDispatched)->toBeFalse();
+});
 
-    $mailer->expects($this->once())->method('send');
+it('strips Symfony internal fields before dispatching PostSubmitEvent', function () {
+    $capturedData = null;
+    $dispatcher = testMock(EventDispatcherInterface::class);
+    $dispatcher->method('dispatch')->willReturnCallback(function (object $event) use (&$capturedData) {
+        if ($event instanceof PostSubmitEvent) {
+            $capturedData = $event->getData();
+        }
 
-    $handler = makeHandler($content, $em, $mailer);
-    $handler->handle(1, ['_token' => 'xyz', 'field' => 'val'], null);
+        return $event;
+    });
+
+    makeHandler(makeContent('store'), $dispatcher)->handle(1, ['_token' => 'xyz', 'name' => 'Alice'], null);
+
+    expect($capturedData)->toBe(['name' => 'Alice']);
+});
+
+it('passes submissionAction to PostSubmitEvent', function () {
+    $capturedAction = 'not-set';
+    $dispatcher = testMock(EventDispatcherInterface::class);
+    $dispatcher->method('dispatch')->willReturnCallback(function (object $event) use (&$capturedAction) {
+        if ($event instanceof PostSubmitEvent) {
+            $capturedAction = $event->getSubmissionAction();
+        }
+
+        return $event;
+    });
+
+    makeHandler(makeContent('email'), $dispatcher)->handle(1, [], null);
+
+    expect($capturedAction)->toBe('email');
 });
