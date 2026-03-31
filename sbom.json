@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:fd180391-0eae-44bd-94a9-e34b3f62b063",
+  "serialNumber": "urn:uuid:17dd5208-fc54-4bf0-8ef0-bb5293e6e922",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-03-28T10:15:56+00:00",
+    "timestamp": "2026-03-31T08:39:50+00:00",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "086df27f-403c-4712-83ff-8a6a9e267d07",
+      "bom-ref": "dc36285e-ed15-411f-86af-51f66282c07f",
       "type": "application",
       "name": ".",
       "properties": [
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "e69a7c2e-6dac-43d0-85c4-39b36b2edc0f",
+      "bom-ref": "6b6f8e36-fd23-4fc0-9509-651c9c9e7078",
       "type": "application",
       "name": "composer.lock",
       "properties": [
@@ -1752,6 +1752,30 @@
       ]
     },
     {
+      "bom-ref": "pkg:composer/pdepend/pdepend@2.16.2",
+      "type": "library",
+      "name": "pdepend/pdepend",
+      "version": "2.16.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:composer/pdepend/pdepend@2.16.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "pdepend/pdepend@2.16.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "composer"
+        }
+      ]
+    },
+    {
       "bom-ref": "pkg:composer/pestphp/pest-plugin-arch@v4.0.0",
       "type": "library",
       "name": "pestphp/pest-plugin-arch",
@@ -2104,6 +2128,30 @@
         {
           "name": "aquasecurity:trivy:PkgID",
           "value": "phpdocumentor/type-resolver@2.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "composer"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:composer/phpmd/phpmd@2.15.0",
+      "type": "library",
+      "name": "phpmd/phpmd",
+      "version": "2.15.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:composer/phpmd/phpmd@2.15.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "phpmd/phpmd@2.15.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4994,13 +5042,7 @@
   ],
   "dependencies": [
     {
-      "ref": "086df27f-403c-4712-83ff-8a6a9e267d07",
-      "dependsOn": [
-        "e69a7c2e-6dac-43d0-85c4-39b36b2edc0f"
-      ]
-    },
-    {
-      "ref": "e69a7c2e-6dac-43d0-85c4-39b36b2edc0f",
+      "ref": "6b6f8e36-fd23-4fc0-9509-651c9c9e7078",
       "dependsOn": [
         "pkg:composer/brainmaestro/composer-git-hooks@dev-master",
         "pkg:composer/doctrine/doctrine-bundle@2.18.2",
@@ -5012,6 +5054,7 @@
         "pkg:composer/nyholm/psr7@1.8.2",
         "pkg:composer/pagerfanta/pagerfanta@v3.8.0",
         "pkg:composer/pestphp/pest@v4.4.3",
+        "pkg:composer/phpmd/phpmd@2.15.0",
         "pkg:composer/phpstan/phpstan@2.1.44",
         "pkg:composer/rector/swiss-knife@2.3.5",
         "pkg:composer/symfony/cache@v7.4.7",
@@ -5025,6 +5068,12 @@
         "pkg:composer/symfony/routing@v7.4.6",
         "pkg:composer/symplify/easy-coding-standard@13.0.4",
         "pkg:composer/twig/twig@v3.24.0"
+      ]
+    },
+    {
+      "ref": "dc36285e-ed15-411f-86af-51f66282c07f",
+      "dependsOn": [
+        "6b6f8e36-fd23-4fc0-9509-651c9c9e7078"
       ]
     },
     {
@@ -5699,6 +5748,15 @@
       ]
     },
     {
+      "ref": "pkg:composer/pdepend/pdepend@2.16.2",
+      "dependsOn": [
+        "pkg:composer/symfony/config@v7.4.7",
+        "pkg:composer/symfony/dependency-injection@v7.4.7",
+        "pkg:composer/symfony/filesystem@v7.4.6",
+        "pkg:composer/symfony/polyfill-mbstring@v1.33.0"
+      ]
+    },
+    {
       "ref": "pkg:composer/pestphp/pest-plugin-arch@v4.0.0",
       "dependsOn": [
         "pkg:composer/pestphp/pest-plugin@v4.0.0",
@@ -5802,6 +5860,13 @@
         "pkg:composer/doctrine/deprecations@1.1.6",
         "pkg:composer/phpdocumentor/reflection-common@2.2.0",
         "pkg:composer/phpstan/phpdoc-parser@2.3.2"
+      ]
+    },
+    {
+      "ref": "pkg:composer/phpmd/phpmd@2.15.0",
+      "dependsOn": [
+        "pkg:composer/composer/xdebug-handler@3.0.5",
+        "pkg:composer/pdepend/pdepend@2.16.2"
       ]
     },
     {
