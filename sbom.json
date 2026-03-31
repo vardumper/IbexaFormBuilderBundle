@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:17dd5208-fc54-4bf0-8ef0-bb5293e6e922",
+  "serialNumber": "urn:uuid:bfc9b75d-d6a3-419a-af27-258e7e735acd",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-03-31T08:39:50+00:00",
+    "timestamp": "2026-03-31T08:51:41+00:00",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "dc36285e-ed15-411f-86af-51f66282c07f",
+      "bom-ref": "cb7d35fb-4484-4c13-b48c-a85e0d6fb7d7",
       "type": "application",
       "name": ".",
       "properties": [
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "6b6f8e36-fd23-4fc0-9509-651c9c9e7078",
+      "bom-ref": "40891295-85ed-405f-b53f-e4095811b348",
       "type": "application",
       "name": "composer.lock",
       "properties": [
@@ -120,10 +120,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/brianium/paratest@v7.19.2",
+      "bom-ref": "pkg:composer/brianium/paratest@v7.20.0",
       "type": "library",
       "name": "brianium/paratest",
-      "version": "v7.19.2",
+      "version": "v7.20.0",
       "licenses": [
         {
           "license": {
@@ -131,11 +131,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/brianium/paratest@v7.19.2",
+      "purl": "pkg:composer/brianium/paratest@v7.20.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "brianium/paratest@v7.19.2"
+          "value": "brianium/paratest@v7.20.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -2184,10 +2184,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/phpstan/phpstan@2.1.44",
+      "bom-ref": "pkg:composer/phpstan/phpstan@2.1.45",
       "type": "library",
       "name": "phpstan/phpstan",
-      "version": "2.1.44",
+      "version": "2.1.45",
       "licenses": [
         {
           "license": {
@@ -2195,11 +2195,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/phpstan/phpstan@2.1.44",
+      "purl": "pkg:composer/phpstan/phpstan@2.1.45",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "phpstan/phpstan@2.1.44"
+          "value": "phpstan/phpstan@2.1.45"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -5042,7 +5042,7 @@
   ],
   "dependencies": [
     {
-      "ref": "6b6f8e36-fd23-4fc0-9509-651c9c9e7078",
+      "ref": "40891295-85ed-405f-b53f-e4095811b348",
       "dependsOn": [
         "pkg:composer/brainmaestro/composer-git-hooks@dev-master",
         "pkg:composer/doctrine/doctrine-bundle@2.18.2",
@@ -5055,7 +5055,7 @@
         "pkg:composer/pagerfanta/pagerfanta@v3.8.0",
         "pkg:composer/pestphp/pest@v4.4.3",
         "pkg:composer/phpmd/phpmd@2.15.0",
-        "pkg:composer/phpstan/phpstan@2.1.44",
+        "pkg:composer/phpstan/phpstan@2.1.45",
         "pkg:composer/rector/swiss-knife@2.3.5",
         "pkg:composer/symfony/cache@v7.4.7",
         "pkg:composer/symfony/console@v7.4.7",
@@ -5071,9 +5071,9 @@
       ]
     },
     {
-      "ref": "dc36285e-ed15-411f-86af-51f66282c07f",
+      "ref": "cb7d35fb-4484-4c13-b48c-a85e0d6fb7d7",
       "dependsOn": [
-        "6b6f8e36-fd23-4fc0-9509-651c9c9e7078"
+        "40891295-85ed-405f-b53f-e4095811b348"
       ]
     },
     {
@@ -5114,7 +5114,7 @@
       ]
     },
     {
-      "ref": "pkg:composer/brianium/paratest@v7.19.2",
+      "ref": "pkg:composer/brianium/paratest@v7.20.0",
       "dependsOn": [
         "pkg:composer/fidry/cpu-core-counter@1.3.0",
         "pkg:composer/jean85/pretty-package-versions@2.1.1",
@@ -5784,7 +5784,7 @@
     {
       "ref": "pkg:composer/pestphp/pest@v4.4.3",
       "dependsOn": [
-        "pkg:composer/brianium/paratest@v7.19.2",
+        "pkg:composer/brianium/paratest@v7.20.0",
         "pkg:composer/nunomaduro/collision@v8.9.1",
         "pkg:composer/nunomaduro/termwind@v2.4.0",
         "pkg:composer/pestphp/pest-plugin-arch@v4.0.0",
@@ -5874,7 +5874,7 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/phpstan/phpstan@2.1.44",
+      "ref": "pkg:composer/phpstan/phpstan@2.1.45",
       "dependsOn": []
     },
     {
