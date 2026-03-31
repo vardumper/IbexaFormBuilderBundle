@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:bfc9b75d-d6a3-419a-af27-258e7e735acd",
+  "serialNumber": "urn:uuid:b3568c8c-3343-468c-949c-2368e6291572",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-03-31T08:51:41+00:00",
+    "timestamp": "2026-03-31T12:56:56+00:00",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "cb7d35fb-4484-4c13-b48c-a85e0d6fb7d7",
+      "bom-ref": "e87d1f86-3b52-4a4a-8684-7fdd7c9b6df4",
       "type": "application",
       "name": ".",
       "properties": [
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "40891295-85ed-405f-b53f-e4095811b348",
+      "bom-ref": "14fd9518-6c62-4ff0-b7b2-305f0d0d1b5c",
       "type": "application",
       "name": "composer.lock",
       "properties": [
@@ -5042,7 +5042,7 @@
   ],
   "dependencies": [
     {
-      "ref": "40891295-85ed-405f-b53f-e4095811b348",
+      "ref": "14fd9518-6c62-4ff0-b7b2-305f0d0d1b5c",
       "dependsOn": [
         "pkg:composer/brainmaestro/composer-git-hooks@dev-master",
         "pkg:composer/doctrine/doctrine-bundle@2.18.2",
@@ -5071,9 +5071,9 @@
       ]
     },
     {
-      "ref": "cb7d35fb-4484-4c13-b48c-a85e0d6fb7d7",
+      "ref": "e87d1f86-3b52-4a4a-8684-7fdd7c9b6df4",
       "dependsOn": [
-        "40891295-85ed-405f-b53f-e4095811b348"
+        "14fd9518-6c62-4ff0-b7b2-305f0d0d1b5c"
       ]
     },
     {
