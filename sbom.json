@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:bfc9b75d-d6a3-419a-af27-258e7e735acd",
+  "serialNumber": "urn:uuid:e564bed0-3bbd-4019-9d39-6be33d2a760e",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-03-31T08:51:41+00:00",
+    "timestamp": "2026-04-02T21:37:03+00:00",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "cb7d35fb-4484-4c13-b48c-a85e0d6fb7d7",
+      "bom-ref": "3b5ad66a-5326-48c4-8119-732042faf41f",
       "type": "application",
       "name": ".",
       "properties": [
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "40891295-85ed-405f-b53f-e4095811b348",
+      "bom-ref": "d4b70d93-c126-401d-847e-cff784e3b5d1",
       "type": "application",
       "name": "composer.lock",
       "properties": [
@@ -2184,10 +2184,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/phpstan/phpstan@2.1.45",
+      "bom-ref": "pkg:composer/phpstan/phpstan@2.1.46",
       "type": "library",
       "name": "phpstan/phpstan",
-      "version": "2.1.45",
+      "version": "2.1.46",
       "licenses": [
         {
           "license": {
@@ -2195,11 +2195,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/phpstan/phpstan@2.1.45",
+      "purl": "pkg:composer/phpstan/phpstan@2.1.46",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "phpstan/phpstan@2.1.45"
+          "value": "phpstan/phpstan@2.1.46"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -5042,7 +5042,13 @@
   ],
   "dependencies": [
     {
-      "ref": "40891295-85ed-405f-b53f-e4095811b348",
+      "ref": "3b5ad66a-5326-48c4-8119-732042faf41f",
+      "dependsOn": [
+        "d4b70d93-c126-401d-847e-cff784e3b5d1"
+      ]
+    },
+    {
+      "ref": "d4b70d93-c126-401d-847e-cff784e3b5d1",
       "dependsOn": [
         "pkg:composer/brainmaestro/composer-git-hooks@dev-master",
         "pkg:composer/doctrine/doctrine-bundle@2.18.2",
@@ -5055,7 +5061,7 @@
         "pkg:composer/pagerfanta/pagerfanta@v3.8.0",
         "pkg:composer/pestphp/pest@v4.4.3",
         "pkg:composer/phpmd/phpmd@2.15.0",
-        "pkg:composer/phpstan/phpstan@2.1.45",
+        "pkg:composer/phpstan/phpstan@2.1.46",
         "pkg:composer/rector/swiss-knife@2.3.5",
         "pkg:composer/symfony/cache@v7.4.7",
         "pkg:composer/symfony/console@v7.4.7",
@@ -5068,12 +5074,6 @@
         "pkg:composer/symfony/routing@v7.4.6",
         "pkg:composer/symplify/easy-coding-standard@13.0.4",
         "pkg:composer/twig/twig@v3.24.0"
-      ]
-    },
-    {
-      "ref": "cb7d35fb-4484-4c13-b48c-a85e0d6fb7d7",
-      "dependsOn": [
-        "40891295-85ed-405f-b53f-e4095811b348"
       ]
     },
     {
@@ -5874,7 +5874,7 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/phpstan/phpstan@2.1.45",
+      "ref": "pkg:composer/phpstan/phpstan@2.1.46",
       "dependsOn": []
     },
     {
