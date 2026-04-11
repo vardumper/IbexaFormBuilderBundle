@@ -14,56 +14,81 @@
 {%- endblock -%}
 
 {%- block content -%}
+    <section>
+        <form method="get" action="{{ path('ibexa_form_builder.submissions_list') }}" class="ibexa-search-links-form">
+            <div style="display:inline-block; margin-right:10px;">
+                {{ form_row(filterForm.contentId) }}
+            </div>
+            <div style="display:inline-block; margin-right:10px;">
+                {{ form_row(filterForm.dateFrom) }}
+            </div>
+            <div style="display:inline-block; margin-right:10px;">
+                {{ form_row(filterForm.dateTo) }}
+            </div>
+            {{ form_widget(filterForm.filter, { attr: { class: 'btn ibexa-btn ibexa-btn--primary' } }) }}
+        </form>
+    </section>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
     <section class="container ibexa-container">
         <div class="ibexa-table-header">
             <div class="ibexa-table-header__headline">Form Submissions</div>
         </div>
 
-        <form method="get" action="{{ path('ibexa_form_builder.submissions_list') }}" class="ibexa-form mb-4">
-            {{ form_row(filterForm.contentId) }}
-            {{ form_row(filterForm.dateFrom) }}
-            {{ form_row(filterForm.dateTo) }}
-            {{ form_widget(filterForm.filter) }}
-        </form>
-
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success">{{ message }}</div>
-        {% endfor %}
-
-        <table class="ibexa-table table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Form Content ID</th>
-                    <th>Submitted At</th>
-                    <th>IP Address</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for submission in submissions %}
-                    <tr>
-                        <td>{{ submission.id }}</td>
-                        <td>{{ submission.contentId }}</td>
-                        <td>{{ submission.submittedAt|date('Y-m-d H:i:s') }}</td>
-                        <td>{{ submission.ipAddress ?? '—' }}</td>
-                        <td>
-                            <a href="{{ path('ibexa_form_builder.submission_view', {id: submission.id}) }}"
-                               class="btn btn-sm ibexa-btn ibexa-btn--ghost">View</a>
-                            <form method="post"
-                                  action="{{ path('ibexa_form_builder.submission_delete', {id: submission.id}) }}"
-                                  style="display:inline"
-                                  onsubmit="return confirm('Delete submission #{{ submission.id }}?')">
-                                <input type="hidden" name="_token" value="{{ csrf_token('delete_submission_' ~ submission.id) }}">
-                                <button type="submit" class="btn btn-sm ibexa-btn ibexa-btn--ghost-danger">Delete</button>
-                            </form>
-                        </td>
+        <div class="ibexa-scrollable-wrapper">
+            <table class="ibexa-table table">
+                <thead>
+                    <tr class="ibexa-table__head-row">
+                        <th class="ibexa-table__header-cell">
+                            <span class="ibexa-table__header-cell-text-wrapper">#</span>
+                        </th>
+                        <th class="ibexa-table__header-cell">
+                            <span class="ibexa-table__header-cell-text-wrapper">Form Content ID</span>
+                        </th>
+                        <th class="ibexa-table__header-cell">
+                            <span class="ibexa-table__header-cell-text-wrapper">Submitted At</span>
+                        </th>
+                        <th class="ibexa-table__header-cell">
+                            <span class="ibexa-table__header-cell-text-wrapper">IP Address</span>
+                        </th>
+                        <th class="ibexa-table__header-cell">
+                            <span class="ibexa-table__header-cell-text-wrapper"></span>
+                        </th>
                     </tr>
-                {% else %}
-                    <tr><td colspan="5" class="text-center text-muted">No submissions found.</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="ibexa-table__body">
+                    {% for submission in submissions %}
+                        <tr class="ibexa-table__row">
+                            <td class="ibexa-table__cell">{{ submission.id }}</td>
+                            <td class="ibexa-table__cell">{{ submission.contentId }}</td>
+                            <td class="ibexa-table__cell">{{ submission.submittedAt|date('Y-m-d H:i:s') }}</td>
+                            <td class="ibexa-table__cell">{{ submission.ipAddress ?? '—' }}</td>
+                            <td class="ibexa-table__cell ibexa-table__cell--actions">
+                                <a href="{{ path('ibexa_form_builder.submission_view', {id: submission.id}) }}"
+                                   class="btn ibexa-btn ibexa-btn--ghost">View</a>
+                                <form method="post"
+                                      action="{{ path('ibexa_form_builder.submission_delete', {id: submission.id}) }}"
+                                      style="display:inline"
+                                      onsubmit="return confirm('Delete submission #{{ submission.id }}?')">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete_submission_' ~ submission.id) }}">
+                                    <button type="submit" class="btn ibexa-btn ibexa-btn--ghost-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr class="ibexa-table__row">
+                            <td class="ibexa-table__empty-table-cell" colspan="5">
+                                <img class="ibexa-table__empty-table-image" src="{{ asset('bundles/ibexaadminui/img/ibexa-empty-table.svg') }}" alt="Table is empty">
+                                <div class="ibexa-table__empty-table-text">No submissions found.</div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
         {% if submissions.haveToPaginate %}
             <nav>
@@ -73,8 +98,6 @@
                             <a class="page-link" href="{{ path('ibexa_form_builder.submissions_list', {'page': submissions.previousPage}) }}">‹</a>
                         </li>
                     {% endif %}
-                    {% for page in submissions.currentPageResults %}
-                    {% endfor %}
                     <li class="page-item disabled">
                         <span class="page-link">{{ submissions.currentPage }} / {{ submissions.nbPages }}</span>
                     </li>
@@ -87,4 +110,4 @@
             </nav>
         {% endif %}
     </section>
-{% endblock %}
+{%- endblock -%}
