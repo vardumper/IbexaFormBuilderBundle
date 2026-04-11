@@ -101,25 +101,29 @@ final class InstallContentTypesCommand extends Command
 
     private function ensureContentTypeGroup(SymfonyStyle $io): \Ibexa\Contracts\Core\Repository\Values\ContentType\ContentTypeGroup
     {
-        try {
-            return $this->contentTypeService->loadContentTypeGroupByIdentifier(self::GROUP_IDENTIFIER);
-        } catch (NotFoundException) {
-            $io->note(sprintf('Content type group "%s" not found — creating.', self::GROUP_IDENTIFIER));
-            $struct = $this->contentTypeService->newContentTypeGroupCreateStruct(self::GROUP_IDENTIFIER);
+        return $this->repository->sudo(function () use ($io) {
+            try {
+                return $this->contentTypeService->loadContentTypeGroupByIdentifier(self::GROUP_IDENTIFIER);
+            } catch (NotFoundException) {
+                $io->note(sprintf('Content type group "%s" not found — creating.', self::GROUP_IDENTIFIER));
+                $struct = $this->contentTypeService->newContentTypeGroupCreateStruct(self::GROUP_IDENTIFIER);
 
-            return $this->contentTypeService->createContentTypeGroup($struct);
-        }
+                return $this->contentTypeService->createContentTypeGroup($struct);
+            }
+        });
     }
 
     private function contentTypeExists(string $identifier): bool
     {
-        try {
-            $this->contentTypeService->loadContentTypeByIdentifier($identifier);
+        return $this->repository->sudo(function () use ($identifier) {
+            try {
+                $this->contentTypeService->loadContentTypeByIdentifier($identifier);
 
-            return true;
-        } catch (NotFoundException) {
-            return false;
-        }
+                return true;
+            } catch (NotFoundException) {
+                return false;
+            }
+        });
     }
 
     private function createContentType(

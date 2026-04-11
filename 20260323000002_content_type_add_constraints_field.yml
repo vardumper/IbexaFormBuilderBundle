@@ -1,0 +1,78 @@
+-
+    type: content_type
+    mode: update
+    match_tolerate_misses: true
+    match:
+        content_type_identifier: input
+    new_identifier: input
+    lang: eng-GB
+    attributes:
+        -
+            identifier: constraints
+            type: ibexa_string
+            name:
+                eng-GB: 'Validation Constraints (JSON)'
+            description:
+                eng-GB: 'Optional JSON array of extra Symfony validator constraints, e.g. [{"type":"Regex","pattern":"/^\\d+$/"}]. Allowed types: NotBlank, Email, Url, Ip, Regex, Length, Uuid, Hostname, Range, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Positive, PositiveOrZero, Negative, NegativeOrZero, Date, Time, DateTime, Iban, Luhn, CardScheme.'
+            required: false
+            searchable: false
+            info-collector: false
+            disable-translation: true
+            is-thumbnail: false
+            category: content
+            position: 100
+            field-settings: {  }
+            validator-configuration:
+                StringLengthValidator: { maxStringLength: 4096, minStringLength: null }
+-
+    type: content_type
+    mode: update
+    match_tolerate_misses: true
+    match:
+        content_type_identifier: textarea
+    new_identifier: textarea
+    lang: eng-GB
+    attributes:
+        -
+            identifier: constraints
+            type: ibexa_string
+            name:
+                eng-GB: 'Validation Constraints (JSON)'
+            description:
+                eng-GB: 'Optional JSON array of extra Symfony validator constraints, e.g. [{"type":"Length","min":10}].'
+            required: false
+            searchable: false
+            info-collector: false
+            disable-translation: true
+            is-thumbnail: false
+            category: content
+            position: 100
+            field-settings: {  }
+            validator-configuration:
+                StringLengthValidator: { maxStringLength: 4096, minStringLength: null }
+-
+    type: content_type
+    mode: update
+    match_tolerate_misses: true
+    match:
+        content_type_identifier: select
+    new_identifier: select
+    lang: eng-GB
+    attributes:
+        -
+            identifier: constraints
+            type: ibexa_string
+            name:
+                eng-GB: 'Validation Constraints (JSON)'
+            description:
+                eng-GB: 'Optional JSON array of extra Symfony validator constraints.'
+            required: false
+            searchable: false
+            info-collector: false
+            disable-translation: true
+            is-thumbnail: false
+            category: content
+            position: 100
+            field-settings: {  }
+            validator-configuration:
+                StringLengthValidator: { maxStringLength: 4096, minStringLength: null }
