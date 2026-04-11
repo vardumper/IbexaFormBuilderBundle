@@ -123,7 +123,7 @@ if $HAS_PHPSTAN; then
     fi
   fi
 else
-  printf "\nphpstan is required. Install it with:\n\n  ddev composer req --dev phpstan/phpstan\n\n"
+  printf "\nphpstan is required. Install it with:\n\n composer req --dev phpstan/phpstan\n\n"
 fi
 
 HAS_PHPMD=false
@@ -133,7 +133,7 @@ if [ -x $PHPMD ]; then
 fi
 
 run_phpmd() {
-  ddev exec "$PHPMD" "$1" text ruleset.xml
+  RUN "$PHPMD" "$1" text phpmd.xml
 }
 
 if $HAS_PHPMD; then
@@ -196,7 +196,7 @@ if $HAS_PEST; then
       PASS=false
     fi
 else
-  printf "\npest is required. Install it with:\n\n  ddev composer require --dev pestphp/pest\n\n"
+  printf "\npest is required. Install it with:\n\n composer require --dev pestphp/pest\n\n"
 fi
 
 END_TIME=$(date +%s) # Record the end time

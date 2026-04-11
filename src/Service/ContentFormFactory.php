@@ -13,6 +13,7 @@ use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\FieldDefinition;
 use Ibexa\Core\FieldType\Selection\Value as SelectionValue;
 use Ibexa\Core\Repository\ContentService;
+use InvalidArgumentException;
 use Symfony\Component\Form\Extension\Core\Type as FormType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -159,12 +160,12 @@ class ContentFormFactory
                 'form_builder_output',
                 'form_builder_progress',
                 'form_builder_meter' => FormType\TextType::class,
-                default => throw new \InvalidArgumentException(\sprintf('Form field type is not specified for content type "%s".', $identifier)),
+                default => throw new InvalidArgumentException(\sprintf('Form field type is not specified for content type "%s".', $identifier)),
             };
         }
 
         if (!isset($selection[0])) {
-            throw new \InvalidArgumentException('Unknown error.');
+            throw new InvalidArgumentException('Unknown error.');
         }
 
         $fieldDefinition = $this->loadContentType((int) $content->contentInfo->contentTypeId)->getFieldDefinition('type');
@@ -172,14 +173,14 @@ class ContentFormFactory
         $field = $selection[0];
 
         if (!isset($fieldSettings['options'][$field])) {
-            throw new \InvalidArgumentException('Form field type settings are not properly configured.');
+            throw new InvalidArgumentException('Form field type settings are not properly configured.');
         }
 
         $type = $fieldSettings['options'][$field];
         $typeClass = 'Symfony\\Component\\Form\\Extension\\Core\\Type\\' . \ucfirst($type) . 'Type';
 
         if (!\class_exists($typeClass)) {
-            throw new \InvalidArgumentException(\sprintf('Unsupported form field type "%s".', $type));
+            throw new InvalidArgumentException(\sprintf('Unsupported form field type "%s".', $type));
         }
 
         return $typeClass;
