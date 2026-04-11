@@ -2946,6 +2946,489 @@ final class InstallContentTypesCommand extends Command
                     ],
                 ],
             ],
+
+            'datalist' => [
+                'name' => 'Datalist',
+                'description' => 'The datalist element contains a set of option elements that represent the permissible or suggested options available to other controls.',
+                'nameSchema' => '<form_builder_name>',
+                'isContainer' => true,
+                'defaultSortField' => PersistenceLocation::SORT_FIELD_PRIORITY,
+                'defaultSortOrder' => PersistenceLocation::SORT_ORDER_ASC,
+                'fields' => [
+                    'form_builder_name' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Internal Name',
+                        'required' => true,
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => 1]],
+                    ],
+                    'form_builder_order' => [
+                        'type' => 'ibexa_integer',
+                        'label' => 'Order',
+                        'searchable' => false,
+                    ],
+                    'form_builder_id' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ID',
+                        'description' => 'Unique HTML id attribute. This is the value referenced by an input\'s list attribute.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_class' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'CSS Class(es)',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 512, 'minStringLength' => null]],
+                    ],
+                    'form_builder_style' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Inline Style',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 1024, 'minStringLength' => null]],
+                    ],
+                    'form_builder_hidden' => [
+                        'type' => 'ibexa_boolean',
+                        'label' => 'Hidden',
+                        'description' => 'When enabled, the element is not rendered (hidden attribute).',
+                        'searchable' => false,
+                    ],
+                    'form_builder_data_attributes' => [
+                        'type' => 'ibexa_matrix',
+                        'label' => 'Data Attributes',
+                        'description' => 'Custom data-* attributes. The "data-" prefix is added automatically.',
+                        'searchable' => false,
+                        'settings' => [
+                            'columns' => [
+                                ['identifier' => 'name', 'name' => 'Name'],
+                                ['identifier' => 'value', 'name' => 'Value'],
+                            ],
+                            'minimum_rows' => 0,
+                        ],
+                    ],
+                    'form_builder_alpine_attributes' => [
+                        'type' => 'ibexa_matrix',
+                        'label' => 'Alpine.js Attributes',
+                        'description' => 'Alpine.js x-* directives. The "x-" prefix is added automatically.',
+                        'searchable' => false,
+                        'settings' => [
+                            'columns' => [
+                                ['identifier' => 'directive', 'name' => 'Directive'],
+                                ['identifier' => 'value', 'name' => 'Value'],
+                            ],
+                            'minimum_rows' => 0,
+                        ],
+                    ],
+                ],
+            ],
+
+            'output' => [
+                'name' => 'Output',
+                'description' => 'The output element is a container element into which a site or app can inject the results of a calculation or the outcome of a user action.',
+                'nameSchema' => '<form_builder_name>',
+                'isContainer' => false,
+                'fields' => [
+                    'form_builder_name' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Internal Name',
+                        'required' => true,
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => 1]],
+                    ],
+                    'form_builder_label' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Label',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_default_value' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Default Value',
+                        'description' => 'The initial text content shown before any calculation result is available.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_for' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'For (IDs)',
+                        'description' => 'Space-separated list of IDs of elements whose values contributed to the calculation (for attribute).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 512, 'minStringLength' => null]],
+                    ],
+                    'form_builder_form_owner' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Form Owner (ID)',
+                        'description' => 'Associates this output with a form element by its ID (form attribute).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_order' => [
+                        'type' => 'ibexa_integer',
+                        'label' => 'Order',
+                        'searchable' => false,
+                    ],
+                    'form_builder_role' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'Role',
+                        'description' => 'Defines the semantic purpose of the element for assistive technologies (role attribute).',
+                        'settings' => ['options' => ['alert', 'application', 'article', 'banner', 'button', 'checkbox', 'complementary', 'contentinfo', 'dialog', 'form', 'grid', 'group', 'heading', 'img', 'link', 'list', 'listbox', 'listitem', 'main', 'menu', 'menubar', 'menuitem', 'navigation', 'none', 'presentation', 'radio', 'region', 'search', 'status', 'tab', 'tablist', 'tabpanel', 'textbox', 'toolbar', 'tooltip'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_label' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Label',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_labelledby' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Labelled By',
+                        'description' => 'Space-separated list of IDs (aria-labelledby).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_describedby' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Described By',
+                        'description' => 'Space-separated list of IDs (aria-describedby).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_live' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Live',
+                        'description' => 'Defines how updates should be announced to screen readers (aria-live). Defaults to "polite" for output elements.',
+                        'settings' => ['options' => ['off', 'polite', 'assertive'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_atomic' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Atomic',
+                        'settings' => ['options' => ['false', 'true'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_relevant' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Relevant',
+                        'settings' => ['options' => ['additions', 'removals', 'text', 'all', 'additions text'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_details' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Details',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_id' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ID',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_class' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'CSS Class(es)',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 512, 'minStringLength' => null]],
+                    ],
+                    'form_builder_style' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Inline Style',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 1024, 'minStringLength' => null]],
+                    ],
+                    'form_builder_hidden' => [
+                        'type' => 'ibexa_boolean',
+                        'label' => 'Hidden',
+                        'searchable' => false,
+                    ],
+                    'form_builder_data_attributes' => [
+                        'type' => 'ibexa_matrix',
+                        'label' => 'Data Attributes',
+                        'description' => 'Custom data-* attributes. The "data-" prefix is added automatically.',
+                        'searchable' => false,
+                        'settings' => [
+                            'columns' => [
+                                ['identifier' => 'name', 'name' => 'Name'],
+                                ['identifier' => 'value', 'name' => 'Value'],
+                            ],
+                            'minimum_rows' => 0,
+                        ],
+                    ],
+                    'form_builder_alpine_attributes' => [
+                        'type' => 'ibexa_matrix',
+                        'label' => 'Alpine.js Attributes',
+                        'description' => 'Alpine.js x-* directives. The "x-" prefix is added automatically.',
+                        'searchable' => false,
+                        'settings' => [
+                            'columns' => [
+                                ['identifier' => 'directive', 'name' => 'Directive'],
+                                ['identifier' => 'value', 'name' => 'Value'],
+                            ],
+                            'minimum_rows' => 0,
+                        ],
+                    ],
+                ],
+            ],
+
+            'progress' => [
+                'name' => 'Progress',
+                'description' => 'The progress element represents the completion progress of a task, typically displayed as a progress bar.',
+                'nameSchema' => '<form_builder_name>',
+                'isContainer' => false,
+                'fields' => [
+                    'form_builder_name' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Internal Name',
+                        'required' => true,
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => 1]],
+                    ],
+                    'form_builder_label' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Label / Fallback Text',
+                        'description' => 'Accessible label and fallback text for browsers that do not support the progress element.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_value' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Value',
+                        'description' => 'Current progress value (value attribute). Omit to show an indeterminate bar.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_max' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Max',
+                        'description' => 'The total work required (max attribute). Defaults to 1.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_order' => [
+                        'type' => 'ibexa_integer',
+                        'label' => 'Order',
+                        'searchable' => false,
+                    ],
+                    'form_builder_aria_label' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Label',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_labelledby' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Labelled By',
+                        'description' => 'Space-separated list of IDs (aria-labelledby).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_describedby' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Described By',
+                        'description' => 'Space-separated list of IDs (aria-describedby).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_valuemin' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Value Min',
+                        'description' => 'Minimum value for the progress range (aria-valuemin).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_valuemax' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Value Max',
+                        'description' => 'Maximum value for the progress range (aria-valuemax).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_valuenow' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Value Now',
+                        'description' => 'Current value for the progress range (aria-valuenow).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_valuetext' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Value Text',
+                        'description' => 'Human-readable representation of the current value (aria-valuetext).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_id' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ID',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_class' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'CSS Class(es)',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 512, 'minStringLength' => null]],
+                    ],
+                    'form_builder_style' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Inline Style',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 1024, 'minStringLength' => null]],
+                    ],
+                    'form_builder_hidden' => [
+                        'type' => 'ibexa_boolean',
+                        'label' => 'Hidden',
+                        'searchable' => false,
+                    ],
+                    'form_builder_data_attributes' => [
+                        'type' => 'ibexa_matrix',
+                        'label' => 'Data Attributes',
+                        'description' => 'Custom data-* attributes. The "data-" prefix is added automatically.',
+                        'searchable' => false,
+                        'settings' => [
+                            'columns' => [
+                                ['identifier' => 'name', 'name' => 'Name'],
+                                ['identifier' => 'value', 'name' => 'Value'],
+                            ],
+                            'minimum_rows' => 0,
+                        ],
+                    ],
+                    'form_builder_alpine_attributes' => [
+                        'type' => 'ibexa_matrix',
+                        'label' => 'Alpine.js Attributes',
+                        'description' => 'Alpine.js x-* directives. The "x-" prefix is added automatically.',
+                        'searchable' => false,
+                        'settings' => [
+                            'columns' => [
+                                ['identifier' => 'directive', 'name' => 'Directive'],
+                                ['identifier' => 'value', 'name' => 'Value'],
+                            ],
+                            'minimum_rows' => 0,
+                        ],
+                    ],
+                ],
+            ],
+
+            'meter' => [
+                'name' => 'Meter',
+                'description' => 'The meter element represents a scalar measurement within a known range, or a fractional value such as disk usage or relevance of a query result.',
+                'nameSchema' => '<form_builder_name>',
+                'isContainer' => false,
+                'fields' => [
+                    'form_builder_name' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Internal Name',
+                        'required' => true,
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => 1]],
+                    ],
+                    'form_builder_label' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Label / Fallback Text',
+                        'description' => 'Accessible label and fallback text for browsers that do not support the meter element.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_value' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Value',
+                        'description' => 'The current numeric value (value attribute). Must be between min and max.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_min' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Min',
+                        'description' => 'The lower bound of the range (min attribute). Defaults to 0.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_max' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Max',
+                        'description' => 'The upper bound of the range (max attribute). Defaults to 1.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_low' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Low',
+                        'description' => 'The upper bound of the low range (low attribute). Must be between min and high.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_high' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'High',
+                        'description' => 'The lower bound of the high range (high attribute). Must be between low and max.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_optimum' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Optimum',
+                        'description' => 'The optimal numeric value (optimum attribute). Hints which end of the range is preferable.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_form_owner' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Form Owner (ID)',
+                        'description' => 'Associates this meter with a form element by its ID (form attribute).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_order' => [
+                        'type' => 'ibexa_integer',
+                        'label' => 'Order',
+                        'searchable' => false,
+                    ],
+                    'form_builder_aria_label' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Label',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_labelledby' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Labelled By',
+                        'description' => 'Space-separated list of IDs (aria-labelledby).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_describedby' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Described By',
+                        'description' => 'Space-separated list of IDs (aria-describedby).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_valuemin' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Value Min',
+                        'description' => 'Minimum value for assistive technologies (aria-valuemin).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_valuemax' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Value Max',
+                        'description' => 'Maximum value for assistive technologies (aria-valuemax).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_valuenow' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Value Now',
+                        'description' => 'Current value for assistive technologies (aria-valuenow).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 50, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_valuetext' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Value Text',
+                        'description' => 'Human-readable representation of the current value (aria-valuetext).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_id' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ID',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_class' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'CSS Class(es)',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 512, 'minStringLength' => null]],
+                    ],
+                    'form_builder_style' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Inline Style',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 1024, 'minStringLength' => null]],
+                    ],
+                    'form_builder_hidden' => [
+                        'type' => 'ibexa_boolean',
+                        'label' => 'Hidden',
+                        'searchable' => false,
+                    ],
+                    'form_builder_data_attributes' => [
+                        'type' => 'ibexa_matrix',
+                        'label' => 'Data Attributes',
+                        'description' => 'Custom data-* attributes. The "data-" prefix is added automatically.',
+                        'searchable' => false,
+                        'settings' => [
+                            'columns' => [
+                                ['identifier' => 'name', 'name' => 'Name'],
+                                ['identifier' => 'value', 'name' => 'Value'],
+                            ],
+                            'minimum_rows' => 0,
+                        ],
+                    ],
+                    'form_builder_alpine_attributes' => [
+                        'type' => 'ibexa_matrix',
+                        'label' => 'Alpine.js Attributes',
+                        'description' => 'Alpine.js x-* directives. The "x-" prefix is added automatically.',
+                        'searchable' => false,
+                        'settings' => [
+                            'columns' => [
+                                ['identifier' => 'directive', 'name' => 'Directive'],
+                                ['identifier' => 'value', 'name' => 'Value'],
+                            ],
+                            'minimum_rows' => 0,
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 }
