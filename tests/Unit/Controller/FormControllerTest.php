@@ -47,16 +47,20 @@ function makeFormController(
     ?ContentFormFactory $factory = null,
     ?EventDispatcherInterface $dispatcher = null,
     ?SubmissionHandler $handler = null,
+    ?LocationService $locationService = null,
+    ?SearchService $searchService = null,
 ): FormController {
     $factory ??= testMock(ContentFormFactory::class);
     $dispatcher ??= testMock(EventDispatcherInterface::class);
     $handler ??= testMock(SubmissionHandler::class);
+    $locationService ??= testMock(LocationService::class);
+    $searchService ??= testMock(SearchService::class);
 
     return new FormController(
         $factory,
         $dispatcher,
-        testMock(LocationService::class),
-        testMock(SearchService::class),
+        $locationService,
+        $searchService,
         $handler,
     );
 }
@@ -187,4 +191,101 @@ it('renderForm does not call submission handler when pre-validation event is can
 
     expect($response->getStatusCode())->toBe(200)
         ->and($handleCalled)->toBeFalse();
+});
+
+it('renderForm returns 200 with cache headers on GET when not modified', function (): void {
+    $modDate = new DateTimeImmutable('2024-01-01 12:00:00');
+
+    $mockForm = testMock(FormInterface::class);
+    $mockForm->method('handleRequest')->willReturnSelf();
+    $mockForm->method('isSubmitted')->willReturn(false);
+    $mockForm->method('createView')->willReturn(new \Symfony\Component\Form\FormView());
+
+    $factory = testMock(ContentFormFactory::class);
+    $factory->method('getFormStructure')->willReturn([
+        'formName' => 'test',
+        'method' => 'POST',
+        'modificationDate' => $modDate,
+        'fields' => [],
+    ]);
+    $factory->method('createForm')->willReturn($mockForm);
+
+    $controller = makeFormController(factory: $factory);
+    $controller->setContainer(makeFormContainer());
+
+    $request = Request::create('/form/1');
+    $response = $controller->renderForm($request, '1', null, null, null);
+
+    expect($response->getStatusCode())->toBe(200)
+        ->and($response->headers->get('Last-Modified'))->not->toBeNull();
+});
+
+it('renderForm resolves contentId from locationId parameter', function (): void {
+    $modDate = new DateTimeImmutable('2024-01-01 12:00:00');
+
+    $mockForm = testMock(FormInterface::class);
+    $mockForm->method('handleRequest')->willReturnSelf();
+    $mockForm->method('isSubmitted')->willReturn(false);
+    $mockForm->method('createView')->willReturn(new \Symfony\Component\Form\FormView());
+
+    $factory = testMock(ContentFormFactory::class);
+    $factory->method('getFormStructure')->willReturn([
+        'formName' => 'test',
+        'method' => 'POST',
+        'modificationDate' => $modDate,
+        'fields' => [],
+    ]);
+    $factory->method('createForm')->willReturn($mockForm);
+
+    $location = new \Ibexa\Core\Repository\Values\Content\Location(['contentInfo' => new \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo(['id' => 99])]);
+    $locationService = testMock(LocationService::class);
+    $locationService->method('loadLocation')->willReturn($location);
+
+    $controller = makeFormController(factory: $factory, locationService: $locationService);
+    $controller->setContainer(makeFormContainer());
+
+    $request = Request::create('/form/');
+    $response = $controller->renderForm($request, null, null, 10, null);
+
+    expect($response->getStatusCode())->toBe(200);
+});
+
+it('renderForm falls back to location lookup when numeric identifier is not a contentId', function (): void {
+    $modDate = new DateTimeImmutable('2024-01-01 12:00:00');
+
+    $mockForm = testMock(FormInterface::class);
+    $mockForm->method('handleRequest')->willReturnSelf();
+    $mockForm->method('isSubmitted')->willReturn(false);
+    $mockForm->method('createView')->willReturn(new \Symfony\Component\Form\FormView());
+
+    $call = 0;
+    $factory = testMock(ContentFormFactory::class);
+    $factory->method('getFormStructure')->willReturnCallback(
+        static function () use (&$call, $modDate): array {
+            if (++$call === 1) {
+                throw new \RuntimeException('content not found');
+            }
+
+            return [
+                'formName' => 'test',
+                'method' => 'POST',
+                'modificationDate' => $modDate,
+                'fields' => [],
+            ];
+        },
+    );
+    $factory->method('createForm')->willReturn($mockForm);
+
+    $location = new \Ibexa\Core\Repository\Values\Content\Location(['contentInfo' => new \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo(['id' => 42])]);
+    $locationService = testMock(LocationService::class);
+    $locationService->method('loadLocation')->willReturn($location);
+
+    $controller = makeFormController(factory: $factory, locationService: $locationService);
+    $controller->setContainer(makeFormContainer());
+
+    $request = Request::create('/form/5');
+    $response = $controller->renderForm($request, '5', null, null, null);
+
+    expect($response->getStatusCode())->toBe(200)
+        ->and($call)->toBe(2);
 });

@@ -139,3 +139,39 @@ it('dispatches PreSendEmailEvent before sending', function () {
 
     expect($preSendDispatched)->toBeTrue();
 });
+
+it('sets cc bcc and custom subject when content fields are present', function () {
+    $sent = false;
+    $mailer = testMock(MailerInterface::class);
+    $mailer->method('send')->willReturnCallback(function () use (&$sent): void { $sent = true; });
+
+    $content = testMock(Content::class);
+    $content->method('getName')->willReturn('Test Form');
+    $content->method('getFields')->willReturn([
+        new Field(['fieldDefIdentifier' => 'notification_email', 'value' => 'to@example.com']),
+        new Field(['fieldDefIdentifier' => 'notification_email_cc', 'value' => 'cc@example.com']),
+        new Field(['fieldDefIdentifier' => 'notification_email_bcc', 'value' => 'bcc@example.com']),
+        new Field(['fieldDefIdentifier' => 'email_subject', 'value' => 'Custom Subject']),
+    ]);
+
+    $event = new PostSubmitEvent(1, $content, ['field' => 'val'], null, 'email');
+    makeEmailListener($mailer)($event);
+
+    expect($sent)->toBeTrue();
+});
+
+it('sends email without from header when fromEmail is empty', function () {
+    $sent = false;
+    $mailer = testMock(MailerInterface::class);
+    $mailer->method('send')->willReturnCallback(function () use (&$sent): void { $sent = true; });
+
+    $twig = testMock(Environment::class);
+    $twig->method('render')->willReturn('<html>test</html>');
+
+    $dispatcher = testMock(EventDispatcherInterface::class);
+    $dispatcher->method('dispatch')->willReturnArgument(0);
+
+    (new SendNotificationEmailListener($dispatcher, $mailer, $twig, ''))(makeEmailEvent('email'));
+
+    expect($sent)->toBeTrue();
+});

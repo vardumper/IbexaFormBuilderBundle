@@ -174,11 +174,13 @@ Use any of the three identifiers to render a form from a controller or template:
 $this->forward('vardumper\IbexaFormBuilderBundle\Controller\FormController::renderForm', [
     'contentId' => 123,
 ]);
-
-// by location ID
-// by form name (value of the form_builder_name field)
 ```
-
+You can render a form by passing its content ID, location ID or Form name:
+```twig
+{{ render(controller('vardumper\\IbexaFormBuilderBundle\\Controller\\FormController::renderForm', { contentId: 54 })) }}
+{{ render(controller('vardumper\\IbexaFormBuilderBundle\\Controller\\FormController::renderForm', { locationId: 56 })) }}
+{{ render(controller('vardumper\\IbexaFormBuilderBundle\\Controller\\FormController::renderForm', { formName: 'Search Form' })) }}
+```
 Or link directly via the registered route:
 
 ```
