@@ -76,15 +76,13 @@ final class InstallContentTypesCommand extends Command
         foreach ($definitions as $shortIdentifier => $definition) {
             $identifier = 'form_builder_' . $shortIdentifier;
             if ($this->contentTypeExists($identifier)) {
-                if (!$overwriteExisting) {
-                    $io->note(sprintf('Content type "%s" already exists — skipping.', $identifier));
-                    continue;
+                if ($overwriteExisting) {
+                    // Try to delete and recreate
+                    $this->deleteContentType($identifier, $io);
                 }
 
-                // Try to delete and recreate
-                $this->deleteContentType($identifier, $io);
-
-                // If content type still exists (has content items), patch missing fields instead
+                // If content type still exists (either --overwrite-existing not set,
+                // or deletion failed because it has content items), patch missing fields
                 if ($this->contentTypeExists($identifier)) {
                     $this->patchContentType($identifier, $definition['fields'], $io);
                     continue;
@@ -331,6 +329,66 @@ final class InstallContentTypesCommand extends Command
                     'form_builder_email_subject' => [
                         'type' => 'ibexa_string',
                         'label' => 'Email Subject',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_accept_charset' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Accept Charset',
+                        'description' => 'Specifies the character encodings that are to be used for form submission (accept-charset attribute).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_autocorrect' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'Autocorrect',
+                        'description' => 'Controls whether autocorrection of editable text is enabled for spelling and/or punctuation errors.',
+                        'settings' => ['options' => ['on', 'off'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_label' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Label',
+                        'description' => 'Defines a string value that labels the current element for assistive technologies (aria-label).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_invalid' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Invalid',
+                        'description' => 'Indicates that the value entered does not conform to the expected format (aria-invalid).',
+                        'settings' => ['options' => ['false', 'true', 'grammar', 'spelling'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_live' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Live',
+                        'description' => 'Defines how updates to the element should be announced to screen readers (aria-live).',
+                        'settings' => ['options' => ['off', 'polite', 'assertive'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_atomic' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Atomic',
+                        'description' => 'Indicates whether assistive technologies should present the entire region as a whole when changes occur (aria-atomic).',
+                        'settings' => ['options' => ['false', 'true'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_relevant' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Relevant',
+                        'description' => 'Indicates what content changes should be announced in a live region (aria-relevant).',
+                        'settings' => ['options' => ['additions', 'removals', 'text', 'all', 'additions text'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_details' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Details',
+                        'description' => 'References an element ID that provides additional details about the current element (aria-details).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_keyshortcuts' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Key Shortcuts',
+                        'description' => 'Defines keyboard shortcuts available for the element (aria-keyshortcuts).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_roledescription' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Role Description',
+                        'description' => 'Provides a human-readable custom role description for assistive technologies (aria-roledescription).',
                         'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
                     ],
                 ],
@@ -605,6 +663,150 @@ final class InstallContentTypesCommand extends Command
                         'description' => 'JSON array of constraint objects. Each object requires a "type" key. Supported types: NotBlank, IsNull, IsTrue, IsFalse, Email, Url, Ip, Regex, Length, Uuid, Hostname, Range, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Positive, PositiveOrZero, Negative, NegativeOrZero, Date, Time. Examples: [{"type":"NotBlank"},{"type":"Length","min":2,"max":100}] — non-blank between 2 and 100 chars. [{"type":"Email"}] — valid e-mail. [{"type":"Regex","pattern":"/^[A-Z0-9]+$/i"}] — pattern match. [{"type":"Range","min":1,"max":10}] — numeric range.',
                         'searchable' => false,
                         'validators' => ['StringLengthValidator' => ['maxStringLength' => 4096, 'minStringLength' => null]],
+                    ],
+                    'form_builder_autocorrect' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'Autocorrect',
+                        'description' => 'Controls whether autocorrection of editable text is enabled for spelling and/or punctuation errors.',
+                        'settings' => ['options' => ['on', 'off'], 'isMultiple' => false],
+                    ],
+                    'form_builder_dirname' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Dirname',
+                        'description' => 'Specifies the name of the field that will contain the text direction (ltr or rtl) when the form is submitted.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_form_owner' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'Form Owner (ID)',
+                        'description' => 'Associates this textarea with a form element by its ID. Allows placement outside the form element.',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_role' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'Role',
+                        'description' => 'Defines the semantic purpose of the element for assistive technologies (role attribute).',
+                        'settings' => ['options' => ['alert', 'application', 'article', 'banner', 'button', 'checkbox', 'complementary', 'contentinfo', 'dialog', 'form', 'grid', 'group', 'heading', 'img', 'link', 'list', 'listbox', 'listitem', 'main', 'menu', 'menubar', 'menuitem', 'navigation', 'none', 'presentation', 'radio', 'region', 'search', 'status', 'tab', 'tablist', 'tabpanel', 'textbox', 'toolbar', 'tooltip'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_label' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Label',
+                        'description' => 'Defines a string value that labels the current element for assistive technologies (aria-label).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_labelledby' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Labelled By',
+                        'description' => 'Identifies the element(s) that label the current element. Space-separated list of IDs (aria-labelledby).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_describedby' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Described By',
+                        'description' => 'Identifies the element(s) that describe the current element. Space-separated list of IDs (aria-describedby).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_controls' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Controls',
+                        'description' => 'Identifies the element(s) whose contents are controlled by this element. Space-separated list of IDs (aria-controls).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_invalid' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Invalid',
+                        'description' => 'Indicates that the value entered does not conform to the expected format (aria-invalid).',
+                        'settings' => ['options' => ['false', 'true', 'grammar', 'spelling'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_disabled' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Disabled',
+                        'description' => 'Indicates that the element is perceivable but disabled (aria-disabled).',
+                        'settings' => ['options' => ['false', 'true'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_required' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Required',
+                        'description' => 'Specifies that the field is required before form submission (aria-required).',
+                        'settings' => ['options' => ['false', 'true'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_readonly' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Readonly',
+                        'description' => 'Marks the field as read-only but still selectable and focusable (aria-readonly).',
+                        'settings' => ['options' => ['false', 'true'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_multiline' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Multiline',
+                        'description' => 'Indicates whether the input allows multiple lines of text (aria-multiline).',
+                        'settings' => ['options' => ['true', 'false'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_placeholder' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Placeholder',
+                        'description' => 'Provides a placeholder hint for the field (aria-placeholder).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_autocomplete' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Autocomplete',
+                        'description' => 'Specifies autocomplete behaviour for the field (aria-autocomplete).',
+                        'settings' => ['options' => ['none', 'inline', 'list', 'both'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_expanded' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Expanded',
+                        'description' => 'Indicates whether a collapsible UI element is expanded or collapsed (aria-expanded).',
+                        'settings' => ['options' => ['false', 'true', 'undefined'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_haspopup' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Has Popup',
+                        'description' => 'Indicates that the element has an associated popup (aria-haspopup).',
+                        'settings' => ['options' => ['false', 'true', 'menu', 'listbox', 'tree', 'grid', 'dialog'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_pressed' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Pressed',
+                        'description' => 'Indicates whether a toggle element is pressed (aria-pressed).',
+                        'settings' => ['options' => ['false', 'true', 'mixed', 'undefined'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_live' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Live',
+                        'description' => 'Defines how updates to the element should be announced to screen readers (aria-live).',
+                        'settings' => ['options' => ['off', 'polite', 'assertive'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_atomic' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Atomic',
+                        'description' => 'Indicates whether assistive technologies should present the entire region as a whole (aria-atomic).',
+                        'settings' => ['options' => ['false', 'true'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_relevant' => [
+                        'type' => 'ibexa_selection',
+                        'label' => 'ARIA Relevant',
+                        'description' => 'Indicates what content changes should be announced in a live region (aria-relevant).',
+                        'settings' => ['options' => ['additions', 'removals', 'text', 'all', 'additions text'], 'isMultiple' => false],
+                    ],
+                    'form_builder_aria_details' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Details',
+                        'description' => 'References an element ID that provides additional details about the current element (aria-details).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_keyshortcuts' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Key Shortcuts',
+                        'description' => 'Defines keyboard shortcuts available for the element (aria-keyshortcuts).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
+                    ],
+                    'form_builder_aria_roledescription' => [
+                        'type' => 'ibexa_string',
+                        'label' => 'ARIA Role Description',
+                        'description' => 'Provides a human-readable custom role description for assistive technologies (aria-roledescription).',
+                        'validators' => ['StringLengthValidator' => ['maxStringLength' => 255, 'minStringLength' => null]],
                     ],
                 ],
             ],
