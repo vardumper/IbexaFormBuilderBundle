@@ -51,7 +51,7 @@ final class FormController extends AbstractController
         $structure = null;
 
         if ($identifier !== null && $contentId === null && $locationId === null && $formName === null) {
-            if (is_numeric($identifier)) {
+            if (\is_numeric($identifier)) {
                 $numericIdentifier = (int) $identifier;
 
                 try {
@@ -66,14 +66,14 @@ final class FormController extends AbstractController
             }
         }
 
-        $provided = array_filter(
+        $provided = \array_filter(
             ['contentId' => $contentId, 'locationId' => $locationId, 'formName' => $formName],
             static fn (mixed $v): bool => $v !== null,
         );
 
-        if (count($provided) !== 1) {
+        if (\count($provided) !== 1) {
             throw $this->createNotFoundException(
-                sprintf('Exactly one of contentId, locationId, or formName must be provided (%d given).', count($provided)),
+                \sprintf('Exactly one of contentId, locationId, or formName must be provided (%d given).', \count($provided)),
             );
         }
 
@@ -91,7 +91,7 @@ final class FormController extends AbstractController
             $results = $this->searchService->findContent($query);
 
             if ($results->totalCount === 0) {
-                throw $this->createNotFoundException(sprintf('Form with name "%s" not found.', $formName));
+                throw $this->createNotFoundException(\sprintf('Form with name "%s" not found.', $formName));
             }
 
             $contentId = $results->searchHits[0]->valueObject->id;
@@ -103,7 +103,7 @@ final class FormController extends AbstractController
 
         if ($request->isMethod('GET')) {
             $cacheValidationResponse = new Response();
-            /** Headers below are no-ops for render() subrequests; they take effect only on direct access or render_esi(). */
+            /** Cache-validation for direct access / render_esi() — no-op for render() subrequests. */
             $cacheValidationResponse->setSharedMaxAge(3600);
             $cacheValidationResponse->headers->addCacheControlDirective('must-revalidate');
             $cacheValidationResponse->setLastModified($structure['modificationDate']);

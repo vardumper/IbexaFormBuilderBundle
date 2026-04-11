@@ -5,17 +5,11 @@ declare(strict_types=1);
 namespace vardumper\IbexaFormBuilderBundle\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 use vardumper\IbexaFormBuilderBundle\Entity\FormSubmission;
 
-/**
- * @extends ServiceEntityRepository<FormSubmission>
- *
- * @method FormSubmission|null find($id, $lockMode = null, $lockVersion = null)
- * @method FormSubmission|null findOneBy(array $criteria, array $orderBy = null)
- * @method FormSubmission[]    findAll()
- * @method FormSubmission[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- */
+/** @extends ServiceEntityRepository<FormSubmission> */
 class FormSubmissionRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
@@ -34,7 +28,7 @@ class FormSubmissionRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findPaginatedQuery(?int $contentId = null): \Doctrine\ORM\Query
+    public function findPaginatedQuery(?int $contentId = null): Query
     {
         $qb = $this->createQueryBuilder('s')
             ->orderBy('s.submittedAt', 'DESC');

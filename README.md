@@ -24,7 +24,7 @@ Standalone Ibexa DXP bundle for rendering frontend-facing forms managed as Ibexa
 
 ## Requirements
 
-* PHP >= 8.2
+* PHP >= 8.3
 * Ibexa DXP >= v4.4 or >= v5.0
 * Symfony 5.4.x or 7.x
 * Doctrine ORM ^2.11 or ^3.0

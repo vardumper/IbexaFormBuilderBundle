@@ -26,19 +26,15 @@ final class InstallContentTypesCommand extends Command
     private const GROUP_IDENTIFIER = 'Form Builder';
     private const LANGUAGE = 'eng-GB';
 
-    private bool $useModernFieldTypes;
+    private readonly bool $useModernFieldTypes;
 
     public function __construct(
         private readonly ContentTypeService $contentTypeService,
         private readonly Repository $repository,
     ) {
-        parent::__construct();
-    }
-
-    protected function initialize(InputInterface $input, OutputInterface $output): void
-    {
         $coreVersion = InstalledVersions::getVersion('ibexa/core') ?? '5.0.0';
-        $this->useModernFieldTypes = version_compare($coreVersion, '5.0.0', '>=');
+        $this->useModernFieldTypes = \version_compare($coreVersion, '5.0.0', '>=');
+        parent::__construct();
     }
 
     /**
@@ -77,12 +73,9 @@ final class InstallContentTypesCommand extends Command
             $identifier = 'form_builder_' . $shortIdentifier;
             if ($this->contentTypeExists($identifier)) {
                 if ($overwriteExisting) {
-                    // Try to delete and recreate
                     $this->deleteContentType($identifier, $io);
                 }
 
-                // If content type still exists (either --overwrite-existing not set,
-                // or deletion failed because it has content items), patch missing fields
                 if ($this->contentTypeExists($identifier)) {
                     $this->patchContentType($identifier, $definition['fields'], $io);
                     continue;
@@ -103,7 +96,7 @@ final class InstallContentTypesCommand extends Command
             try {
                 return $this->contentTypeService->loadContentTypeGroupByIdentifier(self::GROUP_IDENTIFIER);
             } catch (NotFoundException) {
-                $io->note(sprintf('Content type group "%s" not found — creating.', self::GROUP_IDENTIFIER));
+                $io->note(\sprintf('Content type group "%s" not found — creating.', self::GROUP_IDENTIFIER));
                 $struct = $this->contentTypeService->newContentTypeGroupCreateStruct(self::GROUP_IDENTIFIER);
 
                 return $this->contentTypeService->createContentTypeGroup($struct);
@@ -148,7 +141,7 @@ final class InstallContentTypesCommand extends Command
             $draft = $this->contentTypeService->createContentType($struct, [$group]);
             $this->contentTypeService->publishContentTypeDraft($draft);
 
-            $io->writeln(sprintf('  ✓ Created content type <info>%s</info>', $identifier));
+            $io->writeln(\sprintf('  ✓ Created content type <info>%s</info>', $identifier));
         });
     }
 
@@ -160,10 +153,10 @@ final class InstallContentTypesCommand extends Command
             $contentType = $this->contentTypeService->loadContentTypeByIdentifier($identifier);
             try {
                 $this->contentTypeService->deleteContentType($contentType);
-                $io->writeln(sprintf('  ✓ Deleted content type <info>%s</info>', $identifier));
+                $io->writeln(\sprintf('  ✓ Deleted content type <info>%s</info>', $identifier));
             } catch (\Exception $e) {
-                if (str_contains($e->getMessage(), 'still has Content items')) {
-                    $io->warning(sprintf('Cannot delete content type "%s" — it has content items. Skipping overwrite.', $identifier));
+                if (\str_contains($e->getMessage(), 'still has Content items')) {
+                    $io->warning(\sprintf('Cannot delete content type "%s" — it has content items. Skipping overwrite.', $identifier));
                 } else {
                     throw $e;
                 }
@@ -179,19 +172,19 @@ final class InstallContentTypesCommand extends Command
         $this->repository->sudo(function () use ($identifier, $fields, $io) {
             $contentType = $this->contentTypeService->loadContentTypeByIdentifier($identifier);
 
-            $missing = array_filter(
-                array_keys($fields),
+            $missing = \array_filter(
+                \array_keys($fields),
                 fn (string $fieldId) => $contentType->getFieldDefinition($fieldId) === null,
             );
 
             if (empty($missing)) {
-                $io->writeln(sprintf('  ✓ Content type <info>%s</info> already has all field definitions — nothing to patch.', $identifier));
+                $io->writeln(\sprintf('  ✓ Content type <info>%s</info> already has all field definitions — nothing to patch.', $identifier));
 
                 return;
             }
 
             $draft = $this->contentTypeService->createContentTypeDraft($contentType);
-            $position = count(iterator_to_array($contentType->getFieldDefinitions())) + 1;
+            $position = \count(\iterator_to_array($contentType->getFieldDefinitions())) + 1;
 
             foreach ($missing as $fieldIdentifier) {
                 $field = $fields[$fieldIdentifier];
@@ -222,7 +215,7 @@ final class InstallContentTypesCommand extends Command
             }
 
             $this->contentTypeService->publishContentTypeDraft($draft);
-            $io->writeln(sprintf('  ✓ Patched content type <info>%s</info> — added: %s', $identifier, implode(', ', $missing)));
+            $io->writeln(\sprintf('  ✓ Patched content type <info>%s</info> — added: %s', $identifier, \implode(', ', $missing)));
         });
     }
 

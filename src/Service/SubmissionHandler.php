@@ -28,11 +28,11 @@ class SubmissionHandler
             }
         }
 
-        $cleanData = array_filter(
+        $cleanData = \array_filter(
             $postData,
-            static fn (string $key) => !str_starts_with($key, '_'),
+            static fn (string $key) => !\str_starts_with($key, '_'),
             ARRAY_FILTER_USE_KEY,
-        ); /** strip Symfony internal fields */
+        ); /** Strip Symfony internal fields. */
 
         $preSubmit = new PreSubmitEvent($contentId, $cleanData, $ipAddress);
         $this->eventDispatcher->dispatch($preSubmit, FormBuilderEvents::PRE_SUBMIT);
