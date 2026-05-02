@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:85a90e08-5300-4162-a54b-3dc2c10c2469",
+  "serialNumber": "urn:uuid:d6696c13-7ee1-4349-bf8a-49064723836b",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-04-11T18:34:50+00:00",
+    "timestamp": "2026-05-02T15:50:22+00:00",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "e5371b95-be46-4cd4-9318-b76632dde34b",
+      "bom-ref": "ab4e83ce-72bf-4fc0-8c50-6b2bfffd47bc",
       "type": "application",
       "name": ".",
       "properties": [
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "714fee26-15b7-4743-9ae1-7c1c9c59712f",
+      "bom-ref": "2a6f752c-6146-49e0-8918-ac73bcded322",
       "type": "application",
       "name": "composer.lock",
       "properties": [
@@ -576,10 +576,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/doctrine/persistence@3.4.3",
+      "bom-ref": "pkg:composer/doctrine/persistence@3.4.4",
       "type": "library",
       "name": "doctrine/persistence",
-      "version": "3.4.3",
+      "version": "3.4.4",
       "licenses": [
         {
           "license": {
@@ -587,11 +587,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/doctrine/persistence@3.4.3",
+      "purl": "pkg:composer/doctrine/persistence@3.4.4",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "doctrine/persistence@3.4.3"
+          "value": "doctrine/persistence@3.4.4"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -744,10 +744,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/friendsofphp/php-cs-fixer@v3.95.0",
+      "bom-ref": "pkg:composer/friendsofphp/php-cs-fixer@v3.95.1",
       "type": "library",
       "name": "friendsofphp/php-cs-fixer",
-      "version": "v3.95.0",
+      "version": "v3.95.1",
       "licenses": [
         {
           "license": {
@@ -755,11 +755,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/friendsofphp/php-cs-fixer@v3.95.0",
+      "purl": "pkg:composer/friendsofphp/php-cs-fixer@v3.95.1",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "friendsofphp/php-cs-fixer@v3.95.0"
+          "value": "friendsofphp/php-cs-fixer@v3.95.1"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -888,10 +888,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/ibexa/admin-ui@v5.0.6",
+      "bom-ref": "pkg:composer/ibexa/admin-ui@v5.0.7",
       "type": "library",
       "name": "ibexa/admin-ui",
-      "version": "v5.0.6",
+      "version": "v5.0.7",
       "licenses": [
         {
           "license": {
@@ -899,11 +899,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/ibexa/admin-ui@v5.0.6",
+      "purl": "pkg:composer/ibexa/admin-ui@v5.0.7",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "ibexa/admin-ui@v5.0.6"
+          "value": "ibexa/admin-ui@v5.0.7"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -912,10 +912,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/ibexa/content-forms@v5.0.6",
+      "bom-ref": "pkg:composer/ibexa/content-forms@v5.0.7",
       "type": "library",
       "name": "ibexa/content-forms",
-      "version": "v5.0.6",
+      "version": "v5.0.7",
       "licenses": [
         {
           "license": {
@@ -923,11 +923,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/ibexa/content-forms@v5.0.6",
+      "purl": "pkg:composer/ibexa/content-forms@v5.0.7",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "ibexa/content-forms@v5.0.6"
+          "value": "ibexa/content-forms@v5.0.7"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -936,10 +936,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/ibexa/core@v5.0.6",
+      "bom-ref": "pkg:composer/ibexa/core@v5.0.7",
       "type": "library",
       "name": "ibexa/core",
-      "version": "v5.0.6",
+      "version": "v5.0.7",
       "licenses": [
         {
           "license": {
@@ -947,11 +947,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/ibexa/core@v5.0.6",
+      "purl": "pkg:composer/ibexa/core@v5.0.7",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "ibexa/core@v5.0.6"
+          "value": "ibexa/core@v5.0.7"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -960,10 +960,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/ibexa/design-engine@v5.0.6",
+      "bom-ref": "pkg:composer/ibexa/design-engine@v5.0.7",
       "type": "library",
       "name": "ibexa/design-engine",
-      "version": "v5.0.6",
+      "version": "v5.0.7",
       "licenses": [
         {
           "license": {
@@ -971,11 +971,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/ibexa/design-engine@v5.0.6",
+      "purl": "pkg:composer/ibexa/design-engine@v5.0.7",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "ibexa/design-engine@v5.0.6"
+          "value": "ibexa/design-engine@v5.0.7"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -984,10 +984,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/ibexa/doctrine-schema@v5.0.6",
+      "bom-ref": "pkg:composer/ibexa/doctrine-schema@v5.0.7",
       "type": "library",
       "name": "ibexa/doctrine-schema",
-      "version": "v5.0.6",
+      "version": "v5.0.7",
       "licenses": [
         {
           "license": {
@@ -995,11 +995,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/ibexa/doctrine-schema@v5.0.6",
+      "purl": "pkg:composer/ibexa/doctrine-schema@v5.0.7",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "ibexa/doctrine-schema@v5.0.6"
+          "value": "ibexa/doctrine-schema@v5.0.7"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -1008,10 +1008,34 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/ibexa/notifications@v5.0.6",
+      "bom-ref": "pkg:composer/ibexa/jms-translation-bundle@2.6.0",
+      "type": "library",
+      "name": "ibexa/jms-translation-bundle",
+      "version": "2.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:composer/ibexa/jms-translation-bundle@2.6.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "ibexa/jms-translation-bundle@2.6.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "composer"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:composer/ibexa/notifications@v5.0.7",
       "type": "library",
       "name": "ibexa/notifications",
-      "version": "v5.0.6",
+      "version": "v5.0.7",
       "licenses": [
         {
           "license": {
@@ -1019,11 +1043,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/ibexa/notifications@v5.0.6",
+      "purl": "pkg:composer/ibexa/notifications@v5.0.7",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "ibexa/notifications@v5.0.6"
+          "value": "ibexa/notifications@v5.0.7"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -1056,10 +1080,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/ibexa/rest@v5.0.6",
+      "bom-ref": "pkg:composer/ibexa/rest@v5.0.7",
       "type": "library",
       "name": "ibexa/rest",
-      "version": "v5.0.6",
+      "version": "v5.0.7",
       "licenses": [
         {
           "license": {
@@ -1067,11 +1091,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/ibexa/rest@v5.0.6",
+      "purl": "pkg:composer/ibexa/rest@v5.0.7",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "ibexa/rest@v5.0.6"
+          "value": "ibexa/rest@v5.0.7"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -1080,10 +1104,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/ibexa/search@v5.0.6",
+      "bom-ref": "pkg:composer/ibexa/search@v5.0.7",
       "type": "library",
       "name": "ibexa/search",
-      "version": "v5.0.6",
+      "version": "v5.0.7",
       "licenses": [
         {
           "license": {
@@ -1091,11 +1115,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/ibexa/search@v5.0.6",
+      "purl": "pkg:composer/ibexa/search@v5.0.7",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "ibexa/search@v5.0.6"
+          "value": "ibexa/search@v5.0.7"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -1152,10 +1176,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/ibexa/twig-components@v5.0.6",
+      "bom-ref": "pkg:composer/ibexa/twig-components@v5.0.7",
       "type": "library",
       "name": "ibexa/twig-components",
-      "version": "v5.0.6",
+      "version": "v5.0.7",
       "licenses": [
         {
           "license": {
@@ -1163,11 +1187,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/ibexa/twig-components@v5.0.6",
+      "purl": "pkg:composer/ibexa/twig-components@v5.0.7",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "ibexa/twig-components@v5.0.6"
+          "value": "ibexa/twig-components@v5.0.7"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -1176,10 +1200,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/ibexa/user@v5.0.6",
+      "bom-ref": "pkg:composer/ibexa/user@v5.0.7",
       "type": "library",
       "name": "ibexa/user",
-      "version": "v5.0.6",
+      "version": "v5.0.7",
       "licenses": [
         {
           "license": {
@@ -1187,11 +1211,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/ibexa/user@v5.0.6",
+      "purl": "pkg:composer/ibexa/user@v5.0.7",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "ibexa/user@v5.0.6"
+          "value": "ibexa/user@v5.0.7"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -1240,30 +1264,6 @@
         {
           "name": "aquasecurity:trivy:PkgID",
           "value": "jean85/pretty-package-versions@2.1.1"
-        },
-        {
-          "name": "aquasecurity:trivy:PkgType",
-          "value": "composer"
-        }
-      ]
-    },
-    {
-      "bom-ref": "pkg:composer/jms/translation-bundle@2.6.0",
-      "type": "library",
-      "name": "jms/translation-bundle",
-      "version": "2.6.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "purl": "pkg:composer/jms/translation-bundle@2.6.0",
-      "properties": [
-        {
-          "name": "aquasecurity:trivy:PkgID",
-          "value": "jms/translation-bundle@2.6.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -1536,10 +1536,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/mck89/peast@v1.17.5",
+      "bom-ref": "pkg:composer/mck89/peast@v1.17.6",
       "type": "library",
       "name": "mck89/peast",
-      "version": "v1.17.5",
+      "version": "v1.17.6",
       "licenses": [
         {
           "license": {
@@ -1547,11 +1547,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/mck89/peast@v1.17.5",
+      "purl": "pkg:composer/mck89/peast@v1.17.6",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "mck89/peast@v1.17.5"
+          "value": "mck89/peast@v1.17.6"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -1656,10 +1656,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/nunomaduro/collision@v8.9.3",
+      "bom-ref": "pkg:composer/nunomaduro/collision@v8.9.4",
       "type": "library",
       "name": "nunomaduro/collision",
-      "version": "v8.9.3",
+      "version": "v8.9.4",
       "licenses": [
         {
           "license": {
@@ -1667,11 +1667,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/nunomaduro/collision@v8.9.3",
+      "purl": "pkg:composer/nunomaduro/collision@v8.9.4",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "nunomaduro/collision@v8.9.3"
+          "value": "nunomaduro/collision@v8.9.4"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -1896,10 +1896,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/pestphp/pest@v4.5.0",
+      "bom-ref": "pkg:composer/pestphp/pest@v4.6.3",
       "type": "library",
       "name": "pestphp/pest",
-      "version": "v4.5.0",
+      "version": "v4.6.3",
       "licenses": [
         {
           "license": {
@@ -1907,11 +1907,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/pestphp/pest@v4.5.0",
+      "purl": "pkg:composer/pestphp/pest@v4.6.3",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "pestphp/pest@v4.5.0"
+          "value": "pestphp/pest@v4.6.3"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -2208,10 +2208,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/phpstan/phpstan@2.1.46",
+      "bom-ref": "pkg:composer/phpstan/phpstan@2.1.54",
       "type": "library",
       "name": "phpstan/phpstan",
-      "version": "2.1.46",
+      "version": "2.1.54",
       "licenses": [
         {
           "license": {
@@ -2219,11 +2219,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/phpstan/phpstan@2.1.46",
+      "purl": "pkg:composer/phpstan/phpstan@2.1.54",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "phpstan/phpstan@2.1.46"
+          "value": "phpstan/phpstan@2.1.54"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -2232,10 +2232,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/phpunit/php-code-coverage@12.5.3",
+      "bom-ref": "pkg:composer/phpunit/php-code-coverage@12.5.6",
       "type": "library",
       "name": "phpunit/php-code-coverage",
-      "version": "12.5.3",
+      "version": "12.5.6",
       "licenses": [
         {
           "license": {
@@ -2243,11 +2243,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/phpunit/php-code-coverage@12.5.3",
+      "purl": "pkg:composer/phpunit/php-code-coverage@12.5.6",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "phpunit/php-code-coverage@12.5.3"
+          "value": "phpunit/php-code-coverage@12.5.6"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -2352,10 +2352,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/phpunit/phpunit@12.5.16",
+      "bom-ref": "pkg:composer/phpunit/phpunit@12.5.23",
       "type": "library",
       "name": "phpunit/phpunit",
-      "version": "12.5.16",
+      "version": "12.5.23",
       "licenses": [
         {
           "license": {
@@ -2363,11 +2363,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/phpunit/phpunit@12.5.16",
+      "purl": "pkg:composer/phpunit/phpunit@12.5.23",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "phpunit/phpunit@12.5.16"
+          "value": "phpunit/phpunit@12.5.23"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -2832,10 +2832,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/sebastian/comparator@7.1.5",
+      "bom-ref": "pkg:composer/sebastian/comparator@7.1.6",
       "type": "library",
       "name": "sebastian/comparator",
-      "version": "7.1.5",
+      "version": "7.1.6",
       "licenses": [
         {
           "license": {
@@ -2843,11 +2843,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/sebastian/comparator@7.1.5",
+      "purl": "pkg:composer/sebastian/comparator@7.1.6",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "sebastian/comparator@7.1.5"
+          "value": "sebastian/comparator@7.1.6"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -2904,10 +2904,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/sebastian/environment@8.0.4",
+      "bom-ref": "pkg:composer/sebastian/environment@8.1.0",
       "type": "library",
       "name": "sebastian/environment",
-      "version": "8.0.4",
+      "version": "8.1.0",
       "licenses": [
         {
           "license": {
@@ -2915,11 +2915,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/sebastian/environment@8.0.4",
+      "purl": "pkg:composer/sebastian/environment@8.1.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "sebastian/environment@8.0.4"
+          "value": "sebastian/environment@8.1.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3216,10 +3216,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/cache@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/cache@v7.4.9",
       "type": "library",
       "name": "symfony/cache",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3227,11 +3227,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/cache@v7.4.8",
+      "purl": "pkg:composer/symfony/cache@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/cache@v7.4.8"
+          "value": "symfony/cache@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3264,10 +3264,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/config@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/config@v7.4.9",
       "type": "library",
       "name": "symfony/config",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3275,11 +3275,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/config@v7.4.8",
+      "purl": "pkg:composer/symfony/config@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/config@v7.4.8"
+          "value": "symfony/config@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3288,10 +3288,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/console@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/console@v7.4.9",
       "type": "library",
       "name": "symfony/console",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3299,11 +3299,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/console@v7.4.8",
+      "purl": "pkg:composer/symfony/console@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/console@v7.4.8"
+          "value": "symfony/console@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3312,10 +3312,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/css-selector@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/css-selector@v7.4.9",
       "type": "library",
       "name": "symfony/css-selector",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3323,11 +3323,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/css-selector@v7.4.8",
+      "purl": "pkg:composer/symfony/css-selector@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/css-selector@v7.4.8"
+          "value": "symfony/css-selector@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3336,10 +3336,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/dependency-injection@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/dependency-injection@v7.4.9",
       "type": "library",
       "name": "symfony/dependency-injection",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3347,11 +3347,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/dependency-injection@v7.4.8",
+      "purl": "pkg:composer/symfony/dependency-injection@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/dependency-injection@v7.4.8"
+          "value": "symfony/dependency-injection@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3384,10 +3384,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/doctrine-bridge@v7.3.10",
+      "bom-ref": "pkg:composer/symfony/doctrine-bridge@v7.4.9",
       "type": "library",
       "name": "symfony/doctrine-bridge",
-      "version": "v7.3.10",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3395,11 +3395,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/doctrine-bridge@v7.3.10",
+      "purl": "pkg:composer/symfony/doctrine-bridge@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/doctrine-bridge@v7.3.10"
+          "value": "symfony/doctrine-bridge@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3456,10 +3456,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/event-dispatcher@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/event-dispatcher@v7.4.9",
       "type": "library",
       "name": "symfony/event-dispatcher",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3467,11 +3467,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/event-dispatcher@v7.4.8",
+      "purl": "pkg:composer/symfony/event-dispatcher@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/event-dispatcher@v7.4.8"
+          "value": "symfony/event-dispatcher@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3504,10 +3504,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/filesystem@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/filesystem@v7.4.9",
       "type": "library",
       "name": "symfony/filesystem",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3515,11 +3515,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/filesystem@v7.4.8",
+      "purl": "pkg:composer/symfony/filesystem@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/filesystem@v7.4.8"
+          "value": "symfony/filesystem@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3552,10 +3552,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/form@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/form@v7.4.9",
       "type": "library",
       "name": "symfony/form",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3563,11 +3563,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/form@v7.4.8",
+      "purl": "pkg:composer/symfony/form@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/form@v7.4.8"
+          "value": "symfony/form@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3576,10 +3576,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/framework-bundle@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/framework-bundle@v7.4.9",
       "type": "library",
       "name": "symfony/framework-bundle",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3587,11 +3587,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/framework-bundle@v7.4.8",
+      "purl": "pkg:composer/symfony/framework-bundle@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/framework-bundle@v7.4.8"
+          "value": "symfony/framework-bundle@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3624,10 +3624,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/http-client@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/http-client@v7.4.9",
       "type": "library",
       "name": "symfony/http-client",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3635,11 +3635,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/http-client@v7.4.8",
+      "purl": "pkg:composer/symfony/http-client@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/http-client@v7.4.8"
+          "value": "symfony/http-client@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3744,10 +3744,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/mime@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/mime@v7.4.9",
       "type": "library",
       "name": "symfony/mime",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -3755,11 +3755,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/mime@v7.4.8",
+      "purl": "pkg:composer/symfony/mime@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/mime@v7.4.8"
+          "value": "symfony/mime@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3840,10 +3840,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-ctype@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-ctype@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-ctype",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -3851,11 +3851,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-ctype@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-ctype@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-ctype@v1.34.0"
+          "value": "symfony/polyfill-ctype@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3864,10 +3864,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-intl-grapheme@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-intl-grapheme@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-intl-grapheme",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -3875,11 +3875,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-intl-grapheme@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-intl-grapheme@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-intl-grapheme@v1.34.0"
+          "value": "symfony/polyfill-intl-grapheme@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3888,10 +3888,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-intl-icu@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-intl-icu@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-intl-icu",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -3899,11 +3899,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-intl-icu@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-intl-icu@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-intl-icu@v1.34.0"
+          "value": "symfony/polyfill-intl-icu@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3912,10 +3912,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-intl-idn@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-intl-idn@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-intl-idn",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -3923,11 +3923,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-intl-idn@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-intl-idn@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-intl-idn@v1.34.0"
+          "value": "symfony/polyfill-intl-idn@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3936,10 +3936,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-intl-normalizer@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-intl-normalizer@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-intl-normalizer",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -3947,11 +3947,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-intl-normalizer@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-intl-normalizer@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-intl-normalizer@v1.34.0"
+          "value": "symfony/polyfill-intl-normalizer@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -3960,10 +3960,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-mbstring",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -3971,11 +3971,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-mbstring@v1.34.0"
+          "value": "symfony/polyfill-mbstring@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4032,10 +4032,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-php80@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-php80@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-php80",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -4043,11 +4043,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-php80@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-php80@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-php80@v1.34.0"
+          "value": "symfony/polyfill-php80@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4056,10 +4056,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-php81@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-php81@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-php81",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -4067,11 +4067,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-php81@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-php81@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-php81@v1.34.0"
+          "value": "symfony/polyfill-php81@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4080,10 +4080,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-php83@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-php83@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-php83",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -4091,11 +4091,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-php83@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-php83@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-php83@v1.34.0"
+          "value": "symfony/polyfill-php83@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4104,10 +4104,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-php84@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-php84@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-php84",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -4115,11 +4115,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-php84@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-php84@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-php84@v1.34.0"
+          "value": "symfony/polyfill-php84@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4128,10 +4128,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/polyfill-php85@v1.34.0",
+      "bom-ref": "pkg:composer/symfony/polyfill-php85@v1.37.0",
       "type": "library",
       "name": "symfony/polyfill-php85",
-      "version": "v1.34.0",
+      "version": "v1.37.0",
       "licenses": [
         {
           "license": {
@@ -4139,11 +4139,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/polyfill-php85@v1.34.0",
+      "purl": "pkg:composer/symfony/polyfill-php85@v1.37.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/polyfill-php85@v1.34.0"
+          "value": "symfony/polyfill-php85@v1.37.0"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4224,10 +4224,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/routing@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/routing@v7.4.9",
       "type": "library",
       "name": "symfony/routing",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -4235,11 +4235,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/routing@v7.4.8",
+      "purl": "pkg:composer/symfony/routing@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/routing@v7.4.8"
+          "value": "symfony/routing@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4320,10 +4320,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/security-http@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/security-http@v7.4.9",
       "type": "library",
       "name": "symfony/security-http",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -4331,11 +4331,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/security-http@v7.4.8",
+      "purl": "pkg:composer/symfony/security-http@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/security-http@v7.4.8"
+          "value": "symfony/security-http@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4560,10 +4560,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/type-info@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/type-info@v7.4.9",
       "type": "library",
       "name": "symfony/type-info",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -4571,11 +4571,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/type-info@v7.4.8",
+      "purl": "pkg:composer/symfony/type-info@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/type-info@v7.4.8"
+          "value": "symfony/type-info@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4584,10 +4584,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/validator@v7.3.11",
+      "bom-ref": "pkg:composer/symfony/ux-twig-component@v2.35.0",
       "type": "library",
-      "name": "symfony/validator",
-      "version": "v7.3.11",
+      "name": "symfony/ux-twig-component",
+      "version": "v2.35.0",
       "licenses": [
         {
           "license": {
@@ -4595,11 +4595,35 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/validator@v7.3.11",
+      "purl": "pkg:composer/symfony/ux-twig-component@v2.35.0",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/validator@v7.3.11"
+          "value": "symfony/ux-twig-component@v2.35.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "composer"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:composer/symfony/validator@v7.4.9",
+      "type": "library",
+      "name": "symfony/validator",
+      "version": "v7.4.9",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:composer/symfony/validator@v7.4.9",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "symfony/validator@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -4632,10 +4656,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symfony/var-exporter@v7.4.8",
+      "bom-ref": "pkg:composer/symfony/var-exporter@v7.4.9",
       "type": "library",
       "name": "symfony/var-exporter",
-      "version": "v7.4.8",
+      "version": "v7.4.9",
       "licenses": [
         {
           "license": {
@@ -4643,11 +4667,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symfony/var-exporter@v7.4.8",
+      "purl": "pkg:composer/symfony/var-exporter@v7.4.9",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symfony/var-exporter@v7.4.8"
+          "value": "symfony/var-exporter@v7.4.9"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -5066,38 +5090,38 @@
   ],
   "dependencies": [
     {
-      "ref": "714fee26-15b7-4743-9ae1-7c1c9c59712f",
+      "ref": "2a6f752c-6146-49e0-8918-ac73bcded322",
       "dependsOn": [
         "pkg:composer/brainmaestro/composer-git-hooks@dev-master",
         "pkg:composer/doctrine/doctrine-bundle@2.18.2",
         "pkg:composer/doctrine/orm@2.20.10",
-        "pkg:composer/friendsofphp/php-cs-fixer@v3.95.0",
+        "pkg:composer/friendsofphp/php-cs-fixer@v3.95.1",
         "pkg:composer/guzzlehttp/promises@2.3.0",
-        "pkg:composer/ibexa/admin-ui@v5.0.6",
-        "pkg:composer/ibexa/core@v5.0.6",
+        "pkg:composer/ibexa/admin-ui@v5.0.7",
+        "pkg:composer/ibexa/core@v5.0.7",
         "pkg:composer/nyholm/psr7@1.8.2",
         "pkg:composer/pagerfanta/pagerfanta@v3.8.0",
-        "pkg:composer/pestphp/pest@v4.5.0",
+        "pkg:composer/pestphp/pest@v4.6.3",
         "pkg:composer/phpmd/phpmd@2.15.0",
-        "pkg:composer/phpstan/phpstan@2.1.46",
+        "pkg:composer/phpstan/phpstan@2.1.54",
         "pkg:composer/rector/swiss-knife@2.3.5",
-        "pkg:composer/symfony/cache@v7.4.8",
-        "pkg:composer/symfony/console@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
-        "pkg:composer/symfony/form@v7.4.8",
-        "pkg:composer/symfony/framework-bundle@v7.4.8",
+        "pkg:composer/symfony/cache@v7.4.9",
+        "pkg:composer/symfony/console@v7.4.9",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
+        "pkg:composer/symfony/form@v7.4.9",
+        "pkg:composer/symfony/framework-bundle@v7.4.9",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/mailer@v7.4.8",
-        "pkg:composer/symfony/mime@v7.4.8",
-        "pkg:composer/symfony/routing@v7.4.8",
+        "pkg:composer/symfony/mime@v7.4.9",
+        "pkg:composer/symfony/routing@v7.4.9",
         "pkg:composer/symplify/easy-coding-standard@13.0.4",
         "pkg:composer/twig/twig@v3.24.0"
       ]
     },
     {
-      "ref": "e5371b95-be46-4cd4-9318-b76632dde34b",
+      "ref": "ab4e83ce-72bf-4fc0-8c50-6b2bfffd47bc",
       "dependsOn": [
-        "714fee26-15b7-4743-9ae1-7c1c9c59712f"
+        "2a6f752c-6146-49e0-8918-ac73bcded322"
       ]
     },
     {
@@ -5113,8 +5137,8 @@
         "pkg:composer/symfony/property-info@v7.4.8",
         "pkg:composer/symfony/serializer@v7.4.8",
         "pkg:composer/symfony/translation-contracts@v3.6.1",
-        "pkg:composer/symfony/type-info@v7.4.8",
-        "pkg:composer/symfony/validator@v7.3.11",
+        "pkg:composer/symfony/type-info@v7.4.9",
+        "pkg:composer/symfony/validator@v7.4.9",
         "pkg:composer/symfony/web-link@v7.4.8",
         "pkg:composer/willdurand/negotiation@3.1.0"
       ]
@@ -5123,18 +5147,18 @@
       "ref": "pkg:composer/babdev/pagerfanta-bundle@v4.6.0",
       "dependsOn": [
         "pkg:composer/psr/container@2.0.2",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/property-access@v7.4.8",
-        "pkg:composer/symfony/routing@v7.4.8"
+        "pkg:composer/symfony/routing@v7.4.9"
       ]
     },
     {
       "ref": "pkg:composer/brainmaestro/composer-git-hooks@dev-master",
       "dependsOn": [
-        "pkg:composer/symfony/console@v7.4.8"
+        "pkg:composer/symfony/console@v7.4.9"
       ]
     },
     {
@@ -5142,12 +5166,12 @@
       "dependsOn": [
         "pkg:composer/fidry/cpu-core-counter@1.3.0",
         "pkg:composer/jean85/pretty-package-versions@2.1.1",
-        "pkg:composer/phpunit/php-code-coverage@12.5.3",
+        "pkg:composer/phpunit/php-code-coverage@12.5.6",
         "pkg:composer/phpunit/php-file-iterator@6.0.1",
         "pkg:composer/phpunit/php-timer@8.0.0",
-        "pkg:composer/phpunit/phpunit@12.5.16",
-        "pkg:composer/sebastian/environment@8.0.4",
-        "pkg:composer/symfony/console@v7.4.8",
+        "pkg:composer/phpunit/phpunit@12.5.23",
+        "pkg:composer/sebastian/environment@8.1.0",
+        "pkg:composer/symfony/console@v7.4.9",
         "pkg:composer/symfony/process@v7.4.8"
       ]
     },
@@ -5195,13 +5219,13 @@
       "ref": "pkg:composer/doctrine/collections@2.6.0",
       "dependsOn": [
         "pkg:composer/doctrine/deprecations@1.1.6",
-        "pkg:composer/symfony/polyfill-php84@v1.34.0"
+        "pkg:composer/symfony/polyfill-php84@v1.37.0"
       ]
     },
     {
       "ref": "pkg:composer/doctrine/common@3.5.0",
       "dependsOn": [
-        "pkg:composer/doctrine/persistence@3.4.3"
+        "pkg:composer/doctrine/persistence@3.4.4"
       ]
     },
     {
@@ -5222,14 +5246,14 @@
       "dependsOn": [
         "pkg:composer/doctrine/dbal@3.10.5",
         "pkg:composer/doctrine/deprecations@1.1.6",
-        "pkg:composer/doctrine/persistence@3.4.3",
+        "pkg:composer/doctrine/persistence@3.4.4",
         "pkg:composer/doctrine/sql-formatter@1.5.4",
-        "pkg:composer/symfony/cache@v7.4.8",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/console@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
-        "pkg:composer/symfony/doctrine-bridge@v7.3.10",
-        "pkg:composer/symfony/framework-bundle@v7.4.8",
+        "pkg:composer/symfony/cache@v7.4.9",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/console@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/doctrine-bridge@v7.4.9",
+        "pkg:composer/symfony/framework-bundle@v7.4.9",
         "pkg:composer/symfony/service-contracts@v3.6.1"
       ]
     },
@@ -5261,15 +5285,15 @@
         "pkg:composer/doctrine/inflector@2.1.0",
         "pkg:composer/doctrine/instantiator@2.0.0",
         "pkg:composer/doctrine/lexer@3.0.1",
-        "pkg:composer/doctrine/persistence@3.4.3",
+        "pkg:composer/doctrine/persistence@3.4.4",
         "pkg:composer/psr/cache@3.0.0",
-        "pkg:composer/symfony/console@v7.4.8",
+        "pkg:composer/symfony/console@v7.4.9",
         "pkg:composer/symfony/polyfill-php72@v1.31.0",
-        "pkg:composer/symfony/polyfill-php80@v1.34.0"
+        "pkg:composer/symfony/polyfill-php80@v1.37.0"
       ]
     },
     {
-      "ref": "pkg:composer/doctrine/persistence@3.4.3",
+      "ref": "pkg:composer/doctrine/persistence@3.4.4",
       "dependsOn": [
         "pkg:composer/doctrine/event-manager@2.1.1",
         "pkg:composer/psr/cache@3.0.0"
@@ -5283,7 +5307,7 @@
       "ref": "pkg:composer/egulias/email-validator@4.0.4",
       "dependsOn": [
         "pkg:composer/doctrine/lexer@3.0.1",
-        "pkg:composer/symfony/polyfill-intl-idn@v1.34.0"
+        "pkg:composer/symfony/polyfill-intl-idn@v1.37.0"
       ]
     },
     {
@@ -5305,7 +5329,7 @@
       ]
     },
     {
-      "ref": "pkg:composer/friendsofphp/php-cs-fixer@v3.95.0",
+      "ref": "pkg:composer/friendsofphp/php-cs-fixer@v3.95.1",
       "dependsOn": [
         "pkg:composer/clue/ndjson-react@v1.3.0",
         "pkg:composer/composer/semver@3.4.4",
@@ -5317,15 +5341,15 @@
         "pkg:composer/react/socket@v1.17.0",
         "pkg:composer/react/stream@v1.4.0",
         "pkg:composer/sebastian/diff@7.0.0",
-        "pkg:composer/symfony/console@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
-        "pkg:composer/symfony/filesystem@v7.4.8",
+        "pkg:composer/symfony/console@v7.4.9",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
+        "pkg:composer/symfony/filesystem@v7.4.9",
         "pkg:composer/symfony/finder@v7.4.8",
         "pkg:composer/symfony/options-resolver@v7.4.8",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
-        "pkg:composer/symfony/polyfill-php80@v1.34.0",
-        "pkg:composer/symfony/polyfill-php81@v1.34.0",
-        "pkg:composer/symfony/polyfill-php84@v1.34.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
+        "pkg:composer/symfony/polyfill-php80@v1.37.0",
+        "pkg:composer/symfony/polyfill-php81@v1.37.0",
+        "pkg:composer/symfony/polyfill-php84@v1.37.0",
         "pkg:composer/symfony/process@v7.4.8",
         "pkg:composer/symfony/stopwatch@v7.4.8"
       ]
@@ -5334,16 +5358,16 @@
       "ref": "pkg:composer/friendsofphp/proxy-manager-lts@v1.0.19",
       "dependsOn": [
         "pkg:composer/laminas/laminas-code@4.17.0",
-        "pkg:composer/symfony/filesystem@v7.4.8"
+        "pkg:composer/symfony/filesystem@v7.4.9"
       ]
     },
     {
       "ref": "pkg:composer/friendsofsymfony/http-cache-bundle@3.4.0",
       "dependsOn": [
         "pkg:composer/friendsofsymfony/http-cache@3.2.0",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/expression-language@v7.4.8",
-        "pkg:composer/symfony/framework-bundle@v7.4.8",
+        "pkg:composer/symfony/framework-bundle@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/security-bundle@v7.4.8"
@@ -5355,16 +5379,16 @@
         "pkg:composer/php-http/client-common@2.7.3",
         "pkg:composer/php-http/discovery@1.20.0",
         "pkg:composer/psr/http-factory@1.1.0",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
         "pkg:composer/symfony/options-resolver@v7.4.8"
       ]
     },
     {
       "ref": "pkg:composer/friendsofsymfony/jsrouting-bundle@3.6.1",
       "dependsOn": [
-        "pkg:composer/symfony/console@v7.4.8",
+        "pkg:composer/symfony/console@v7.4.9",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/framework-bundle@v7.4.8",
+        "pkg:composer/symfony/framework-bundle@v7.4.9",
         "pkg:composer/symfony/serializer@v7.4.8",
         "pkg:composer/willdurand/jsonp-callback-validator@v2.0.0"
       ]
@@ -5374,36 +5398,35 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/ibexa/admin-ui@v5.0.6",
+      "ref": "pkg:composer/ibexa/admin-ui@v5.0.7",
       "dependsOn": [
         "pkg:composer/babdev/pagerfanta-bundle@v4.6.0",
-        "pkg:composer/ibexa/content-forms@v5.0.6",
-        "pkg:composer/ibexa/core@v5.0.6",
-        "pkg:composer/ibexa/design-engine@v5.0.6",
+        "pkg:composer/ibexa/content-forms@v5.0.7",
+        "pkg:composer/ibexa/core@v5.0.7",
+        "pkg:composer/ibexa/design-engine@v5.0.7",
         "pkg:composer/ibexa/polyfill-php82@v1.0.1",
-        "pkg:composer/ibexa/rest@v5.0.6",
-        "pkg:composer/ibexa/search@v5.0.6",
-        "pkg:composer/ibexa/twig-components@v5.0.6",
-        "pkg:composer/ibexa/user@v5.0.6",
-        "pkg:composer/jms/translation-bundle@2.6.0",
+        "pkg:composer/ibexa/rest@v5.0.7",
+        "pkg:composer/ibexa/search@v5.0.7",
+        "pkg:composer/ibexa/twig-components@v5.0.7",
+        "pkg:composer/ibexa/user@v5.0.7",
         "pkg:composer/knplabs/knp-menu-bundle@v3.7.0",
-        "pkg:composer/mck89/peast@v1.17.5",
+        "pkg:composer/mck89/peast@v1.17.6",
         "pkg:composer/symfony/asset@v7.4.8",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/console@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/console@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
-        "pkg:composer/symfony/filesystem@v7.4.8",
-        "pkg:composer/symfony/form@v7.4.8",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
+        "pkg:composer/symfony/filesystem@v7.4.9",
+        "pkg:composer/symfony/form@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/options-resolver@v7.4.8",
-        "pkg:composer/symfony/routing@v7.4.8",
+        "pkg:composer/symfony/routing@v7.4.9",
         "pkg:composer/symfony/security-core@v7.4.8",
-        "pkg:composer/symfony/security-http@v7.4.8",
+        "pkg:composer/symfony/security-http@v7.4.9",
         "pkg:composer/symfony/translation@v7.4.8",
-        "pkg:composer/symfony/validator@v7.3.11",
+        "pkg:composer/symfony/validator@v7.4.9",
         "pkg:composer/symfony/webpack-encore-bundle@v2.4.0",
         "pkg:composer/symfony/yaml@v7.4.8",
         "pkg:composer/twig/intl-extra@v3.24.0",
@@ -5413,39 +5436,38 @@
       ]
     },
     {
-      "ref": "pkg:composer/ibexa/content-forms@v5.0.6",
+      "ref": "pkg:composer/ibexa/content-forms@v5.0.7",
       "dependsOn": [
-        "pkg:composer/ibexa/core@v5.0.6",
-        "pkg:composer/jms/translation-bundle@2.6.0",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
-        "pkg:composer/symfony/filesystem@v7.4.8",
-        "pkg:composer/symfony/form@v7.4.8",
+        "pkg:composer/ibexa/core@v5.0.7",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
+        "pkg:composer/symfony/filesystem@v7.4.9",
+        "pkg:composer/symfony/form@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/options-resolver@v7.4.8",
-        "pkg:composer/symfony/routing@v7.4.8",
+        "pkg:composer/symfony/routing@v7.4.9",
         "pkg:composer/symfony/translation@v7.4.8",
-        "pkg:composer/symfony/validator@v7.3.11",
+        "pkg:composer/symfony/validator@v7.4.9",
         "pkg:composer/symfony/yaml@v7.4.8"
       ]
     },
     {
-      "ref": "pkg:composer/ibexa/core@v5.0.6",
+      "ref": "pkg:composer/ibexa/core@v5.0.7",
       "dependsOn": [
         "pkg:composer/composer/package-versions-deprecated@1.11.99.5",
         "pkg:composer/doctrine/annotations@2.0.2",
         "pkg:composer/doctrine/dbal@3.10.5",
         "pkg:composer/doctrine/doctrine-bundle@2.18.2",
         "pkg:composer/doctrine/orm@2.20.10",
-        "pkg:composer/doctrine/persistence@3.4.3",
+        "pkg:composer/doctrine/persistence@3.4.4",
         "pkg:composer/friendsofphp/proxy-manager-lts@v1.0.19",
         "pkg:composer/friendsofsymfony/http-cache-bundle@3.4.0",
         "pkg:composer/friendsofsymfony/jsrouting-bundle@3.6.1",
-        "pkg:composer/ibexa/doctrine-schema@v5.0.6",
+        "pkg:composer/ibexa/doctrine-schema@v5.0.7",
+        "pkg:composer/ibexa/jms-translation-bundle@2.6.0",
         "pkg:composer/ibexa/polyfill-php82@v1.0.1",
-        "pkg:composer/jms/translation-bundle@2.6.0",
         "pkg:composer/league/flysystem-memory@2.0.6",
         "pkg:composer/liip/imagine-bundle@2.17.1",
         "pkg:composer/nelmio/cors-bundle@2.6.1",
@@ -5453,25 +5475,25 @@
         "pkg:composer/pagerfanta/pagerfanta@v3.8.0",
         "pkg:composer/psr/event-dispatcher@1.0.0",
         "pkg:composer/symfony-cmf/routing@3.0.5",
-        "pkg:composer/symfony/cache@v7.4.8",
-        "pkg:composer/symfony/console@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
+        "pkg:composer/symfony/cache@v7.4.9",
+        "pkg:composer/symfony/console@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
         "pkg:composer/symfony/expression-language@v7.4.8",
-        "pkg:composer/symfony/framework-bundle@v7.4.8",
-        "pkg:composer/symfony/http-client@v7.4.8",
+        "pkg:composer/symfony/framework-bundle@v7.4.9",
+        "pkg:composer/symfony/http-client@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
-        "pkg:composer/symfony/mime@v7.4.8",
-        "pkg:composer/symfony/polyfill-php80@v1.34.0",
+        "pkg:composer/symfony/mime@v7.4.9",
+        "pkg:composer/symfony/polyfill-php80@v1.37.0",
         "pkg:composer/symfony/process@v7.4.8",
         "pkg:composer/symfony/security-bundle@v7.4.8",
         "pkg:composer/symfony/security-core@v7.4.8",
-        "pkg:composer/symfony/security-http@v7.4.8",
+        "pkg:composer/symfony/security-http@v7.4.9",
         "pkg:composer/symfony/serializer@v7.4.8",
         "pkg:composer/symfony/templating@v6.4.24",
         "pkg:composer/symfony/translation@v7.4.8",
-        "pkg:composer/symfony/validator@v7.3.11",
+        "pkg:composer/symfony/validator@v7.4.9",
         "pkg:composer/symfony/var-dumper@v7.4.8",
         "pkg:composer/symfony/yaml@v7.4.8",
         "pkg:composer/twig/extra-bundle@v3.24.0",
@@ -5479,13 +5501,13 @@
       ]
     },
     {
-      "ref": "pkg:composer/ibexa/design-engine@v5.0.6",
+      "ref": "pkg:composer/ibexa/design-engine@v5.0.7",
       "dependsOn": [
-        "pkg:composer/ibexa/core@v5.0.6",
+        "pkg:composer/ibexa/core@v5.0.7",
         "pkg:composer/symfony/asset@v7.4.8",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
-        "pkg:composer/symfony/filesystem@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/filesystem@v7.4.9",
         "pkg:composer/symfony/finder@v7.4.8",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
@@ -5494,23 +5516,37 @@
       ]
     },
     {
-      "ref": "pkg:composer/ibexa/doctrine-schema@v5.0.6",
+      "ref": "pkg:composer/ibexa/doctrine-schema@v5.0.7",
       "dependsOn": [
         "pkg:composer/doctrine/dbal@3.10.5",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/console@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/console@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/yaml@v7.4.8"
       ]
     },
     {
-      "ref": "pkg:composer/ibexa/notifications@v5.0.6",
+      "ref": "pkg:composer/ibexa/jms-translation-bundle@2.6.0",
       "dependsOn": [
-        "pkg:composer/ibexa/core@v5.0.6",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
+        "pkg:composer/nikic/php-parser@v5.7.0",
+        "pkg:composer/psr/log@3.0.2",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/console@v7.4.9",
+        "pkg:composer/symfony/framework-bundle@v7.4.9",
+        "pkg:composer/symfony/translation-contracts@v3.6.1",
+        "pkg:composer/symfony/translation@v7.4.8",
+        "pkg:composer/symfony/validator@v7.4.9",
+        "pkg:composer/twig/twig@v3.24.0"
+      ]
+    },
+    {
+      "ref": "pkg:composer/ibexa/notifications@v5.0.7",
+      "dependsOn": [
+        "pkg:composer/ibexa/core@v5.0.7",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/mailer@v7.4.8",
@@ -5525,21 +5561,21 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/ibexa/rest@v5.0.6",
+      "ref": "pkg:composer/ibexa/rest@v5.0.7",
       "dependsOn": [
         "pkg:composer/api-platform/core@v4.1.28",
-        "pkg:composer/ibexa/core@v5.0.6",
+        "pkg:composer/ibexa/core@v5.0.7",
         "pkg:composer/ibexa/polyfill-php82@v1.0.1",
         "pkg:composer/ibexa/templated-uri-bundle@4.0.0",
         "pkg:composer/lexik/jwt-authentication-bundle@v2.21.0",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
         "pkg:composer/symfony/expression-language@v7.4.8",
-        "pkg:composer/symfony/form@v7.4.8",
+        "pkg:composer/symfony/form@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
-        "pkg:composer/symfony/routing@v7.4.8",
+        "pkg:composer/symfony/routing@v7.4.9",
         "pkg:composer/symfony/security-bundle@v7.4.8",
         "pkg:composer/symfony/security-csrf@v7.4.8",
         "pkg:composer/symfony/yaml@v7.4.8",
@@ -5548,14 +5584,14 @@
       ]
     },
     {
-      "ref": "pkg:composer/ibexa/search@v5.0.6",
+      "ref": "pkg:composer/ibexa/search@v5.0.7",
       "dependsOn": [
-        "pkg:composer/ibexa/core@v5.0.6",
+        "pkg:composer/ibexa/core@v5.0.7",
         "pkg:composer/pagerfanta/pagerfanta@v3.8.0",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
-        "pkg:composer/symfony/form@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
+        "pkg:composer/symfony/form@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/serializer@v7.4.8"
@@ -5565,48 +5601,50 @@
       "ref": "pkg:composer/ibexa/templated-uri-bundle@4.0.0",
       "dependsOn": [
         "pkg:composer/ibexa/templated-uri-router@5.0.0",
-        "pkg:composer/symfony/framework-bundle@v7.4.8"
+        "pkg:composer/symfony/framework-bundle@v7.4.9"
       ]
     },
     {
       "ref": "pkg:composer/ibexa/templated-uri-router@5.0.0",
       "dependsOn": [
-        "pkg:composer/symfony/routing@v7.4.8"
+        "pkg:composer/symfony/routing@v7.4.9"
       ]
     },
     {
-      "ref": "pkg:composer/ibexa/twig-components@v5.0.6",
+      "ref": "pkg:composer/ibexa/twig-components@v5.0.7",
       "dependsOn": [
-        "pkg:composer/ibexa/core@v5.0.6",
+        "pkg:composer/ibexa/core@v5.0.7",
+        "pkg:composer/ibexa/design-engine@v5.0.7",
         "pkg:composer/knplabs/knp-menu@v3.8.0",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
+        "pkg:composer/symfony/asset@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
+        "pkg:composer/symfony/ux-twig-component@v2.35.0",
         "pkg:composer/symfony/yaml@v7.4.8"
       ]
     },
     {
-      "ref": "pkg:composer/ibexa/user@v5.0.6",
+      "ref": "pkg:composer/ibexa/user@v5.0.7",
       "dependsOn": [
-        "pkg:composer/ibexa/content-forms@v5.0.6",
-        "pkg:composer/ibexa/core@v5.0.6",
-        "pkg:composer/ibexa/notifications@v5.0.6",
-        "pkg:composer/jms/translation-bundle@2.6.0",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
-        "pkg:composer/symfony/form@v7.4.8",
+        "pkg:composer/ibexa/content-forms@v5.0.7",
+        "pkg:composer/ibexa/core@v5.0.7",
+        "pkg:composer/ibexa/notifications@v5.0.7",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
+        "pkg:composer/symfony/form@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/intl@v7.4.8",
         "pkg:composer/symfony/options-resolver@v7.4.8",
-        "pkg:composer/symfony/routing@v7.4.8",
+        "pkg:composer/symfony/routing@v7.4.9",
         "pkg:composer/symfony/security-core@v7.4.8",
-        "pkg:composer/symfony/security-http@v7.4.8",
+        "pkg:composer/symfony/security-http@v7.4.9",
         "pkg:composer/symfony/translation@v7.4.8",
-        "pkg:composer/symfony/validator@v7.3.11",
+        "pkg:composer/symfony/validator@v7.4.9",
         "pkg:composer/twig/twig@v3.24.0"
       ]
     },
@@ -5619,25 +5657,11 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/jms/translation-bundle@2.6.0",
-      "dependsOn": [
-        "pkg:composer/nikic/php-parser@v5.7.0",
-        "pkg:composer/psr/log@3.0.2",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/console@v7.4.8",
-        "pkg:composer/symfony/framework-bundle@v7.4.8",
-        "pkg:composer/symfony/translation-contracts@v3.6.1",
-        "pkg:composer/symfony/translation@v7.4.8",
-        "pkg:composer/symfony/validator@v7.3.11",
-        "pkg:composer/twig/twig@v3.24.0"
-      ]
-    },
-    {
       "ref": "pkg:composer/knplabs/knp-menu-bundle@v3.7.0",
       "dependsOn": [
         "pkg:composer/knplabs/knp-menu@v3.8.0",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
         "pkg:composer/symfony/http-kernel@v7.4.8"
       ]
@@ -5684,10 +5708,10 @@
         "pkg:composer/lcobucci/clock@3.5.0",
         "pkg:composer/lcobucci/jwt@5.6.0",
         "pkg:composer/namshi/jose@7.2.3",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/property-access@v7.4.8",
@@ -5699,12 +5723,12 @@
       "ref": "pkg:composer/liip/imagine-bundle@2.17.1",
       "dependsOn": [
         "pkg:composer/imagine/imagine@1.5.2",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/filesystem@v7.4.8",
+        "pkg:composer/symfony/filesystem@v7.4.9",
         "pkg:composer/symfony/finder@v7.4.8",
-        "pkg:composer/symfony/framework-bundle@v7.4.8",
-        "pkg:composer/symfony/mime@v7.4.8",
+        "pkg:composer/symfony/framework-bundle@v7.4.9",
+        "pkg:composer/symfony/mime@v7.4.9",
         "pkg:composer/symfony/options-resolver@v7.4.8",
         "pkg:composer/symfony/process@v7.4.8",
         "pkg:composer/twig/twig@v3.24.0"
@@ -5715,7 +5739,7 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/mck89/peast@v1.17.5",
+      "ref": "pkg:composer/mck89/peast@v1.17.6",
       "dependsOn": []
     },
     {
@@ -5732,7 +5756,7 @@
       "ref": "pkg:composer/nelmio/cors-bundle@2.6.1",
       "dependsOn": [
         "pkg:composer/psr/log@3.0.2",
-        "pkg:composer/symfony/framework-bundle@v7.4.8"
+        "pkg:composer/symfony/framework-bundle@v7.4.9"
       ]
     },
     {
@@ -5740,17 +5764,17 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/nunomaduro/collision@v8.9.3",
+      "ref": "pkg:composer/nunomaduro/collision@v8.9.4",
       "dependsOn": [
         "pkg:composer/filp/whoops@2.18.4",
         "pkg:composer/nunomaduro/termwind@v2.4.0",
-        "pkg:composer/symfony/console@v7.4.8"
+        "pkg:composer/symfony/console@v7.4.9"
       ]
     },
     {
       "ref": "pkg:composer/nunomaduro/termwind@v2.4.0",
       "dependsOn": [
-        "pkg:composer/symfony/console@v7.4.8"
+        "pkg:composer/symfony/console@v7.4.9"
       ]
     },
     {
@@ -5764,8 +5788,8 @@
       "ref": "pkg:composer/oneup/flysystem-bundle@4.14.1",
       "dependsOn": [
         "pkg:composer/league/flysystem@2.5.0",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/http-kernel@v7.4.8"
       ]
     },
@@ -5773,16 +5797,16 @@
       "ref": "pkg:composer/pagerfanta/pagerfanta@v3.8.0",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-php80@v1.34.0"
+        "pkg:composer/symfony/polyfill-php80@v1.37.0"
       ]
     },
     {
       "ref": "pkg:composer/pdepend/pdepend@2.16.2",
       "dependsOn": [
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
-        "pkg:composer/symfony/filesystem@v7.4.8",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0"
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/filesystem@v7.4.9",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0"
       ]
     },
     {
@@ -5811,16 +5835,16 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/pestphp/pest@v4.5.0",
+      "ref": "pkg:composer/pestphp/pest@v4.6.3",
       "dependsOn": [
         "pkg:composer/brianium/paratest@v7.20.0",
-        "pkg:composer/nunomaduro/collision@v8.9.3",
+        "pkg:composer/nunomaduro/collision@v8.9.4",
         "pkg:composer/nunomaduro/termwind@v2.4.0",
         "pkg:composer/pestphp/pest-plugin-arch@v4.0.2",
         "pkg:composer/pestphp/pest-plugin-mutate@v4.0.1",
         "pkg:composer/pestphp/pest-plugin-profanity@v4.2.1",
         "pkg:composer/pestphp/pest-plugin@v4.0.0",
-        "pkg:composer/phpunit/phpunit@12.5.16",
+        "pkg:composer/phpunit/phpunit@12.5.23",
         "pkg:composer/symfony/process@v7.4.8"
       ]
     },
@@ -5843,7 +5867,7 @@
         "pkg:composer/psr/http-factory@1.1.0",
         "pkg:composer/psr/http-message@2.0",
         "pkg:composer/symfony/options-resolver@v7.4.8",
-        "pkg:composer/symfony/polyfill-php80@v1.34.0"
+        "pkg:composer/symfony/polyfill-php80@v1.37.0"
       ]
     },
     {
@@ -5903,17 +5927,16 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/phpstan/phpstan@2.1.46",
+      "ref": "pkg:composer/phpstan/phpstan@2.1.54",
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/phpunit/php-code-coverage@12.5.3",
+      "ref": "pkg:composer/phpunit/php-code-coverage@12.5.6",
       "dependsOn": [
         "pkg:composer/nikic/php-parser@v5.7.0",
-        "pkg:composer/phpunit/php-file-iterator@6.0.1",
         "pkg:composer/phpunit/php-text-template@5.0.0",
         "pkg:composer/sebastian/complexity@5.0.0",
-        "pkg:composer/sebastian/environment@8.0.4",
+        "pkg:composer/sebastian/environment@8.1.0",
         "pkg:composer/sebastian/lines-of-code@4.0.0",
         "pkg:composer/sebastian/version@6.0.0",
         "pkg:composer/theseer/tokenizer@2.0.1"
@@ -5936,20 +5959,20 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/phpunit/phpunit@12.5.16",
+      "ref": "pkg:composer/phpunit/phpunit@12.5.23",
       "dependsOn": [
         "pkg:composer/myclabs/deep-copy@1.13.4",
         "pkg:composer/phar-io/manifest@2.0.4",
         "pkg:composer/phar-io/version@3.2.1",
-        "pkg:composer/phpunit/php-code-coverage@12.5.3",
+        "pkg:composer/phpunit/php-code-coverage@12.5.6",
         "pkg:composer/phpunit/php-file-iterator@6.0.1",
         "pkg:composer/phpunit/php-invoker@6.0.0",
         "pkg:composer/phpunit/php-text-template@5.0.0",
         "pkg:composer/phpunit/php-timer@8.0.0",
         "pkg:composer/sebastian/cli-parser@4.2.0",
-        "pkg:composer/sebastian/comparator@7.1.5",
+        "pkg:composer/sebastian/comparator@7.1.6",
         "pkg:composer/sebastian/diff@7.0.0",
-        "pkg:composer/sebastian/environment@8.0.4",
+        "pkg:composer/sebastian/environment@8.1.0",
         "pkg:composer/sebastian/exporter@7.0.2",
         "pkg:composer/sebastian/global-state@8.0.2",
         "pkg:composer/sebastian/object-enumerator@7.0.0",
@@ -6059,7 +6082,7 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/sebastian/comparator@7.1.5",
+      "ref": "pkg:composer/sebastian/comparator@7.1.6",
       "dependsOn": [
         "pkg:composer/sebastian/diff@7.0.0",
         "pkg:composer/sebastian/exporter@7.0.2"
@@ -6076,7 +6099,7 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/sebastian/environment@8.0.4",
+      "ref": "pkg:composer/sebastian/environment@8.1.0",
       "dependsOn": []
     },
     {
@@ -6130,7 +6153,7 @@
       "dependsOn": [
         "pkg:composer/psr/log@3.0.2",
         "pkg:composer/symfony/http-kernel@v7.4.8",
-        "pkg:composer/symfony/routing@v7.4.8"
+        "pkg:composer/symfony/routing@v7.4.9"
       ]
     },
     {
@@ -6144,51 +6167,51 @@
       ]
     },
     {
-      "ref": "pkg:composer/symfony/cache@v7.4.8",
+      "ref": "pkg:composer/symfony/cache@v7.4.9",
       "dependsOn": [
         "pkg:composer/psr/cache@3.0.0",
         "pkg:composer/psr/log@3.0.2",
         "pkg:composer/symfony/cache-contracts@v3.6.0",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
         "pkg:composer/symfony/service-contracts@v3.6.1",
-        "pkg:composer/symfony/var-exporter@v7.4.8"
+        "pkg:composer/symfony/var-exporter@v7.4.9"
       ]
     },
     {
       "ref": "pkg:composer/symfony/clock@v7.4.8",
       "dependsOn": [
         "pkg:composer/psr/clock@1.0.0",
-        "pkg:composer/symfony/polyfill-php83@v1.34.0"
+        "pkg:composer/symfony/polyfill-php83@v1.37.0"
       ]
     },
     {
-      "ref": "pkg:composer/symfony/config@v7.4.8",
+      "ref": "pkg:composer/symfony/config@v7.4.9",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/filesystem@v7.4.8",
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0"
+        "pkg:composer/symfony/filesystem@v7.4.9",
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0"
       ]
     },
     {
-      "ref": "pkg:composer/symfony/console@v7.4.8",
+      "ref": "pkg:composer/symfony/console@v7.4.9",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
         "pkg:composer/symfony/service-contracts@v3.6.1",
         "pkg:composer/symfony/string@v7.4.8"
       ]
     },
     {
-      "ref": "pkg:composer/symfony/css-selector@v7.4.8",
+      "ref": "pkg:composer/symfony/css-selector@v7.4.9",
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/dependency-injection@v7.4.8",
+      "ref": "pkg:composer/symfony/dependency-injection@v7.4.9",
       "dependsOn": [
         "pkg:composer/psr/container@2.0.2",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
         "pkg:composer/symfony/service-contracts@v3.6.1",
-        "pkg:composer/symfony/var-exporter@v7.4.8"
+        "pkg:composer/symfony/var-exporter@v7.4.9"
       ]
     },
     {
@@ -6196,13 +6219,13 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/doctrine-bridge@v7.3.10",
+      "ref": "pkg:composer/symfony/doctrine-bridge@v7.4.9",
       "dependsOn": [
         "pkg:composer/doctrine/event-manager@2.1.1",
-        "pkg:composer/doctrine/persistence@3.4.3",
+        "pkg:composer/doctrine/persistence@3.4.4",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
         "pkg:composer/symfony/service-contracts@v3.6.1"
       ]
     },
@@ -6210,7 +6233,7 @@
       "ref": "pkg:composer/symfony/error-handler@v7.4.8",
       "dependsOn": [
         "pkg:composer/psr/log@3.0.2",
-        "pkg:composer/symfony/polyfill-php85@v1.34.0",
+        "pkg:composer/symfony/polyfill-php85@v1.37.0",
         "pkg:composer/symfony/var-dumper@v7.4.8"
       ]
     },
@@ -6221,7 +6244,7 @@
       ]
     },
     {
-      "ref": "pkg:composer/symfony/event-dispatcher@v7.4.8",
+      "ref": "pkg:composer/symfony/event-dispatcher@v7.4.9",
       "dependsOn": [
         "pkg:composer/symfony/event-dispatcher-contracts@v3.6.0"
       ]
@@ -6229,16 +6252,16 @@
     {
       "ref": "pkg:composer/symfony/expression-language@v7.4.8",
       "dependsOn": [
-        "pkg:composer/symfony/cache@v7.4.8",
+        "pkg:composer/symfony/cache@v7.4.9",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
         "pkg:composer/symfony/service-contracts@v3.6.1"
       ]
     },
     {
-      "ref": "pkg:composer/symfony/filesystem@v7.4.8",
+      "ref": "pkg:composer/symfony/filesystem@v7.4.9",
       "dependsOn": [
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0"
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0"
       ]
     },
     {
@@ -6246,34 +6269,34 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/form@v7.4.8",
+      "ref": "pkg:composer/symfony/form@v7.4.9",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
         "pkg:composer/symfony/options-resolver@v7.4.8",
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0",
-        "pkg:composer/symfony/polyfill-intl-icu@v1.34.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0",
+        "pkg:composer/symfony/polyfill-intl-icu@v1.37.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
         "pkg:composer/symfony/property-access@v7.4.8",
         "pkg:composer/symfony/service-contracts@v3.6.1"
       ]
     },
     {
-      "ref": "pkg:composer/symfony/framework-bundle@v7.4.8",
+      "ref": "pkg:composer/symfony/framework-bundle@v7.4.9",
       "dependsOn": [
-        "pkg:composer/symfony/cache@v7.4.8",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/cache@v7.4.9",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
         "pkg:composer/symfony/error-handler@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
-        "pkg:composer/symfony/filesystem@v7.4.8",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
+        "pkg:composer/symfony/filesystem@v7.4.9",
         "pkg:composer/symfony/finder@v7.4.8",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
-        "pkg:composer/symfony/polyfill-php85@v1.34.0",
-        "pkg:composer/symfony/routing@v7.4.8"
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
+        "pkg:composer/symfony/polyfill-php85@v1.37.0",
+        "pkg:composer/symfony/routing@v7.4.9"
       ]
     },
     {
@@ -6281,12 +6304,12 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/http-client@v7.4.8",
+      "ref": "pkg:composer/symfony/http-client@v7.4.9",
       "dependsOn": [
         "pkg:composer/psr/log@3.0.2",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
         "pkg:composer/symfony/http-client-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-php83@v1.34.0",
+        "pkg:composer/symfony/polyfill-php83@v1.37.0",
         "pkg:composer/symfony/service-contracts@v3.6.1"
       ]
     },
@@ -6294,7 +6317,7 @@
       "ref": "pkg:composer/symfony/http-foundation@v7.4.8",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0"
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0"
       ]
     },
     {
@@ -6303,9 +6326,9 @@
         "pkg:composer/psr/log@3.0.2",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
         "pkg:composer/symfony/error-handler@v7.4.8",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0"
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0"
       ]
     },
     {
@@ -6320,17 +6343,17 @@
         "pkg:composer/egulias/email-validator@4.0.4",
         "pkg:composer/psr/event-dispatcher@1.0.0",
         "pkg:composer/psr/log@3.0.2",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
-        "pkg:composer/symfony/mime@v7.4.8",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
+        "pkg:composer/symfony/mime@v7.4.9",
         "pkg:composer/symfony/service-contracts@v3.6.1"
       ]
     },
     {
-      "ref": "pkg:composer/symfony/mime@v7.4.8",
+      "ref": "pkg:composer/symfony/mime@v7.4.9",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-intl-idn@v1.34.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0"
+        "pkg:composer/symfony/polyfill-intl-idn@v1.37.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0"
       ]
     },
     {
@@ -6350,29 +6373,29 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-ctype@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-ctype@v1.37.0",
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-intl-grapheme@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-intl-grapheme@v1.37.0",
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-intl-icu@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-intl-icu@v1.37.0",
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-intl-idn@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-intl-idn@v1.37.0",
       "dependsOn": [
-        "pkg:composer/symfony/polyfill-intl-normalizer@v1.34.0"
+        "pkg:composer/symfony/polyfill-intl-normalizer@v1.37.0"
       ]
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-intl-normalizer@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-intl-normalizer@v1.37.0",
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
       "dependsOn": []
     },
     {
@@ -6384,23 +6407,23 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-php80@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-php80@v1.37.0",
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-php81@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-php81@v1.37.0",
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-php83@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-php83@v1.37.0",
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-php84@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-php84@v1.37.0",
       "dependsOn": []
     },
     {
-      "ref": "pkg:composer/symfony/polyfill-php85@v1.34.0",
+      "ref": "pkg:composer/symfony/polyfill-php85@v1.37.0",
       "dependsOn": []
     },
     {
@@ -6418,11 +6441,11 @@
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
         "pkg:composer/symfony/string@v7.4.8",
-        "pkg:composer/symfony/type-info@v7.4.8"
+        "pkg:composer/symfony/type-info@v7.4.9"
       ]
     },
     {
-      "ref": "pkg:composer/symfony/routing@v7.4.8",
+      "ref": "pkg:composer/symfony/routing@v7.4.9",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0"
       ]
@@ -6431,16 +6454,16 @@
       "ref": "pkg:composer/symfony/security-bundle@v7.4.8",
       "dependsOn": [
         "pkg:composer/symfony/clock@v7.4.8",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/password-hasher@v7.4.8",
         "pkg:composer/symfony/security-core@v7.4.8",
         "pkg:composer/symfony/security-csrf@v7.4.8",
-        "pkg:composer/symfony/security-http@v7.4.8",
+        "pkg:composer/symfony/security-http@v7.4.9",
         "pkg:composer/symfony/service-contracts@v3.6.1"
       ]
     },
@@ -6460,13 +6483,13 @@
       ]
     },
     {
-      "ref": "pkg:composer/symfony/security-http@v7.4.8",
+      "ref": "pkg:composer/symfony/security-http@v7.4.9",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/event-dispatcher@v7.4.8",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
         "pkg:composer/symfony/property-access@v7.4.8",
         "pkg:composer/symfony/security-core@v7.4.8",
         "pkg:composer/symfony/service-contracts@v3.6.1"
@@ -6476,8 +6499,8 @@
       "ref": "pkg:composer/symfony/serializer@v7.4.8",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0",
-        "pkg:composer/symfony/polyfill-php84@v1.34.0"
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0",
+        "pkg:composer/symfony/polyfill-php84@v1.37.0"
       ]
     },
     {
@@ -6497,17 +6520,17 @@
       "ref": "pkg:composer/symfony/string@v7.4.8",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0",
-        "pkg:composer/symfony/polyfill-intl-grapheme@v1.34.0",
-        "pkg:composer/symfony/polyfill-intl-normalizer@v1.34.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0"
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0",
+        "pkg:composer/symfony/polyfill-intl-grapheme@v1.37.0",
+        "pkg:composer/symfony/polyfill-intl-normalizer@v1.37.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0"
       ]
     },
     {
       "ref": "pkg:composer/symfony/templating@v6.4.24",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0"
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0"
       ]
     },
     {
@@ -6518,7 +6541,7 @@
       "ref": "pkg:composer/symfony/translation@v7.4.8",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
         "pkg:composer/symfony/translation-contracts@v3.6.1"
       ]
     },
@@ -6533,8 +6556,8 @@
     {
       "ref": "pkg:composer/symfony/twig-bundle@v7.4.8",
       "dependsOn": [
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
         "pkg:composer/symfony/http-foundation@v7.4.8",
         "pkg:composer/symfony/http-kernel@v7.4.8",
@@ -6543,19 +6566,29 @@
       ]
     },
     {
-      "ref": "pkg:composer/symfony/type-info@v7.4.8",
+      "ref": "pkg:composer/symfony/type-info@v7.4.9",
       "dependsOn": [
         "pkg:composer/psr/container@2.0.2",
         "pkg:composer/symfony/deprecation-contracts@v3.6.0"
       ]
     },
     {
-      "ref": "pkg:composer/symfony/validator@v7.3.11",
+      "ref": "pkg:composer/symfony/ux-twig-component@v2.35.0",
+      "dependsOn": [
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
+        "pkg:composer/symfony/deprecation-contracts@v3.6.0",
+        "pkg:composer/symfony/event-dispatcher@v7.4.9",
+        "pkg:composer/symfony/property-access@v7.4.8",
+        "pkg:composer/twig/twig@v3.24.0"
+      ]
+    },
+    {
+      "ref": "pkg:composer/symfony/validator@v7.4.9",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0",
-        "pkg:composer/symfony/polyfill-php83@v1.34.0",
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0",
+        "pkg:composer/symfony/polyfill-php83@v1.37.0",
         "pkg:composer/symfony/translation-contracts@v3.6.1"
       ]
     },
@@ -6563,11 +6596,11 @@
       "ref": "pkg:composer/symfony/var-dumper@v7.4.8",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0"
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0"
       ]
     },
     {
-      "ref": "pkg:composer/symfony/var-exporter@v7.4.8",
+      "ref": "pkg:composer/symfony/var-exporter@v7.4.9",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0"
       ]
@@ -6582,8 +6615,8 @@
       "ref": "pkg:composer/symfony/webpack-encore-bundle@v2.4.0",
       "dependsOn": [
         "pkg:composer/symfony/asset@v7.4.8",
-        "pkg:composer/symfony/config@v7.4.8",
-        "pkg:composer/symfony/dependency-injection@v7.4.8",
+        "pkg:composer/symfony/config@v7.4.9",
+        "pkg:composer/symfony/dependency-injection@v7.4.9",
         "pkg:composer/symfony/http-kernel@v7.4.8",
         "pkg:composer/symfony/service-contracts@v3.6.1"
       ]
@@ -6592,7 +6625,7 @@
       "ref": "pkg:composer/symfony/yaml@v7.4.8",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0"
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0"
       ]
     },
     {
@@ -6604,7 +6637,7 @@
       "dependsOn": [
         "pkg:composer/nikic/php-parser@v5.7.0",
         "pkg:composer/phpdocumentor/reflection-docblock@6.0.3",
-        "pkg:composer/phpunit/phpunit@12.5.16",
+        "pkg:composer/phpunit/phpunit@12.5.23",
         "pkg:composer/symfony/finder@v7.4.8"
       ]
     },
@@ -6615,7 +6648,7 @@
     {
       "ref": "pkg:composer/tijsverkoyen/css-to-inline-styles@v2.4.0",
       "dependsOn": [
-        "pkg:composer/symfony/css-selector@v7.4.8"
+        "pkg:composer/symfony/css-selector@v7.4.9"
       ]
     },
     {
@@ -6629,7 +6662,7 @@
     {
       "ref": "pkg:composer/twig/extra-bundle@v3.24.0",
       "dependsOn": [
-        "pkg:composer/symfony/framework-bundle@v7.4.8",
+        "pkg:composer/symfony/framework-bundle@v7.4.9",
         "pkg:composer/symfony/twig-bundle@v7.4.8",
         "pkg:composer/twig/twig@v3.24.0"
       ]
@@ -6661,8 +6694,8 @@
       "ref": "pkg:composer/twig/twig@v3.24.0",
       "dependsOn": [
         "pkg:composer/symfony/deprecation-contracts@v3.6.0",
-        "pkg:composer/symfony/polyfill-ctype@v1.34.0",
-        "pkg:composer/symfony/polyfill-mbstring@v1.34.0"
+        "pkg:composer/symfony/polyfill-ctype@v1.37.0",
+        "pkg:composer/symfony/polyfill-mbstring@v1.37.0"
       ]
     },
     {
@@ -6672,9 +6705,9 @@
     {
       "ref": "pkg:composer/willdurand/js-translation-bundle@6.1.0",
       "dependsOn": [
-        "pkg:composer/symfony/console@v7.4.8",
+        "pkg:composer/symfony/console@v7.4.9",
         "pkg:composer/symfony/finder@v7.4.8",
-        "pkg:composer/symfony/framework-bundle@v7.4.8",
+        "pkg:composer/symfony/framework-bundle@v7.4.9",
         "pkg:composer/symfony/intl@v7.4.8",
         "pkg:composer/symfony/translation@v7.4.8",
         "pkg:composer/symfony/twig-bundle@v7.4.8"
