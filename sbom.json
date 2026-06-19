@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:2c1b6c36-5bd4-4ea4-8dc8-c01dca7d22cd",
+  "serialNumber": "urn:uuid:c0cc0924-f7dd-486d-9860-7d8d36ee072a",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-19T07:03:48+00:00",
+    "timestamp": "2026-06-19T07:20:09+00:00",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "9b57bb5b-84bf-4ee7-8091-4b2037a464cc",
+      "bom-ref": "8b62d79e-b535-4e1e-ae17-097d0798ec9f",
       "type": "application",
       "name": ".",
       "properties": [
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "7328750f-3786-4a93-8229-1ff4877fde26",
+      "bom-ref": "fa82a3cd-767d-4991-ac93-d2ea46cf17cc",
       "type": "application",
       "name": "composer.lock",
       "properties": [
@@ -5090,7 +5090,13 @@
   ],
   "dependencies": [
     {
-      "ref": "7328750f-3786-4a93-8229-1ff4877fde26",
+      "ref": "8b62d79e-b535-4e1e-ae17-097d0798ec9f",
+      "dependsOn": [
+        "fa82a3cd-767d-4991-ac93-d2ea46cf17cc"
+      ]
+    },
+    {
+      "ref": "fa82a3cd-767d-4991-ac93-d2ea46cf17cc",
       "dependsOn": [
         "pkg:composer/brainmaestro/composer-git-hooks@dev-master",
         "pkg:composer/doctrine/doctrine-bundle@2.18.2",
@@ -5116,12 +5122,6 @@
         "pkg:composer/symfony/routing@v7.4.9",
         "pkg:composer/symplify/easy-coding-standard@13.0.4",
         "pkg:composer/twig/twig@v3.24.0"
-      ]
-    },
-    {
-      "ref": "9b57bb5b-84bf-4ee7-8091-4b2037a464cc",
-      "dependsOn": [
-        "7328750f-3786-4a93-8229-1ff4877fde26"
       ]
     },
     {
