@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/packagist/dt/vardumper/ibexa-form-builder-bundle" alt="Total Downloads" />
     <img src="https://img.shields.io/badge/license-mit-red" alt="License" />
     <img src="https://img.shields.io/badge/unit%20tests-passing-green?style=flat&amp;color=%234c1" style="max-width: 100%;">
-    <img src="https://raw.githubusercontent.com/vardumper/IbexaFormBuilderBundle/c9c45cf556c428c69dac6bb528f2cdc6cefac1fc/coverage.svg">
+    <img src="https://raw.githubusercontent.com/vardumper/IbexaFormBuilderBundle/refs/heads/main/coverage.svg">
     <img src="https://dtrack.erikpoehler.us/api/v1/badge/vulns/project/35387247-fc1e-4677-8c89-7bfa4c753cbb?apiKey=odt_nG83W_EAcQZkk6b5KqknIVoK8nfNjSz38Ompnn" >
 </p>
 
@@ -24,7 +24,7 @@ Standalone Ibexa DXP bundle for rendering frontend-facing forms managed as Ibexa
 
 ## Requirements
 
-* PHP >= 8.2
+* PHP >= 8.3
 * Ibexa DXP >= v4.4 or >= v5.0
 * Symfony 5.4.x or 7.x
 * Doctrine ORM ^2.11 or ^3.0
@@ -174,11 +174,13 @@ Use any of the three identifiers to render a form from a controller or template:
 $this->forward('vardumper\IbexaFormBuilderBundle\Controller\FormController::renderForm', [
     'contentId' => 123,
 ]);
-
-// by location ID
-// by form name (value of the form_builder_name field)
 ```
-
+You can render a form by passing its content ID, location ID or Form name:
+```twig
+{{ render(controller('vardumper\\IbexaFormBuilderBundle\\Controller\\FormController::renderForm', { contentId: 54 })) }}
+{{ render(controller('vardumper\\IbexaFormBuilderBundle\\Controller\\FormController::renderForm', { locationId: 56 })) }}
+{{ render(controller('vardumper\\IbexaFormBuilderBundle\\Controller\\FormController::renderForm', { formName: 'Search Form' })) }}
+```
 Or link directly via the registered route:
 
 ```

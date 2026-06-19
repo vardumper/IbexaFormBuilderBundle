@@ -18,24 +18,16 @@ class FormSubmission
     /** @phpstan-ignore property.unusedType */
     private int|null $id = null;
 
-    #[ORM\Column]
-    private int $contentId;
-
-    #[ORM\Column(type: 'datetime_immutable')]
-    private DateTimeImmutable $submittedAt;
-
-    #[ORM\Column(type: 'json')]
-    private array $data;
-
-    #[ORM\Column(length: 45, nullable: true)]
-    private ?string $ipAddress;
-
-    private function __construct(int $contentId, DateTimeImmutable $submittedAt, array $data, ?string $ipAddress)
-    {
-        $this->contentId = $contentId;
-        $this->submittedAt = $submittedAt;
-        $this->data = $data;
-        $this->ipAddress = $ipAddress;
+    private function __construct(
+        #[ORM\Column]
+        private int $contentId,
+        #[ORM\Column(type: 'datetime_immutable')]
+        private DateTimeImmutable $submittedAt,
+        #[ORM\Column(type: 'json')]
+        private array $data,
+        #[ORM\Column(length: 45, nullable: true)]
+        private ?string $ipAddress,
+    ) {
     }
 
     public static function create(int $contentId, array $data, ?string $ipAddress = null): self

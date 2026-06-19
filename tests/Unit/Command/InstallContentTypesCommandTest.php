@@ -19,7 +19,7 @@ it('has the correct console command name', function (): void {
     expect($command->getName())->toBe('ibexa:form-builder:install-content-types');
 });
 
-it('skips all content types that already exist when overwrite is not requested', function (): void {
+it('patches all content types that already exist when overwrite is not requested', function (): void {
     $contentTypeService = testMock(ContentTypeService::class);
     $repository = testMock(Repository::class);
 
@@ -31,11 +31,8 @@ it('skips all content types that already exist when overwrite is not requested',
         ->method('loadContentTypeByIdentifier')
         ->willReturn(testMock(ContentType::class));
 
-    $sudoCalled = false;
-    $repository->method('sudo')->willReturnCallback(function () use (&$sudoCalled): null {
-        $sudoCalled = true;
-
-        return null;
+    $repository->method('sudo')->willReturnCallback(function (callable $callback) {
+        return $callback();
     });
 
     $command = new InstallContentTypesCommand($contentTypeService, $repository);
@@ -43,9 +40,8 @@ it('skips all content types that already exist when overwrite is not requested',
     $exit = $tester->execute([]);
 
     expect($exit)->toBe(0)
-        ->and($tester->getDisplay())->toContain('already exists — skipping')
-        ->and($tester->getDisplay())->toContain('All form builder content types have been installed.')
-        ->and($sudoCalled)->toBeFalse();
+        ->and($tester->getDisplay())->toContain('Patched content type')
+        ->and($tester->getDisplay())->toContain('All form builder content types have been installed.');
 });
 
 it('creates all content types when none exist', function (): void {
@@ -60,11 +56,8 @@ it('creates all content types when none exist', function (): void {
         ->method('loadContentTypeByIdentifier')
         ->willThrowException(new ConcreteNotFoundException('content type', ['identifier' => 'form_builder_form']));
 
-    $sudoCalled = false;
-    $repository->method('sudo')->willReturnCallback(function () use (&$sudoCalled): null {
-        $sudoCalled = true;
-
-        return null;
+    $repository->method('sudo')->willReturnCallback(function (callable $callback) {
+        return $callback();
     });
 
     $command = new InstallContentTypesCommand($contentTypeService, $repository);
@@ -72,8 +65,7 @@ it('creates all content types when none exist', function (): void {
     $exit = $tester->execute([]);
 
     expect($exit)->toBe(0)
-        ->and($tester->getDisplay())->toContain('All form builder content types have been installed.')
-        ->and($sudoCalled)->toBeTrue();
+        ->and($tester->getDisplay())->toContain('All form builder content types have been installed.');
 });
 
 it('creates a new content type group when the group does not exist', function (): void {
@@ -96,7 +88,9 @@ it('creates a new content type group when the group does not exist', function ()
         ->method('loadContentTypeByIdentifier')
         ->willReturn(testMock(ContentType::class));
 
-    $repository->method('sudo')->willReturn(null);
+    $repository->method('sudo')->willReturnCallback(function (callable $callback) {
+        return $callback();
+    });
 
     $command = new InstallContentTypesCommand($contentTypeService, $repository);
     $tester = new CommandTester($command);

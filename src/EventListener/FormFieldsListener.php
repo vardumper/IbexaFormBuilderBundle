@@ -57,14 +57,15 @@ final class FormFieldsListener implements EventSubscriberInterface
         ]);
         $result = $this->searchService->findLocations($query);
 
-        $formFields = [];
-        foreach ($result->searchHits as $searchHit) {
-            /** @var Location $childLocation */
-            $childLocation = $searchHit->valueObject;
-            $formFields[] = $this->contentService->loadContentByContentInfo($childLocation->contentInfo);
-        }
+        $contentInfoList = \array_map(
+            static fn (mixed $hit): \Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo => $hit->valueObject->contentInfo,
+            $result->searchHits,
+        );
 
-        usort($formFields, static function (Content $left, Content $right): int {
+        /** @var list<Content> $formFields */
+        $formFields = \array_values(\iterator_to_array($this->contentService->loadContentListByContentInfo($contentInfoList)));
+
+        \usort($formFields, static function (Content $left, Content $right): int {
             $leftOrder = $left->getFieldValue('order');
             $rightOrder = $right->getFieldValue('order');
 

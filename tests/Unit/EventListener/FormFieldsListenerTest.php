@@ -87,7 +87,7 @@ it('sets form_fields parameter for full view with form content type', function (
     $searchResult = new SearchResult(['searchHits' => [$searchHit], 'totalCount' => 1]);
 
     $searchService->method('findLocations')->willReturn($searchResult);
-    $contentService->method('loadContentByContentInfo')->willReturn($childContent);
+    $contentService->method('loadContentListByContentInfo')->willReturn([$childContent]);
 
     $parentLocation = new ConcreteLocation(['id' => 10]);
 
@@ -105,4 +105,54 @@ it('sets form_fields parameter for full view with form content type', function (
 
     expect($paramBag->has('form_fields'))->toBeTrue()
         ->and($paramBag->get('form_fields'))->toBeArray();
+});
+
+it('sorts form_fields by order field when multiple results are returned', function () {
+    $searchService = testMock(SearchService::class);
+    $contentService = testMock(ContentService::class);
+
+    $content = testMock(Content::class);
+    $content->method('getContentType')->willReturn(new ConcreteContentType(['identifier' => 'form']));
+
+    $contentInfo1 = new ContentInfo(['id' => 1]);
+    $contentInfo2 = new ContentInfo(['id' => 2]);
+    $location1 = new ConcreteLocation(['contentInfo' => $contentInfo1]);
+    $location2 = new ConcreteLocation(['contentInfo' => $contentInfo2]);
+
+    $child1 = testMock(Content::class);
+    $child1->method('getFieldValue')->willReturnCallback(
+        static fn (string $field): mixed => $field === 'order' ? new \Ibexa\Core\FieldType\Integer\Value(20) : null,
+    );
+
+    $child2 = testMock(Content::class);
+    $child2->method('getFieldValue')->willReturnCallback(
+        static fn (string $field): mixed => $field === 'order' ? new \Ibexa\Core\FieldType\Integer\Value(5) : null,
+    );
+
+    $searchResult = new SearchResult([
+        'searchHits' => [
+            new SearchHit(['valueObject' => $location1]),
+            new SearchHit(['valueObject' => $location2]),
+        ],
+        'totalCount' => 2,
+    ]);
+
+    $searchService->method('findLocations')->willReturn($searchResult);
+    $contentService->method('loadContentListByContentInfo')->willReturn([$child1, $child2]);
+
+    $parentLocation = new ConcreteLocation(['id' => 10]);
+
+    $view = testMock(View::class);
+    $view->method('getViewType')->willReturn('full');
+    $view->method('getParameters')->willReturn(['content' => $content, 'location' => $parentLocation]);
+
+    $paramBag = new ParameterBag();
+    $event = new FilterViewParametersEvent($view, []);
+    $paramBagRef = new ReflectionProperty(FilterViewParametersEvent::class, 'parameterBag');
+    $paramBagRef->setValue($event, $paramBag);
+
+    (new FormFieldsListener($searchService, $contentService))->onFilterViewParameters($event);
+
+    $fields = $paramBag->get('form_fields');
+    expect($fields)->toBeArray()->toHaveCount(2);
 });
