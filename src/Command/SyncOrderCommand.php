@@ -69,11 +69,9 @@ final class SyncOrderCommand extends Command
         $adminUser = $this->userService->loadUserByLogin($adminLogin);
         $this->permissionResolver->setCurrentUserReference($adminUser);
 
-        // Step 1: Set sort_field=priority on all container locations
-        $io->section('Updating container location sort fields to "priority"');
+        $io->section('Updating container location sort fields to “priority”');
         $this->syncContainerSortFields($io);
 
-        // Step 2: Sync form_builder_order → location priority on orderable items
         $io->section('Syncing form_builder_order → location priority');
         $this->syncOrderPriorities($io);
 
@@ -104,7 +102,7 @@ final class SyncOrderCommand extends Command
             $query->offset += $query->limit;
         } while ($query->offset < $results->totalCount);
 
-        $io->writeln(sprintf('  Updated sort field on <info>%d</info> container location(s).', $total));
+        $io->writeln(\sprintf('  Updated sort field on <info>%d</info> container location(s).', $total));
     }
 
     private function syncOrderPriorities(SymfonyStyle $io): void
@@ -135,6 +133,6 @@ final class SyncOrderCommand extends Command
             $query->offset += $query->limit;
         } while ($query->offset < $results->totalCount);
 
-        $io->writeln(sprintf('  Synced priority on <info>%d</info> location(s).', $total));
+        $io->writeln(\sprintf('  Synced priority on <info>%d</info> location(s).', $total));
     }
 }

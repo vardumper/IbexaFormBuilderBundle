@@ -9,23 +9,19 @@ use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Core\FieldType\Integer\Value as IntegerValue;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-/**
- * Syncs form_builder_order field value → location priority so that
- * the Ibexa admin sub-item list (sorted by priority) reflects the intended order.
- */
+/** Syncs form_builder_order field value → location priority so the Ibexa sub-item list (sorted by priority) reflects the intended order. */
 final class OrderSyncListener implements EventSubscriberInterface
 {
     private const ORDER_FIELD = 'form_builder_order';
 
     private const SUPPORTED_CONTENT_TYPES = [
-        'form_builder_input',
-        'form_builder_textarea',
-        'form_builder_select',
+        'form_builder_choice',
         'form_builder_fieldset',
         'form_builder_horizontal_group',
-        'form_builder_choice',
-        'form_builder_option'
-
+        'form_builder_input',
+        'form_builder_option',
+        'form_builder_select',
+        'form_builder_textarea',
     ];
 
     public function __construct(

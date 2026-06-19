@@ -42,7 +42,7 @@ final class FormSubmissionsController extends Controller
         $query = $this->repository->findPaginatedQuery($contentId);
         $pagerfanta = new Pagerfanta(new QueryAdapter($query));
         $pagerfanta->setMaxPerPage(self::PER_PAGE);
-        $pagerfanta->setCurrentPage(max(1, (int) $request->query->get('page', 1)));
+        $pagerfanta->setCurrentPage(\max(1, (int) $request->query->get('page', 1)));
 
         return $this->render('@IbexaFormBuilderBundle/admin/form_submissions/list.html.twig', [
             'submissions' => $pagerfanta,
@@ -74,7 +74,7 @@ final class FormSubmissionsController extends Controller
         $this->entityManager->remove($submission);
         $this->entityManager->flush();
 
-        $this->addFlash('success', sprintf('Submission #%d has been deleted.', $id));
+        $this->addFlash('success', \sprintf('Submission #%d has been deleted.', $id));
 
         return $this->redirectToRoute('ibexa_form_builder.submissions_list');
     }
