@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:8ea7ef07-1d55-4a2b-b915-b6d0b514cd55",
+  "serialNumber": "urn:uuid:ee452b6b-f1ab-4dab-8dce-27bb2a1f2e60",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-19T07:19:27+00:00",
+    "timestamp": "2026-06-25T21:34:36+00:00",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "7c1c05ea-e884-4848-ac1e-214a300b5bf4",
+      "bom-ref": "f156268e-c0b8-4c6b-bc02-6b50f886c911",
       "type": "application",
       "name": ".",
       "properties": [
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "2979e2d8-55d9-47fb-be3f-d686cb5d123d",
+      "bom-ref": "f14356d5-ec00-4cd5-9cc5-79d2f666ff0c",
       "type": "application",
       "name": "composer.lock",
       "properties": [
@@ -4752,10 +4752,10 @@
       ]
     },
     {
-      "bom-ref": "pkg:composer/symplify/easy-coding-standard@13.0.4",
+      "bom-ref": "pkg:composer/symplify/easy-coding-standard@13.2.3",
       "type": "library",
       "name": "symplify/easy-coding-standard",
-      "version": "13.0.4",
+      "version": "13.2.3",
       "licenses": [
         {
           "license": {
@@ -4763,11 +4763,11 @@
           }
         }
       ],
-      "purl": "pkg:composer/symplify/easy-coding-standard@13.0.4",
+      "purl": "pkg:composer/symplify/easy-coding-standard@13.2.3",
       "properties": [
         {
           "name": "aquasecurity:trivy:PkgID",
-          "value": "symplify/easy-coding-standard@13.0.4"
+          "value": "symplify/easy-coding-standard@13.2.3"
         },
         {
           "name": "aquasecurity:trivy:PkgType",
@@ -5090,7 +5090,7 @@
   ],
   "dependencies": [
     {
-      "ref": "2979e2d8-55d9-47fb-be3f-d686cb5d123d",
+      "ref": "f14356d5-ec00-4cd5-9cc5-79d2f666ff0c",
       "dependsOn": [
         "pkg:composer/brainmaestro/composer-git-hooks@dev-master",
         "pkg:composer/doctrine/doctrine-bundle@2.18.2",
@@ -5114,14 +5114,14 @@
         "pkg:composer/symfony/mailer@v7.4.8",
         "pkg:composer/symfony/mime@v7.4.9",
         "pkg:composer/symfony/routing@v7.4.9",
-        "pkg:composer/symplify/easy-coding-standard@13.0.4",
+        "pkg:composer/symplify/easy-coding-standard@13.2.3",
         "pkg:composer/twig/twig@v3.24.0"
       ]
     },
     {
-      "ref": "7c1c05ea-e884-4848-ac1e-214a300b5bf4",
+      "ref": "f156268e-c0b8-4c6b-bc02-6b50f886c911",
       "dependsOn": [
-        "2979e2d8-55d9-47fb-be3f-d686cb5d123d"
+        "f14356d5-ec00-4cd5-9cc5-79d2f666ff0c"
       ]
     },
     {
@@ -6629,7 +6629,7 @@
       ]
     },
     {
-      "ref": "pkg:composer/symplify/easy-coding-standard@13.0.4",
+      "ref": "pkg:composer/symplify/easy-coding-standard@13.2.3",
       "dependsOn": []
     },
     {
@@ -6796,7 +6796,7 @@
         }
       ],
       "published": "2026-05-20T14:16:38+00:00",
-      "updated": "2026-06-02T00:58:58+00:00",
+      "updated": "2026-06-17T10:23:03+00:00",
       "affects": [
         {
           "ref": "pkg:composer/twig/twig@v3.24.0",
@@ -6817,7 +6817,7 @@
       },
       "ratings": [],
       "description": "### Description\n\n`X509Authenticator` implements client-certificate (mTLS) authentication: the web server validates the client's certificate against a trusted CA, then passes the certificate's Subject DN (Distinguished Name: a string like `CN=Alice,O=Example,emailAddress=alice@example.com`) to Symfony via `$_SERVER['SSL_CLIENT_S_DN']`. Symfony extracts the user identifier from that string.\n\nThe extraction uses an **unanchored** regex that matches `emailAddress=` anywhere in the DN string: including inside the *value* of a different RDN (Relative Distinguished Name: one `key=value` component of the DN), such as `CN`. An attacker who can obtain a certificate from a trusted CA with a free-text `CN` can smuggle `emailAddress=victim@target` inside the CN value and be authenticated as the victim.\n\n### Resolution\n\nThe `X509Authenticator` now uses a regex that anchors the match to an RDN boundary (start of string, or following a `,` / `/` separator).\n\nThe patch for this issue is available [here](https://github.com/symfony/symfony/commit/ccb3f724c7ff55670a6fe3521c7bf1514cceb478) for branch 5.4.\n\n### Credits\n\nSymfony would like to thank Claude Mythos Preview (via Project Glasswing) for reporting the issue and providing the fix.",
-      "recommendation": "Upgrade symfony/security-http to version 3.0.0, 5.4.52, 6.3.0, 7.4.12, 6.2.0, 6.4.40, 7.2.0, 7.3.0, 5.0.0, 5.2.0, 5.4.0, 6.1.0, 7.1.0, 7.4.0, 4.0.0, 5.1.0, 5.3.0, 6.4.0, 8.0.12",
+      "recommendation": "Upgrade symfony/security-http to version 5.2.0, 7.1.0, 3.0.0, 5.1.0, 5.4.0, 6.3.0, 6.4.0, 7.2.0, 7.4.0, 8.0.12, 5.3.0, 5.4.52, 6.1.0, 7.3.0, 7.4.12, 4.0.0, 5.0.0, 6.2.0, 6.4.40",
       "advisories": [
         {
           "url": "https://avd.aquasec.com/nvd/cve-2026-45063"
@@ -6868,7 +6868,7 @@
         }
       ],
       "description": "### Description\n\nSymfony routes can declare a requirements regex per path parameter, e.g. a route `/{_locale}/blog` with `requirements: { _locale: 'en|fr|de' }`. The Twig `path()` / `url()` helpers (backed by `UrlGenerator`) validate supplied parameter values against that regex before building the URL.\n\nUrlGenerator constructs the validation pattern as `'#^'.$req.'$#'`, where `$req` is the raw requirement string. For a requirement expressed as an alternation, e.g. `_locale: 'ar|bg|...|vi|...|zh_CN'` (very common), `^` and `$` anchor only the first and last alternatives, so any middle alternative matches as an unanchored substring. A value like `/evil.com` satisfies the requirement (because it contains `vi`), and the generated path becomes `//evil.com/...`: a protocol-relative URL the browser navigates off-site.\n\n### Resolution\n\nThe `UrlGenerator` class now wraps the requirement in a non-capturing group so the `^` and `$` anchors apply to the whole alternation.\n\nThe patch for this issue is available [here](https://github.com/symfony/symfony/commit/bcf487c22f3240ba994124e0e0fe8616f3cfc47a) for branch 5.4.\n\n### Credits\n\nSymfony would like to thank Claude Mythos Preview (via Project Glasswing) for reporting the issue and providing the fix.",
-      "recommendation": "Upgrade symfony/routing to version 4.0.0, 5.0.0, 5.1.0, 6.3.0, 5.4.0, 6.2.0, 6.4.40, 7.4.0, 5.2.0, 5.4.52, 6.1.0, 6.4.0, 7.2.0, 7.3.0, 8.0.12, 3.0.0, 5.3.0, 7.1.0, 7.4.12",
+      "recommendation": "Upgrade symfony/routing to version 5.0.0, 5.1.0, 6.4.40, 7.4.0, 7.4.12, 8.0.12, 5.3.0, 6.2.0, 6.3.0, 6.4.0, 7.2.0, 7.1.0, 3.0.0, 5.2.0, 5.4.0, 5.4.52, 6.1.0, 7.3.0, 4.0.0",
       "advisories": [
         {
           "url": "https://avd.aquasec.com/nvd/cve-2026-45065"
@@ -6912,7 +6912,7 @@
       },
       "ratings": [],
       "description": "### Description\n\n`Symfony\\Component\\Mime\\Address` is the value-object every Symfony Mailer address (to/cc/bcc/from/reply-to) flows through; its constructor is documented as validating the address and throwing on invalid input, so developers treat it as a security boundary.\n\nThe constructor accepts email addresses whose local-part (the part before `@`) is an RFC-5322 *quoted string* containing raw `\\r\\n` bytes, e.g. `\"x\\r\\nBcc: attacker@evil\"@example.com`. The stored address is later emitted verbatim into (1) the rendered message headers and (2) `SmtpTransport`'s `MAIL FROM:<...>` / `RCPT TO:<...>` protocol lines, turning the embedded CRLF into a new mail header and/or a new SMTP command.\n\n### Resolution\n\nThe `Address` constructor now rejects addresses containing line breaks.\n\nThe patch for this issue is available [here](https://github.com/symfony/symfony/commit/dc2dbd29211eb4ddc451373fa1374fb926e94604) for branch 5.4.\n\n### Credits\n\nWe would like to thank Claude Mythos Preview (via Project Glasswing) for reporting the issue and providing the fix.",
-      "recommendation": "Upgrade symfony/mime to version 3.0.0, 5.1.0, 5.4.0, 6.4.0, 7.4.0, 4.0.0, 5.3.0, 6.1.0, 6.2.0, 7.1.0, 7.4.12, 5.2.0, 6.3.0, 6.4.40, 7.3.0, 5.0.0, 5.4.52, 7.2.0, 8.0.12",
+      "recommendation": "Upgrade symfony/mime to version 7.4.0, 4.0.0, 7.2.0, 7.4.12, 5.0.0, 5.4.0, 6.1.0, 6.2.0, 6.4.40, 8.0.12, 5.1.0, 5.2.0, 5.4.52, 6.3.0, 7.1.0, 7.3.0, 3.0.0, 5.3.0, 6.4.0",
       "advisories": [
         {
           "url": "https://avd.aquasec.com/nvd/cve-2026-45067"
@@ -6956,7 +6956,7 @@
       },
       "ratings": [],
       "description": "### Description\n\nSymfony Mailer selects a transport via the `MAILER_DSN` environment variable / configuration (e.g. `smtp://...`, `sendmail://...`, `native://default`). `SendmailTransport` invokes the local `sendmail` binary and supports two modes: `-bs` (speak SMTP over stdin: the default) and `-t` (read the message on stdin, pass recipients as command-line arguments).\n\nIn `-t` mode, recipient addresses are appended to the sendmail command line **without a `--` end-of-options separator**. A recipient address beginning with `-` (which `Symfony\\Component\\Mime\\Address` accepts as valid) is therefore interpreted by sendmail as a command-line option rather than an address.\n\n### Resolution\n\nThe `SendmailTransport` transport now ensure `--` is set before the list of recipients.\n\nThe patch for this issue is available [here](https://github.com/symfony/symfony/commit/c45144862dc289d03952f41f6078174089a3afc6) for branch 5.4.\n\n### Credits\n\nSymfony would like to thank Claude Mythos Preview (via Project Glasswing) for reporting the issue and providing the fix.",
-      "recommendation": "Upgrade symfony/mailer to version 7.2.0, 7.3.0, 5.1.0, 6.2.0, 6.4.40, 7.4.0, 7.4.12, 8.0.12, 3.0.0, 4.0.0, 5.3.0, 5.4.0, 5.4.52, 6.3.0, 5.2.0, 6.1.0, 5.0.0, 6.4.0, 7.1.0",
+      "recommendation": "Upgrade symfony/mailer to version 4.0.0, 5.0.0, 5.3.0, 6.3.0, 6.4.40, 3.0.0, 6.2.0, 6.4.0, 7.1.0, 7.3.0, 8.0.12, 5.1.0, 5.2.0, 5.4.52, 7.2.0, 7.4.12, 5.4.0, 6.1.0, 7.4.0",
       "advisories": [
         {
           "url": "https://avd.aquasec.com/nvd/cve-2026-45068"
@@ -7044,7 +7044,7 @@
       },
       "ratings": [],
       "description": "### Description\n\n`Symfony\\Component\\Mime\\Header\\ParameterizedHeader` (and the related parameter handling reachable from `Symfony\\Component\\Mime\\Header\\Headers`) is responsible for serializing structured headers such as `Content-Type` and `Content-Disposition`, which carry `key=value` parameters (e.g. `Content-Disposition: attachment; filename=\"x\"`).\n\nRFC 2045 / RFC 5322 require parameter *names* to be `tokens`: a restricted ASCII subset that excludes whitespace, CR/LF, and the `tspecials` set. Symfony's parameter handling validates and properly encodes parameter *values*, but does not validate parameter *names*: the supplied name is emitted verbatim into the serialized header.\n\nA caller that derives a parameter name from untrusted input, e.g. an application that lets a user influence a `Content-Disposition` parameter name, can include `\\r\\n` or other non-token bytes inside the name, terminating the current header and injecting additional headers in the rendered message. This is the classic CRLF / header-injection primitive applied to the parameter-name slot.\n\n### Resolution\n\n`ParameterizedHeader` now rejects parameter names that contain bytes outside the RFC `token` character class.\n\nThe patch for this issue is available [here](https://github.com/symfony/symfony/commit/e62ea217f8b4ca8ae922ad0f949e0c4dc1f9b613) for branch 5.4.\n\n### Credits\n\nSymfony would like to thank Fabian Fleischer for reporting the issue and Alexandre Daubois for fixing it.",
-      "recommendation": "Upgrade symfony/mime to version 4.0.0, 5.2.0, 5.3.0, 6.1.0, 6.4.0, 6.4.40, 7.3.0, 8.0.12, 3.0.0, 5.4.0, 6.2.0, 7.1.0, 7.4.0, 7.4.12, 5.0.0, 5.1.0, 5.4.52, 6.3.0, 7.2.0",
+      "recommendation": "Upgrade symfony/mime to version 5.2.0, 5.4.52, 6.1.0, 6.4.40, 5.3.0, 5.4.0, 7.3.0, 7.4.0, 7.4.12, 6.2.0, 6.3.0, 6.4.0, 7.1.0, 7.2.0, 8.0.12, 3.0.0, 4.0.0, 5.0.0, 5.1.0",
       "advisories": [
         {
           "url": "https://avd.aquasec.com/nvd/cve-2026-45070"
@@ -7085,7 +7085,7 @@
       },
       "ratings": [],
       "description": "### Description\n\n`Symfony\\Component\\Cache\\Adapter\\PdoAdapter` is the PDO-backed cache adapter. Its `clear($prefix)` method (inherited from `AbstractAdapterTrait`) is documented to delete cache items whose key starts with `$prefix`.\n\nIn the non-versioning code path, the caller-supplied `$prefix` is concatenated into `$namespace = $this->namespace.$prefix` and passed to `PdoAdapter::doClear()`, which builds:\n\n```sql\nDELETE FROM <table> WHERE <id_col> LIKE '<namespace>%'\n```\n\nThe value is interpolated directly into the SQL text and executed with `PDO::exec()`: `$namespace` is not bound. A caller able to influence `$prefix` can break out of the literal and inject SQL, expanding deletion scope from the intended prefix to arbitrary rows, or otherwise reshape query semantics.\n\nMost applications don't expose `clear($prefix)` to untrusted input directly, but the contract of the method is to safely accept any prefix string, so the lack of escaping is a defect of the adapter itself.\n\n### Resolution\n\n`AbstractAdapterTrait::clear()` now rejects any `$prefix` containing characters outside `[-+.A-Za-z0-9]`: when an invalid prefix is supplied, the method logs a warning and returns `false` instead of reaching the SQL layer. This blocks quotes, `%`, null bytes and other characters that would let an attacker break out of the `LIKE` literal.\n\nThe patch for this issue is available [here](https://github.com/symfony/symfony/commit/ec50b799d79ebe24561f29351c1efcb6da95c9b1) for branch 5.4.\n\n### Credits\nSymfony would like to thank secsys_codex for reporting the issue and Nicolas Grekas for fixing it.",
-      "recommendation": "Upgrade symfony/cache to version 3.0.0, 5.0.0, 5.2.0, 5.4.0, 5.4.52, 7.3.0, 7.4.12, 8.0.12, 4.0.0, 6.3.0, 7.1.0, 7.4.0, 6.4.0, 5.3.0, 6.1.0, 6.2.0, 5.1.0, 6.4.40, 7.2.0",
+      "recommendation": "Upgrade symfony/cache to version 6.1.0, 6.4.0, 7.4.0, 5.2.0, 5.4.0, 6.4.40, 3.0.0, 5.1.0, 6.2.0, 6.3.0, 7.1.0, 7.3.0, 7.4.12, 5.0.0, 7.2.0, 8.0.12, 4.0.0, 5.3.0, 5.4.52",
       "advisories": [
         {
           "url": "https://avd.aquasec.com/nvd/cve-2026-45073"
@@ -7129,7 +7129,7 @@
       },
       "ratings": [],
       "description": "`Cas2Handler` builds this `service` parameter from `Request::getSchemeAndHttpHost()`, which reflects the attacker-controlled HTTP `Host` header whenever Symfony's `framework.trusted_hosts` setting is not configured (the default). An attacker who controls any *other* application registered with the same CAS server can replay a victim's ticket against the Symfony application, with a spoofed `Host` header, and be authenticated as that victim.\n\n### Resolution\n\nA new required `service_url` configuration option is introduced on `Cas2Handler`. The CAS `service` parameter sent to the validation endpoint is now built from this configured URL instead of being derived from the request's `Host` header, preventing cross-service ticket replay via Host header spoofing.\n\nThe patch for this issue is available [here](https://github.com/symfony/symfony/commit/5ba145dba702404801bdf9e7e8d6df170060d541) for branch 7.4.\n\n### Credits\n\nSymfony would like to thank Claude Mythos Preview (via Project Glasswing) for reporting the issue and Nicolas Grekas for providing the fix.",
-      "recommendation": "Upgrade symfony/security-http to version 7.2.0, 7.3.0, 7.4.0, 7.4.12, 8.0.12",
+      "recommendation": "Upgrade symfony/security-http to version 7.4.12, 8.0.12, 7.2.0, 7.3.0, 7.4.0",
       "advisories": [
         {
           "url": "https://avd.aquasec.com/nvd/cve-2026-45074"
@@ -7312,7 +7312,7 @@
       },
       "ratings": [],
       "description": "### Description\n\nThe fix for CVE-2024-45411 / GHSA-6j75-5wfj-gh66 added an explicit `$loaded->unwrap()->checkSecurity()` call in `CoreExtension::include()` so that a template already cached in `Environment::$loadedTemplates` is re-checked when included with `sandboxed = true`.\n\nThe deprecated but still functional `{% sandbox %}{% include ... %}{% endsandbox %}` tag path was not updated: it compiles to `enableSandbox(); yield from $this->load(...)->unwrap()->yield(...); disableSandbox();` with no `checkSecurity()` re-invocation. If the included template was loaded once outside the sandbox in the same `Environment` instance, its constructor (and therefore its compiled `checkSecurity()` call) already ran while `isSandboxed()` was `false`, so the tags/filters/functions allowlist enforced by `SecurityPolicy::checkSecurity()` is never applied.\n\nAn attacker who can author the included template gains access to every filter, function and tag registered in the environment, regardless of the sandbox policy.\n\n### Resolution\n\nThe compiled output of `{% sandbox %}{% include %}` now calls `checkSecurity()` on the loaded template, matching the behaviour of `CoreExtension::include()` with `sandboxed = true`.\n\n### Credits\n\nTwig would like to thank Claude Mythos Preview (via Project Glasswing) for reporting the issue and providing the fix.",
-      "recommendation": "Upgrade twig/twig to version 2.0.0, 3.0.0, 3.26.0",
+      "recommendation": "Upgrade twig/twig to version 3.0.0, 3.26.0, 2.0.0",
       "advisories": [
         {
           "url": "https://avd.aquasec.com/nvd/cve-2026-46638"
@@ -7487,7 +7487,7 @@
         }
       ],
       "description": "### Description\n\nWhen a firewall is configured with `form-login` (or any authenticator using `DefaultAuthenticationFailureHandler`) and the `failure_forward: true` option, the handler reads the `_failure_path` parameter from the failing login request and uses it as the path of an internal subrequest dispatched through `HttpKernelInterface::SUB_REQUEST`.\n\nSymfony's `Firewall::onKernelRequest` listener intentionally skips subrequests under the assumption they are internally generated and trusted, which also means `AccessListener` (the listener that evaluates `access_control`) does not run. Because the attacker controls the target of the subrequest, an unauthenticated POST to the check path with `_failure_path=/admin/whatever` performs a local request forgery that executes the target controller outside the firewall perimeter and returns its response to the caller.\n\nApplications that follow Symfony's recommended best practice of protecting administrative areas with broad `access_control` rules (e.g. `^/admin` requires `ROLE_ADMIN`) and expose read-only GET endpoints under that area (data exports, internal APIs, account views) are fully exposed: any such GET route can be read by an unauthenticated attacker without any developer misconfiguration, debug mode, or state-changing GET handler being required.\n\n### Resolution\n\n`DefaultAuthenticationFailureHandler` no longer honors the request-supplied `_failure_path` parameter when `failure_forward` is enabled. The subrequest is always dispatched to the configured `failure_path` option (defaulting to `login_path`), which is set by the application owner and not by the request. The redirect branch (`failure_forward: false`) is unchanged because redirects re-enter the firewall on the next request and are not subject to this bypass.\n\nThe patch for this issue is available [here](https://github.com/symfony/symfony/commit/c48a4276309e11aedeeb0ce3a89dfbf0b4fe04ff) for branch 5.4.\n\n### Credits\n\nSymfony would like to thank Nguyen Ngoc Toan Thang (@a-tt-om) and Tran Quoc Tri Trung (@teebow1e) for reporting the issue, and Nicolas Grekas for providing the fix.",
-      "recommendation": "Upgrade symfony/security-http to version 5.4.53, 6.3.0, 6.4.0, 7.3.0, 3.0.0, 6.1.0, 7.4.13, 4.0.0, 5.0.0, 5.4.0, 5.1.0, 5.3.0, 6.2.0, 6.4.41, 7.1.0, 7.2.0, 7.4.0, 8.0.13, 5.2.0",
+      "recommendation": "Upgrade symfony/security-http to version 6.4.0, 6.4.41, 7.1.0, 7.3.0, 8.0.13, 5.2.0, 6.1.0, 7.4.13, 3.0.0, 4.0.0, 7.4.0, 5.0.0, 5.3.0, 6.2.0, 6.3.0, 7.2.0, 5.1.0, 5.4.0, 5.4.53",
       "advisories": [
         {
           "url": "https://avd.aquasec.com/nvd/cve-2026-48489"
@@ -7581,7 +7581,7 @@
       },
       "ratings": [],
       "description": "### Description\n\n`Symfony\\Component\\Routing\\Generator\\UrlGenerator::doGenerate()` percent-encodes `.` and `..` path segments so that the generated URL still resolves to the originating route after RFC 3986 §5.2.4 dot-segment removal (which strict RFC-3986 consumers — routers, reverse proxies, HTTP clients — perform *before* percent-decoding).\n\nThe encoding was implemented as `strtr($url, ['/../' => '/%2E%2E/', '/./' => '/%2E/'])` plus a trailing-segment fixup. `strtr` advances past the trailing `/` of each match, so the next dot-segment in a chained sequence was left unescaped:\n\n| Input                | Output (before fix)                      | Expected                            |\n| -------------------- | ---------------------------------------- | ----------------------------------- |\n| `/../../../`         | `/%2E%2E/../%2E%2E/`                     | `/%2E%2E/%2E%2E/%2E%2E/`            |\n| `/foo/../../../bar`  | `/foo/%2E%2E/../%2E%2E/bar`              | `/foo/%2E%2E/%2E%2E/%2E%2E/bar`     |\n\nWhen a route exposes a parameter constrained by a permissive requirement (`.+`, `.*`, or similar) that accepts dots and slashes, attacker-controlled chained `..` or `.` segments produce a generated URL that, under strict RFC 3986 normalization, collapses to a different path than the originating route. The Twig `path()` / `url()` helpers and any server-side use of `UrlGenerator` are affected. Same class of route round-trip integrity issue as CVE-2026-45065.\n\nNote: WHATWG-conformant browsers treat `%2E`/`%2E%2E` as dot-segments during URL parsing, so the encoding never protected browser-side traversal. The defense exists for RFC-3986-conformant consumers; restoring it for chained segments closes the gap there.\n\n### Resolution\n\n`UrlGenerator` now matches every `/.` or `/..` dot-segment in a single left-to-right `preg_replace_callback` pass using a lookahead that does not consume the trailing `/`, so adjacent dot-segments are encoded correctly.\n\nThe patches for this issue are available [here](https://github.com/symfony/symfony/commit/4b63c3a3f7af04ecd79c89a594b0b02a01990b1d) for branch 5.4 (and forward-ported to 6.4, 7.4, 8.0 and 8.1).\n\n### Credits\n\nSymfony would like to thank Alex Pott for reporting the issue and Nicolas Grekas for providing the fix.",
-      "recommendation": "Upgrade symfony/routing to version 6.4.41, 5.3.0, 5.4.0, 6.1.0, 6.3.0, 6.4.0, 7.4.0, 5.4.53, 6.2.0, 7.2.0, 7.4.13, 7.1.0, 3.0.0, 4.0.0, 5.2.0, 7.3.0, 8.0.13, 5.0.0, 5.1.0",
+      "recommendation": "Upgrade symfony/routing to version 7.3.0, 4.0.0, 5.2.0, 5.4.0, 6.3.0, 7.4.0, 3.0.0, 5.3.0, 5.4.53, 6.4.41, 7.4.13, 8.0.13, 6.1.0, 6.2.0, 5.0.0, 5.1.0, 6.4.0, 7.1.0, 7.2.0",
       "advisories": [
         {
           "url": "https://avd.aquasec.com/nvd/cve-2026-48784"
